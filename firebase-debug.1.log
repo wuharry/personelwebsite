@@ -1,0 +1,36 @@
+[debug] [2022-06-13T11:14:06.219Z] ----------------------------------------------------------------------
+[debug] [2022-06-13T11:14:06.225Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\whw88\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2022-06-13T11:14:06.227Z] CLI Version:   11.0.1
+[debug] [2022-06-13T11:14:06.228Z] Platform:      win32
+[debug] [2022-06-13T11:14:06.228Z] Node Version:  v18.0.0
+[debug] [2022-06-13T11:14:06.234Z] Time:          Mon Jun 13 2022 19:14:06 GMT+0800 (台北標準時間)
+[debug] [2022-06-13T11:14:06.238Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-13T11:14:06.451Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-13T11:14:06.452Z] > authorizing via signed-in user (whw880218we@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2022-06-13T11:14:06.750Z] [hub] writing locator at C:\Users\whw88\AppData\Local\Temp\hub-my-site-61d6d.json
+[debug] [2022-06-13T11:14:06.786Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/my-site-61d6d/sites 
+[debug] [2022-06-13T11:14:08.499Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/my-site-61d6d/sites 200
+[debug] [2022-06-13T11:14:08.499Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/my-site-61d6d/sites {"sites":[{"name":"projects/my-site-61d6d/sites/my-site-61d6d","defaultUrl":"https://my-site-61d6d.web.app","appId":"1:268473638781:web:1fbf53302b06e8260cb614","type":"DEFAULT_SITE"}]}
+[debug] [2022-06-13T11:14:08.500Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-site-61d6d/webApps/1:268473638781:web:1fbf53302b06e8260cb614/config [none]
+[debug] [2022-06-13T11:14:09.925Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-site-61d6d/webApps/1:268473638781:web:1fbf53302b06e8260cb614/config 200
+[debug] [2022-06-13T11:14:09.925Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-site-61d6d/webApps/1:268473638781:web:1fbf53302b06e8260cb614/config {"projectId":"my-site-61d6d","appId":"1:268473638781:web:1fbf53302b06e8260cb614","databaseURL":"https://my-site-61d6d-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"my-site-61d6d.appspot.com","locationId":"us-central","apiKey":"AIzaSyAiJBy4VBTiOkg2nrWbKLN_xaEg03y461E","authDomain":"my-site-61d6d.firebaseapp.com","messagingSenderId":"268473638781","measurementId":"G-HTG0RJ84VF"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[warn] !  emulators: The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ localhost:5000 │
+└──────────┴────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
