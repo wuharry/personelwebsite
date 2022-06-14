@@ -1,4 +1,5 @@
 {
+  "homepage": "https://wuharry.github.io/personelwebsite",
   "name": "personel_website",
   "version": "0.1.0",
   "private": true,
@@ -6,7 +7,6 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
-    "gh-pages": "^4.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -21,7 +21,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://wuharry.github.io/personelwebsite",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -41,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.51.0",
     "sass-loader": "^13.0.0",
     "webpack": "^5.72.1"
