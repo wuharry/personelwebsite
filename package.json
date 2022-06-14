@@ -21,7 +21,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://wuharry.github.io/PersonelWebsite-error_ver-",
+  "homepage": "https://wuharry.github.io/personelwebsite",
   "eslintConfig": {
     "extends": [
       "react-app",
