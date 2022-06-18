@@ -9,6 +9,9 @@ import {
 import HomePage from './HomePage';
 import WorkPage from './WorkPage';
 import WorkDetail from './WorkDetail';
+import WorkDetail2 from './WorkDetail2';
+import WorkDetail3 from './WorkDetail3';
+import WorkDetail4 from './WorkDetail4';
 
 function withRouter(Component) {
   // React router v6不再支持wuthRouter所以用這個func來代替它的功能
@@ -53,7 +56,12 @@ class App extends Component {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/works' element={<WorkPage />} />
-            <Route path='works/:id' element={<WorkDetail />} />
+            {/*這邊因為沒有使用後端的技能因此不採用動態路由獲取(寫法:works/:id)*/}
+            <Route path='works/1' element={<WorkDetail />} />
+            <Route path='works/2' element={<WorkDetail2 />} />
+            <Route path='works/3' element={<WorkDetail3 />} />
+            <Route path='works/4' element={<WorkDetail4 />} />
+            
           </Routes>
         </section>
         {/* 底部 */}

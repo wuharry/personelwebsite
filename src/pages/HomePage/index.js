@@ -2,7 +2,7 @@ import React from 'react';
 import style from './home.module.scss';
 import headimg from '../../assets/head.jpg';
 import WorkList from '../../compoment/WorkList';
-import WorkData from '../works.json';
+import WorkData from '../works.json'; //引入作品列表頁需要的數據(json)
 
 const HomePage = () => {
     return <div className={style.wrap}>
@@ -26,7 +26,8 @@ const HomePage = () => {
                 <h2 >作品集</h2>
                 <p>到work頁面瀏覽</p>
             </div>
-            <WorkList dataSource={WorkData.data} />
+            <WorkList dataSource={WorkData.data} />   {/* 作品列表資料傳入 */}
+          
         </section>
     </div>;
 

@@ -4,37 +4,37 @@
     "msg": "请求成功!",
     "data": [
         {
-            "title":"StaffTraveler",
-            "brief":"A community driven app which allows airline staff to request and share loads information for non-rev flights",
-            "tags":[ "nodejs","react","styled components","google cloud platform","typescript","kubernetes","react native" ],
+            "title":"Drun Kit",
+            "brief":"當按下指定按鍵時，播放音效以及渲染畫面",
+            "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
             "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover1.jpg",
             "id":1
         },
         {
-            "title":"Vauxlab 2017",
-            "brief":"About this website, and what makes it awesome.",
-            "tags":[ "react","gatsby","styled components","contentful" ],
+            "title":"JS and CSS Clock",
+            "brief":"會走動的網頁時鐘",
+            "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
             "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover2.jpg",
             "id":2
         },
         {
-            "title":"Re:Fuse",
-            "brief":"Fusing reactive programming with audiovisual composition using web technologies",
-            "tags":[ "web audio","nodejs","rx.js" ],
+            "title":"Blur Picture",
+            "brief":"可自行調整模糊度的照片",
+            "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
             "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover3.jpg",
             "id":3
         },
         {
             "title":"Kaliber",
             "brief":"Front-end development for a digital media agency",
-            "tags":[ "postcss","react","redux" ],
+            "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
             "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover4.jpg",
             "id":4
         },
         {
             "title":"NLN Live",
             "brief":"A system for non-linear composition and live performance",
-            "tags":[ "nodejs","react","mongodb" ],
+            "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
             "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover5.jpg",
             "id":5
         },
