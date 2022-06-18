@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/personelwebsite/static/css/main.d5d580c1.css",
-    "main.js": "/personelwebsite/static/js/main.3f2dbf2d.js",
+    "main.js": "/personelwebsite/static/js/main.916fe51b.js",
     "static/js/787.70aaf710.chunk.js": "/personelwebsite/static/js/787.70aaf710.chunk.js",
     "static/media/head.jpg": "/personelwebsite/static/media/head.51cc8a7bd5a862cd1ba8.jpg",
     "index.html": "/personelwebsite/index.html",
     "main.d5d580c1.css.map": "/personelwebsite/static/css/main.d5d580c1.css.map",
-    "main.3f2dbf2d.js.map": "/personelwebsite/static/js/main.3f2dbf2d.js.map",
+    "main.916fe51b.js.map": "/personelwebsite/static/js/main.916fe51b.js.map",
     "787.70aaf710.chunk.js.map": "/personelwebsite/static/js/787.70aaf710.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5d580c1.css",
-    "static/js/main.3f2dbf2d.js"
+    "static/js/main.916fe51b.js"
   ]
 }
