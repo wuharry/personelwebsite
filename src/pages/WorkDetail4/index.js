@@ -15,7 +15,7 @@ const WorkList = () => {
                 用transform去呈現網頁動畫的效果，同時搭配JavaScript去做事件觸發
                 ，來重新選染網頁。
                 </p>
-                <a href='https://wuharry.github.io/day4/'>點我前往</a>
+                {/* <a href='https://wuharry.github.io/day4/'>點我前往</a> */}
             </section>
         </div>
 

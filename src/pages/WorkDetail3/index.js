@@ -15,7 +15,7 @@ const WorkList = () => {
                 藉由JavaScrupt去做DOM操作，並把資料轉乘nodelist，
                 藉由事件觸發時，去做渲染頁面的動作。
                 </p>
-                <a href='https://wuharry.github.io/day3/'>點我前往</a>
+                {/* <a href='https://wuharry.github.io/day3/'>點我前往</a> */}
             </section>
         </div>
 

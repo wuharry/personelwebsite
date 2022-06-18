@@ -16,7 +16,7 @@ const WorkList = () => {
                 然後去改變其樣式來去達成一個時鐘的效果
                 </p>
 
-                <a href='https://wuharry.github.io/day2/'>點我前往</a>
+                {/* <a href='https://wuharry.github.io/day2/'>點我前往</a> */}
             </section>
         </div>
 

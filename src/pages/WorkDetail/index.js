@@ -17,7 +17,7 @@ const WorkList = () => {
                 第二個是當按下按鍵時，讓JavaScript做DOM操作，用classList 元素添加 class屬性
                 去改變畫面效果。
                 </p>
-                <a href='https://wuharry.github.io/day1/'>點我前往</a>
+                {/* <a href='https://wuharry.github.io/day1/'>點我前往</a> */}
             </section>
         </div>
 
