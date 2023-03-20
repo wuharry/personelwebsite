@@ -12,7 +12,7 @@ import WorkDetail from './WorkDetail';
 import WorkDetail2 from './WorkDetail2';
 import WorkDetail3 from './WorkDetail3';
 import WorkDetail4 from './WorkDetail4';
-
+import WorkDetail5 from './WorkDetail5';
 function withRouter(Component) {
   // React router v6不再支持wuthRouter所以用這個func來代替它的功能
   function ComponentWithRouterProp(props) {
@@ -62,6 +62,7 @@ class App extends Component {
             <Route path='works/2' element={<WorkDetail2 />} />
             <Route path='works/3' element={<WorkDetail3 />} />
             <Route path='works/4' element={<WorkDetail4 />} />
+            <Route path='works/5' element={<WorkDetail5 />} />
           </Routes>
         </section>
         {/* 底部 */}

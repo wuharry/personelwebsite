@@ -10,9 +10,7 @@ const WorkList = () => {
     function MouseLeaveHandler(e) {
         setimgshader(false);
     }
-    const imgclass={
 
-    }
     return <div className={style.wrap}>
         <div className={style.box}>
             <div className={style.title}></div>
@@ -20,7 +18,7 @@ const WorkList = () => {
             <p>2022/1/2</p>
             <section className={style.content}>
                 <div onMouseEnter={MouseEnterHandler} onMouseLeave={MouseLeaveHandler}
-                    className={imgshader ? style.shaderin : style.shaderouut}  >
+                    className={imgshader ? style.shaderin : style.shaderouut} style={{ width: '350px' }} >
                     <a href='https://wuharry.github.io/day1/'>
                         <img src={day1} alt="" className={style.tileimg} />
                     </a>

@@ -34,4 +34,16 @@
         width: 350px;
         height: auto;
     }
+
+    .shaderin {
+        width: 350px;
+        height: 180;
+        box-shadow: 0 3px 1px 3px rgba(51, 51, 51, 0.5);
+    }
+
+    .shaderout {
+        width: 350px;
+        height: 180;
+        box-shadow: 0 0 3px 1px rgba(51, 51, 51, 0.5);
+    }
 }

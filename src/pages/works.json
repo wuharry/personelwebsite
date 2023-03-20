@@ -7,50 +7,37 @@
             "title":"Drun Kit",
             "brief":"當按下指定按鍵時，播放音效以及渲染畫面",
             "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
-            "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover1.jpg",
+            "cover":"https://res.cloudinary.com/wesbos/image/fetch/q_auto,f_auto/https://s3.amazonaws.com/js30-cdn/small0.jpg",
             "id":1
         },
         {
             "title":"JS and CSS Clock",
             "brief":"會走動的網頁時鐘",
             "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
-            "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover2.jpg",
+            "cover":"https://res.cloudinary.com/wesbos/image/fetch/q_auto,f_auto/https://s3.amazonaws.com/js30-cdn/small1.jpg",
             "id":2
         },
         {
             "title":"Blur Picture",
             "brief":"可自行調整模糊度的照片",
             "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
-            "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover3.jpg",
+            "cover":"https://res.cloudinary.com/wesbos/image/fetch/q_auto,f_auto/https://s3.amazonaws.com/js30-cdn/small2.jpg",
             "id":3
         },
         {
-            "title":"Kaliber",
-            "brief":"Front-end development for a digital media agency",
+            "title":"FLEX PANEL",
+            "brief":"Flex Panels Image Gallery",
             "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
-            "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover4.jpg",
+            "cover":"https://res.cloudinary.com/wesbos/image/fetch/q_auto,f_auto/https://s3.amazonaws.com/js30-cdn/small4.jpg",
             "id":4
         },
         {
-            "title":"NLN Live",
+            "title":"訪IG頁面",
             "brief":"A system for non-linear composition and live performance",
             "tags":[ "HTML,CSS,JAVASCRIPT,GIT" ],
             "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover5.jpg",
             "id":5
-        },
-        {
-            "title":"Coca-Cola Cascada",
-            "brief":"A huge interactive installation with generative graphics, music and sound",
-            "tags":[ "max" ],
-            "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover6.jpg",
-            "id":6
-        },
-        {
-            "title":"4D Sound",
-            "brief":"A novel immersive system which allows for evolving changes in three-dimensional positioning of sound.",
-            "tags":[ "max","c/c++" ],
-            "cover":"https://zhtutorial.oss-cn-hangzhou.aliyuncs.com/react/website/cover7.jpg",
-            "id":7
         }
+
     ]
 }
