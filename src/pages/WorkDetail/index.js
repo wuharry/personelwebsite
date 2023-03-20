@@ -20,7 +20,7 @@ const WorkList = () => {
             <p>2022/1/2</p>
             <section className={style.content}>
                 <div onMouseEnter={MouseEnterHandler} onMouseLeave={MouseLeaveHandler}
-                    className={["style.tileimg",imgshader ? style.shaderin : style.shaderouut].join('')}  >
+                    className={imgshader ? style.shaderin : style.shaderouut}  >
                     <a href='https://wuharry.github.io/day1/'>
                         <img src={day1} alt="" className={style.tileimg} />
                     </a>
