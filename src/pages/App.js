@@ -55,13 +55,13 @@ class App extends Component {
         <section className={style.Content}>
           <Routes>
             <Route path='/' element={<HomePage />} />
+            <Route path='/personelwebsite' element={<HomePage />} />
             <Route path='/works' element={<WorkPage />} />
             {/*這邊因為沒有使用後端的技能因此不採用動態路由獲取(寫法:works/:id)*/}
             <Route path='works/1' element={<WorkDetail />} />
             <Route path='works/2' element={<WorkDetail2 />} />
             <Route path='works/3' element={<WorkDetail3 />} />
             <Route path='works/4' element={<WorkDetail4 />} />
-            
           </Routes>
         </section>
         {/* 底部 */}
