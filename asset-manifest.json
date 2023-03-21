@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/personelwebsite/static/css/main.d5d580c1.css",
-    "main.js": "/personelwebsite/static/js/main.916fe51b.js",
+    "main.css": "/personelwebsite/static/css/main.1cef9f63.css",
+    "main.js": "/personelwebsite/static/js/main.d7e3da98.js",
     "static/js/787.70aaf710.chunk.js": "/personelwebsite/static/js/787.70aaf710.chunk.js",
+    "static/media/day4.png": "/personelwebsite/static/media/day4.0e20e1525c94f9ead8fa.png",
+    "static/media/day5.png": "/personelwebsite/static/media/day5.d988840bbe9ea6b4a0ef.png",
+    "static/media/day1.png": "/personelwebsite/static/media/day1.522d7c7b0f2153052975.png",
+    "static/media/day3.png": "/personelwebsite/static/media/day3.7b5787a219975e1dda43.png",
+    "static/media/day2.png": "/personelwebsite/static/media/day2.a8802642a73f6cac91df.png",
     "static/media/head.jpg": "/personelwebsite/static/media/head.51cc8a7bd5a862cd1ba8.jpg",
     "index.html": "/personelwebsite/index.html",
-    "main.d5d580c1.css.map": "/personelwebsite/static/css/main.d5d580c1.css.map",
-    "main.916fe51b.js.map": "/personelwebsite/static/js/main.916fe51b.js.map",
+    "main.1cef9f63.css.map": "/personelwebsite/static/css/main.1cef9f63.css.map",
+    "main.d7e3da98.js.map": "/personelwebsite/static/js/main.d7e3da98.js.map",
     "787.70aaf710.chunk.js.map": "/personelwebsite/static/js/787.70aaf710.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5d580c1.css",
-    "static/js/main.916fe51b.js"
+    "static/css/main.1cef9f63.css",
+    "static/js/main.d7e3da98.js"
   ]
 }
