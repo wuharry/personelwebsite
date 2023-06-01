@@ -4,20 +4,18 @@ import './index.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from "react-router-dom";
-
+//GA 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const gaScript = document.createElement('script');
 gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HTG0RJ84VF';
 gaScript.async = true;
 document.head.appendChild(gaScript);
-const gaConfigScript = document.createElement('script');
-gaConfigScript.innerHTML = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HTG0RJ84VF');
-`;
-document.head.appendChild(gaConfigScript);
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HTG0RJ84VF');
+//GA
 root.render(
   <React.StrictMode>
     <Router><App /></Router>
