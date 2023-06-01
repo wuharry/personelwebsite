@@ -5,7 +5,7 @@ import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from "react-router-dom";
 //GA 
-import { initGA } from './GoogleAnalytics';
+import { initGA } from './ GoogleAnalytics.js';
 function App() {
   useEffect(() => {
     initGA();
