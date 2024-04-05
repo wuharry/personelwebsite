@@ -2,7 +2,7 @@ import React from 'react';
 import style from './detail.module.scss';
 import day5 from '../../assets/day5.png';
 import { useState } from 'react';
-const WorkList = () => {
+const Instagram = () => {
     const [imgshader, setimgshader] = useState(false)
     function MouseEnterHandler(e) {
         setimgshader(true);
@@ -13,7 +13,7 @@ const WorkList = () => {
     return <div className={style.wrap}>
         <div className={style.box}>
             <div className={style.title}></div>
-            <h1> FLEX PANEL</h1>
+            <h1> instagram</h1>
             <p>2022/1/2</p>
             <section className={style.content}>
                 <div style={{ width: '350px' }} onMouseEnter={MouseEnterHandler} onMouseLeave={MouseLeaveHandler}
@@ -33,4 +33,4 @@ const WorkList = () => {
 
     </div>
 }
-export default WorkList;
+export { Instagram };

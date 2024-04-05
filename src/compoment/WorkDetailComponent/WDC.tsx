@@ -1,19 +1,18 @@
-import React from 'react';
-import style from './detail.module.scss';
+import React from "react";
+import "./detail.module.scss";
 
-const WorkList = ( textelment) => {
-    return <div className={style.wrap}>
-        <div className={style.box}>
-            <div className={style.title}></div>
-            <h1>textelment</h1>
-            <p>2022/1/2</p>
-            <section className={style.content}>
-                <p>
-              
-                </p>
-            </section>
-        </div>
-
+const WorkDetailComponent: React.FC<string> = (textelment) => {
+  return (
+    <div className={`wrap`}>
+      <div className={`box`}>
+        <div className={`title`}></div>
+        <h1>textelment</h1>
+        <p>2022/1/2</p>
+        <section className={`content`}>
+          <p></p>
+        </section>
+      </div>
     </div>
-}
-export default WorkList;
+  );
+};
+export { WorkDetailComponent };
