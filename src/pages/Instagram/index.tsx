@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import day2 from "../../assets/day2.png";
+import React from "react";
+import day5 from "../../assets/day5.png";
+import { useState } from "react";
 
-const WebClock: React.FC = () => {
+interface InstagramProps {
+  // 這裡可以定義額外的 props
+}
+
+const Instagram: React.FC<InstagramProps> = () => {
   const [imgshader, setImgshader] = useState(false);
 
-  function mouseEnterHandler() {
+  function mouseEnterHandler(e: React.MouseEvent<HTMLDivElement>) {
     setImgshader(true);
   }
 
-  function mouseLeaveHandler() {
+  function mouseLeaveHandler(e: React.MouseEvent<HTMLDivElement>) {
     setImgshader(false);
   }
 
@@ -17,15 +22,18 @@ const WebClock: React.FC = () => {
       <div className="max-w-2xl w-full">
         <div className="bg-white p-8 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold">WebClock</h1>
+            <h1 className="text-xl font-bold">Instagram</h1>
             <p className="text-gray-500 text-sm">2022/1/2</p>
           </div>
 
           <div className="mt-6">
             <div className="relative">
-              <a href="https://wuharry.github.io/day2/" target="_blank">
+              <a
+                href="https://62b2624dfafbbb095f5b5e9c--dazzling-rugelach-a2ba75.netlify.app/"
+                target="_blank"
+              >
                 <img
-                  src={day2}
+                  src={day5}
                   alt=""
                   className="w-full h-auto rounded-lg shadow-md"
                 />
@@ -37,16 +45,15 @@ const WebClock: React.FC = () => {
 
             <h2 className="mt-4 text-xl font-bold">效果講解:</h2>
             <p className="mt-2 text-gray-700">
-              Tick Tok~Tick Tok~ is time for lunch
+              模仿IG的頁面，使用 Tailwind 做美化。
             </p>
-            <br></br>
-            <h2 className="mt-4 text-xl font-bold">程式講解:</h2>
-            <p className="mt-2 text-gray-700">
-              一個會自動計時的時鐘， 該作品比較核心的地方在於操作在CSS的部分，
-              用now.Date()物件來獲取時間點，
-              藉由JavaScript去選取時針，分針，秒針的物件
-              然後去改變其樣式來去達成一個時鐘的效果
-            </p>
+            <a
+              href="https://62b2624dfafbbb095f5b5e9c--dazzling-rugelach-a2ba75.netlify.app/"
+              target="_blank"
+              className="mt-4 text-blue-500 underline"
+            >
+              點我前往
+            </a>
           </div>
         </div>
       </div>
@@ -54,4 +61,4 @@ const WebClock: React.FC = () => {
   );
 };
 
-export { WebClock };
+export { Instagram };

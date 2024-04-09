@@ -1,5 +1,4 @@
 import React from "react";
-import "./works.module.scss";
 import { WorkList } from "../../compoment/WorkList";
 import { WORKS } from "../works";
 import { WORKPROPS } from "../../types";
