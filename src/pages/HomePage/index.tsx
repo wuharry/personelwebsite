@@ -2,8 +2,12 @@ import React from "react";
 import headimg from "../../assets/head.jpg";
 import { WorkList } from "../../compoment/WorkList";
 import { WORKS } from "../works";
+import { Button } from "../../compoment";
 
 const HomePage: React.FC = () => {
+  const clickHandler = () => {
+    console.log("click");
+  };
   return (
     <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full">
       <section className="mb-10">
@@ -14,6 +18,9 @@ const HomePage: React.FC = () => {
             前端工程師
           </li>
         </ul>
+        <Button className="" type="button" onClickEvent={clickHandler}>
+          button
+        </Button>
         <p className="text-gray-500 mt-4">
           熱衷學習新的技術，不放棄任何自我成長的機會，對設計網站有極大的熱忱，樂於與他人合作
         </p>
