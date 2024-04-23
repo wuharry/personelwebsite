@@ -65,7 +65,11 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
               key={`${index}-${item.name}`}
               href={item.link}
               className={clsx(
-                `${aTagStyle} ${navBarAnimetion ? `animate-spin-slow` : ``}`
+                `${aTagStyle} ${
+                  navBarAnimetion
+                    ? `animate-fade-down animate-once animate-ease-in`
+                    : ``
+                }`
               )}
             >
               {item.name}
