@@ -33,5 +33,6 @@ module.exports = {
     eslintPlugin({
       exclude: ["/@react-refresh", "**/*.css"],
     }),
+    require("tailwindcss-animated"),
   ],
 };
