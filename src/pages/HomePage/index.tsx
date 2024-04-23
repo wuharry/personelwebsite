@@ -2,7 +2,7 @@ import React from "react";
 import headimg from "../../assets/head.jpg";
 import { WorkList } from "../../compoment/WorkList";
 import { WORKS } from "../works";
-import { Button } from "../../compoment";
+import { Button, NavigationBar } from "../../compoment";
 
 const HomePage: React.FC = () => {
   const clickHandler = () => {
@@ -10,7 +10,11 @@ const HomePage: React.FC = () => {
   };
   return (
     <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full">
-      <section className="mb-10">
+      <div>
+        <NavigationBar />
+      </div>
+
+      <section className=" mt-14 mb-10">
         <img src={headimg} alt="" className="rounded-full w-32 h-32 mx-auto" />
         <h2 className="text-2xl font-semibold mt-4">吳浩維</h2>
         <ul className="flex flex-wrap justify-center mt-4">

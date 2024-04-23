@@ -13,7 +13,7 @@ import {
   WorkPage,
 } from "./pages";
 
-export const routerList = [
+const routerList = [
   { path: "/", element: <HomePage /> },
   // { path: "/works", element: <WorkPage /> },
   { path: "works/1", element: <DrumKit /> },
