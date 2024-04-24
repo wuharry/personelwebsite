@@ -6,7 +6,7 @@ import {
   FlexPanel,
   Instagram,
   WorkPage,
-} from "../pages";
+} from "../portfolioPage";
 import { App } from "../pages/App";
 
 export const routerList = [

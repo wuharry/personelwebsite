@@ -4,17 +4,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import {
-  HomePage,
   DrumKit,
   WebClock,
   BlurPicture,
   FlexPanel,
   Instagram,
-  WorkPage,
-} from "./pages";
+} from "./portfolioPage";
+
+import { AboutMe, WorkPage } from "./pages";
 
 const routerList = [
-  { path: "/", element: <HomePage /> },
+  { path: "/", element: <AboutMe /> },
   // { path: "/works", element: <WorkPage /> },
   { path: "works/1", element: <DrumKit /> },
   { path: "works/2", element: <WebClock /> },
