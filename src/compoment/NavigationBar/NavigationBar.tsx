@@ -38,10 +38,9 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
 
   useEffect(() => {
     setNavBarAnimetion(true);
-    console.log("navBarInit", navBarAnimetion);
 
     return () => {
-      // setNavBarAnimetion(false);
+      setTimeout(() => setNavBarAnimetion(false), 5000);
     };
   }, []);
 
