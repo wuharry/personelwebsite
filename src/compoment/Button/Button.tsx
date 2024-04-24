@@ -2,13 +2,13 @@ import React, { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 interface BUTTONPROPS {
-  className: string;
+  className: string | null;
   type: string | null;
   onClickEvent: () => void;
   children: string | ReactNode;
 }
 
-export const Button: FC<BUTTONPROPS> = ({
+const Button: FC<BUTTONPROPS> = ({
   className,
   type,
   onClickEvent,
@@ -28,3 +28,5 @@ export const Button: FC<BUTTONPROPS> = ({
     </button>
   );
 };
+
+export default Button;
