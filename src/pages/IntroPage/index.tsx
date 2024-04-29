@@ -1,9 +1,11 @@
+/** @format */
+
 import React, { useEffect, useState } from "react";
 import headimg from "../../assets/head.jpg";
 import { Button, NavigationBar, IconButton } from "../../compoment";
 import clsx from "clsx";
 
-const AboutMe: React.FC = () => {
+const Intro: React.FC = () => {
   const [animetion, setAnimetion] = useState(false);
   const handleClick = () => {};
   const ICONLIST = [
@@ -177,7 +179,7 @@ const AboutMe: React.FC = () => {
               {/* Passionate Front-End Engineer with 1+ years of experience seeking new challenges. */}
               {/* TODO:多語系 */}
             </p>
-            <p>
+            <p className="text-gray-300 mt-4">
               熟悉 JavaScript、React 和 Linux 系統。
               {/* Expertise in JavaScript, React, and Linux systems.*/}
               {/* TODO:多語系 */}
@@ -186,7 +188,7 @@ const AboutMe: React.FC = () => {
             {/* Strong communication, collaboration, and problem-solving skills. */}
             {/* TODO:多語系+文字不對
              */}
-            <p>渴望學習和成長，始終追求卓越。</p>
+            <p className="text-gray-300 mt-4">渴望學習和成長，始終追求卓越。</p>
             {/* Eager to learn and grow, always striving for excellence.
              */}
             {/* TODO:多語系 */}
@@ -210,11 +212,11 @@ const AboutMe: React.FC = () => {
           ))}
         </div>
 
-        <div>
+        <div className={clsx(``)}>
           <img
             src={headimg}
             alt=""
-            className="rounded-full w-32 h-32 mx-auto"
+            className={clsx(`rounded-full w-[14rem] h-[14rem] mx-auto`)}
           />
         </div>
       </section>
@@ -242,4 +244,4 @@ const AboutMe: React.FC = () => {
   );
 };
 
-export default AboutMe;
+export default Intro;
