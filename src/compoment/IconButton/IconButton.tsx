@@ -1,3 +1,5 @@
+/** @format */
+
 import clsx from "clsx";
 import { FunctionComponent, ReactNode, useEffect } from "react";
 
@@ -12,9 +14,6 @@ const IconButton: FunctionComponent<IconButtonProps> = ({
   onClickEvent,
   classname,
 }) => {
-  useEffect(() => {
-    console.log(classname);
-  });
   return (
     <>
       <button

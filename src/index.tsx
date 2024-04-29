@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,11 +13,11 @@ import {
   Instagram,
 } from "./portfolioPage";
 
-import { AboutMe, WorkPage } from "./pages";
+import { Intro, AboutMe } from "./pages";
 
 const routerList = [
-  { path: "/", element: <AboutMe /> },
-  // { path: "/works", element: <WorkPage /> },
+  { path: "/", element: <Intro /> },
+  { path: "/about", element: <AboutMe /> },
   { path: "works/1", element: <DrumKit /> },
   { path: "works/2", element: <WebClock /> },
   { path: "works/3", element: <BlurPicture /> },
