@@ -1,36 +1,34 @@
 /** @format */
 
-import { FunctionComponent } from "react";
-import { Button, NavigationBar } from "../../compoment";
+import { FunctionComponent, useEffect, useState } from "react";
+import { Button, NavigationBar, HeaderIcon } from "../../compoment";
 import clsx from "clsx";
-import headimg from "../../assets/head.jpg";
-
 interface AboutMeProps {}
 
 const AboutMe: FunctionComponent<AboutMeProps> = () => {
+  const [animetion, setAnimetion] = useState(false);
+  useEffect(() => {
+    setAnimetion(true);
+    return () => {
+      setTimeout(() => setAnimetion(false), 7000);
+    };
+  }, []);
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-screen">
-      <div>
-        <NavigationBar />
-      </div>
-      <div className={clsx(`w-full flex justify-around items-center`)}>
-        <div className={clsx(``)}>
-          <img
-            src={headimg}
-            alt=""
-            className={clsx(`rounded-full w-[14rem] h-[14rem] mx-auto`)}
-          />
-        </div>
-        <section className="mt-14 mb-10 flex justify-between">
-          <div>
+    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full">
+      <NavigationBar />
+      <div className={clsx(`w-full flex justify-evenly items-center gap-1`)}>
+        <HeaderIcon />
+        <section className={clsx(`mt-14 mb-10 flex flex-col justify-between`)}>
+          <div className={clsx(`${animetion ? `animate-fade-down` : ``}`)}>
             <h1 className={clsx(`text-white text-4xl font-bold mx-0 my-1`)}>
               我是 吳浩維
             </h1>
             <h3 className={clsx(`text-white text-3xl font-medium `)}>
               我是一名前端工程師
             </h3>
-
-            <div className={clsx(`mt-4`)}>
+          </div>
+          <div className={clsx(`mt-4`)}>
+            <div className={clsx(`${animetion ? `animate-fade-right` : ``}`)}>
               <h2 className="text-gray-300 text-2xl font-medium mt-4">
                 簡介：
               </h2>
@@ -38,17 +36,32 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
                 畢業於勤益科技大學資訊工程系。在校期間，我學習了 HTML、CSS
                 等前端基礎知識，了解網頁結構和美化的撰寫方式。
               </p>
+            </div>
+            <div
+              className={clsx(
+                `${animetion ? `animate-fade-right animate-delay-[1ms]` : ``}`
+              )}
+            >
               <h2 className="text-gray-300 text-2xl font-medium mt-4">
                 學習與成長：
               </h2>
               <p className="text-gray-300 mt-4">
-                我熱衷於學習和交流，積極與同學探討問題，尋求解決方案，並解決問題，這很好的鍛煉了自己的溝通能力和團隊合作能力，也讓我養成了終身學習的習慣。
+                我熱衷於學習和交流，積極與同學探討問題，尋求解決方案，並解決問題。
               </p>
+              <p className="text-gray-300 mt-4">
+                這很好的鍛煉了自己的溝通能力和團隊合作能力，也讓我養成了終身學習的習慣。
+              </p>
+
               <p className="text-gray-300 mt-4">
                 即使畢業後我也在持續精進前端技能，深入研究 JavaScript、React.js
                 等框架和庫，並創作了仿 IG 頁面、個人網站
               </p>
-
+            </div>
+            <div
+              className={clsx(
+                `${animetion ? `animate-fade-right animate-delay-[2ms]` : ``}`
+              )}
+            >
               <h2 className="text-gray-300 text-2xl font-medium mt-4">
                 工作經驗：
               </h2>
@@ -58,6 +71,12 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
               <p className="text-gray-300 mt-4">
                 在工作中，我遇到問題時會積極尋求解決方案，並不斷學習新知識和技能。不斷學習新知識和技能，以提升工作效率和質量。
               </p>
+            </div>
+            <div
+              className={clsx(
+                `${animetion ? `animate-fade-right animate-delay-[3ms]` : ``}`
+              )}
+            >
               <h2 className="text-gray-300 text-2xl font-medium mt-4">
                 優勢：
               </h2>
@@ -81,25 +100,6 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
             </div>
           </div>
         </section>
-      </div>
-      <div
-        className={clsx(
-          `flex justify-start items-center relative right-[24.5rem]`
-        )}
-      >
-        {/* <Button
-              className={clsx(
-                `${
-                  animetion
-                    ? `animate-fade animate-once animate-delay-[1ms] animate-ease-in`
-                    : ``
-                }`
-              )}
-              type=""
-              onClickEvent={handleClick}
-            >
-              關於我
-            </Button> */}
       </div>
     </div>
   );
