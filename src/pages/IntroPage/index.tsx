@@ -128,8 +128,8 @@ const Intro: React.FC = () => {
         <NavigationBar />
       </div>
 
-      <section className="mt-14 mb-10 flex justify-between">
-        <div>
+      <section className="mt-14 mb-10 flex justify-evenly">
+        <div className={clsx(`flex justify-start flex-col`)}>
           <h3
             className={clsx(
               `text-white text-3xl font-medium ${
@@ -193,29 +193,32 @@ const Intro: React.FC = () => {
 
             <p className="text-gray-300 mt-2">聯絡方式:</p>
           </div>
-          {ICONLIST.map((icon, index) => (
-            <IconButton
-              onClickEvent={handleClick}
-              key={`${icon.name}-${index}`}
-              classname={clsx(
-                `${
-                  animetion
-                    ? `animate-fade animate-once animate-delay-[${index}s] animate-ease-in`
-                    : ``
-                }`
-              )}
-            >
-              {icon.SVGElement}
-            </IconButton>
-          ))}
+          <div>
+            {ICONLIST.map((icon, index) => (
+              <IconButton
+                onClickEvent={handleClick}
+                key={`${icon.name}-${index}`}
+                classname={clsx(
+                  `${
+                    animetion
+                      ? `animate-fade animate-once animate-delay-[${index}s] animate-ease-in`
+                      : ``
+                  }`
+                )}
+              >
+                {icon.SVGElement}
+              </IconButton>
+            ))}
+          </div>
         </div>
-
-        <HeaderIcon />
+        <div className={clsx(`felx justify-end ml-10`)}>
+          <HeaderIcon />
+        </div>
       </section>
 
       <div
         className={clsx(
-          `flex justify-start items-center relative right-[24.5rem]`
+          `flex justify-start items-center relative right-[28.5rem]`
         )}
       >
         <Button
