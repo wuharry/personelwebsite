@@ -13,12 +13,12 @@ import {
   Instagram,
 } from "./portfolioPage";
 
-import { Intro, AboutMe } from "./pages";
+import { Intro, AboutMe, Experience } from "./pages";
 
 const routerList = [
   { path: "/", element: <Intro /> },
   { path: "/about", element: <AboutMe /> },
-  { path: "works/1", element: <DrumKit /> },
+  { path: "experience", element: <Experience /> },
   { path: "works/2", element: <WebClock /> },
   { path: "works/3", element: <BlurPicture /> },
   { path: "works/4", element: <FlexPanel /> },
