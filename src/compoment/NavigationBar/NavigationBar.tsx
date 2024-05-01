@@ -17,8 +17,8 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
       link: "/about",
     },
     {
-      name: "Services",
-      link: "/services",
+      name: "Experience",
+      link: "/experience",
     },
     {
       name: "Skills",
