@@ -1,7 +1,7 @@
 /** @format */
 
 import { FunctionComponent } from "react";
-import { Button, NavigationBar } from "../../compoment";
+import { Button, NavigationBar, HeaderIcon } from "../../compoment";
 import clsx from "clsx";
 import headimg from "../../assets/head.jpg";
 
@@ -9,18 +9,12 @@ interface AboutMeProps {}
 
 const AboutMe: FunctionComponent<AboutMeProps> = () => {
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-screen">
+    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full">
       <div>
         <NavigationBar />
       </div>
       <div className={clsx(`w-full flex justify-around items-center`)}>
-        <div className={clsx(``)}>
-          <img
-            src={headimg}
-            alt=""
-            className={clsx(`rounded-full w-[14rem] h-[14rem] mx-auto`)}
-          />
-        </div>
+        <HeaderIcon />
         <section className="mt-14 mb-10 flex justify-between">
           <div>
             <h1 className={clsx(`text-white text-4xl font-bold mx-0 my-1`)}>

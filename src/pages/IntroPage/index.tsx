@@ -1,8 +1,6 @@
 /** @format */
-
 import React, { useEffect, useState } from "react";
-import headimg from "../../assets/head.jpg";
-import { Button, NavigationBar, IconButton } from "../../compoment";
+import { Button, NavigationBar, IconButton, HeaderIcon } from "../../compoment";
 import clsx from "clsx";
 
 const Intro: React.FC = () => {
@@ -212,13 +210,7 @@ const Intro: React.FC = () => {
           ))}
         </div>
 
-        <div className={clsx(``)}>
-          <img
-            src={headimg}
-            alt=""
-            className={clsx(`rounded-full w-[14rem] h-[14rem] mx-auto`)}
-          />
-        </div>
+        <HeaderIcon />
       </section>
 
       <div
@@ -228,7 +220,7 @@ const Intro: React.FC = () => {
       >
         <Button
           className={clsx(
-            `${
+            ` ${
               animetion
                 ? `animate-fade animate-once animate-delay-[1ms] animate-ease-in`
                 : ``

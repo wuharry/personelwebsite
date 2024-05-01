@@ -2,5 +2,6 @@
 import Button from "./Button/Button";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import IconButton from "./IconButton/IconButton";
+import HeaderIcon from "./HeaderIcon";
 
-export { Button, NavigationBar, IconButton };
+export { Button, NavigationBar, IconButton, HeaderIcon };
