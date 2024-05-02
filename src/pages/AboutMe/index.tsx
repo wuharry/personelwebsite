@@ -14,7 +14,7 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
     };
   }, []);
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full">
+    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full min-h-screen">
       <NavigationBar />
       <div className={clsx(`w-full flex justify-evenly items-center gap-1`)}>
         <HeaderIcon />

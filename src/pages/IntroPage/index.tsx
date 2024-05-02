@@ -123,7 +123,7 @@ const Intro: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-screen">
+    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full min-h-screen">
       <div>
         <NavigationBar />
       </div>

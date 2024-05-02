@@ -1,3 +1,3 @@
 import { WORKPROPS } from "./workProps";
-
-export type { WORKPROPS };
+import JOBEXPERIENCEOBJ from "./jobexperience";
+export type { WORKPROPS, JOBEXPERIENCEOBJ };
