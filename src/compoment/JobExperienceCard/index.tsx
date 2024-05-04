@@ -6,7 +6,7 @@ interface jobExperienceProps {
   jobexperience: JOBEXPERIENCEOBJ;
 }
 
-const jobExperience: FunctionComponent<jobExperienceProps> = ({
+const JobExperience: FunctionComponent<jobExperienceProps> = ({
   jobexperience,
 }) => {
   const { companyName, jobTitle, time, projectName, description } =
@@ -14,29 +14,33 @@ const jobExperience: FunctionComponent<jobExperienceProps> = ({
   return (
     <div
       className={clsx(
-        `block max-w-sm p-6 max-h-14 bg-white border border-gray-200 rounded-lg shadow`
+        `block max-w-md p-6 max-h-72 bg-white border border-gray-200 rounded-lg shadow`
       )}
     >
       <h5
         className={clsx(
-          `mb-2 text-2xl font-bold tracking-tight text-gray-900 `
+          `mb-2 text-2xl font-bold tracking-tight text-gray-900 tracking-wide`
         )}
       >
-        companyName:{companyName}
+        companyName: {companyName}
       </h5>
       <h4
         className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900 `)}
       >
-        jobTitle:{jobTitle}
+        jobTitle: {jobTitle}
       </h4>
-
+      <h4
+        className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900 `)}
+      >
+        time: {time}
+      </h4>
       <p className={clsx(`font-normal text-gray-700 `)}>
-        ProjectName:{projectName}
-        contribution:
+        ProjectName: {projectName}
+        contribution: 
         {Array.isArray(description) ? (
-          <ul>
+          <ul className={clsx(`list-disc flex flex-col items-baseline`)}>
             {description.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li className="pl-[10px]" key={index}>{item}</li>
             ))}
           </ul>
         ) : (
@@ -47,4 +51,4 @@ const jobExperience: FunctionComponent<jobExperienceProps> = ({
   );
 };
 
-export default jobExperience;
+export default JobExperience;
