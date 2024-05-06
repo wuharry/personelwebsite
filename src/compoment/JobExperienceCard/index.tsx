@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { JOBEXPERIENCEOBJ } from "../../types";
 import clsx from "clsx";
 
@@ -11,16 +11,23 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
 }) => {
   const { companyName, jobTitle, time, projectName, description } =
     jobexperience;
+
+  const [animetion, setAnimetion] = useState(false);
+  useEffect(() => {
+    setAnimetion(true);
+    return () => {
+      setTimeout(() => setAnimetion(false), 7000);
+    };
+  }, []);
   return (
     <div
       className={clsx(
-        `block max-w-md p-6 max-h-72 bg-white border border-gray-200 rounded-lg shadow`
+        `block max-w-md p-6 max-h-72 bg-white border border-gray-200 
+        rounded-lg shadow-md shadow-white animate-fade-left animate-delay-[1000ms]`
       )}
     >
       <h5
-        className={clsx(
-          `mb-2 text-2xl font-bold tracking-tight text-gray-900 tracking-wide`
-        )}
+        className={clsx(`mb-2 text-2xl font-bold  text-gray-900 tracking-wide`)}
       >
         companyName: {companyName}
       </h5>
@@ -36,11 +43,13 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
       </h4>
       <p className={clsx(`font-normal text-gray-700 `)}>
         ProjectName: {projectName}
-        contribution: 
+        contribution:
         {Array.isArray(description) ? (
           <ul className={clsx(`list-disc flex flex-col items-baseline`)}>
             {description.map((item, index) => (
-              <li className="pl-[10px]" key={index}>{item}</li>
+              <li className="pl-[10px]" key={index}>
+                {item}
+              </li>
             ))}
           </ul>
         ) : (

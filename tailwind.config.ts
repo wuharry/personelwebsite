@@ -8,26 +8,24 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {},
-  },
-  variants: {
     extend: {
+      keyframes: {
+        slideDown: {
+          // "0%": { transform: "translateY(-100%)" },
+          // "100%": { transform: "translateY(0)" },
+        },
+      },
       animation: {
-        fadeDown: `
-        @keyframes fadeDown {
-          0% {
-            opacity: 0; /* 元素開始時完全透明 */
-            transform: translateY(-10px); /* 元素開始時稍微向上移動 */
-          }
-          100% {
-            opacity: 1; /* 元素最終變得完全不透明 */
-            transform: translateY(0); /* 元素最終回到原始位置 */
-          }
-        }
-        `,
-        "spin-slow": "spin 3s linear infinite",
+        slideDown: "slideDown 1s ease-in-out forwards", // 确保动画持续时间和缓动效果适当
+      },
+      transitionProperty: {
+        height: "height",
+        spacing: "margin, padding",
       },
     },
+  },
+  variants: {
+    extend: {},
   },
   plugins: [
     eslintPlugin({

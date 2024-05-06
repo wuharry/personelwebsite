@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import { NavigationBar } from "../../compoment";
 import { JOBEXPERIENCEOBJ } from "../../types";
-import {JobExperience} from "../../compoment";
-
+import JobExperience from "../../compoment/JobExperienceCard";
+import TimeLine from "../../compoment/TimeLine";
 interface ExperienceProps {}
 
 const Experience: FunctionComponent<ExperienceProps> = () => {
@@ -14,18 +14,26 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
       projectName: "testProject",
       description: ["test1", "test2", "test3"],
     },
+    {
+      companyName: "testcompany2",
+      jobTitle: "Frontend Engineer",
+      time: "2023/05-2022/10",
+      projectName: "testProject2",
+      description: ["test4", "test5", "test6"],
+    },
   ];
 
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full min-h-screen">
+    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full min-h-screen">
       <NavigationBar />
-      <section className="mb-10">
-        {
-          EXPERIENCELIST.map((experience)=>(
-        <JobExperience jobexperience={experience} />
-          ))
-        }
+      <section className="h-full mt-12 ml-6 w-10/12">
+        <TimeLine />
       </section>
+      {/* <section className="mb-10">
+        {EXPERIENCELIST.map((experience) => (
+          <JobExperience jobexperience={experience} />
+        ))}
+      </section> */}
     </div>
   );
 };

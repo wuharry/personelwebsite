@@ -16,7 +16,6 @@ import {
 // import WorkDetail4 from './WorkDetail4';
 // import WorkDetail5 from './WorkDetail5';
 // function withRouter(Component) {
-//   // React router v6不再支持wuthRouter所以用這個func來代替它的功能
 //   function ComponentWithRouterProp(props) {
 //     let location = useLocation();
 //     let navigate = useNavigate();
