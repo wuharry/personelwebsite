@@ -24,16 +24,11 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
   ];
 
   return (
-    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full min-h-screen">
+    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full">
       <NavigationBar />
-      <section className="h-full mt-12 ml-6 w-10/12">
+      <section className="mt-12 ml-6 w-10/12 h-auto ">
         <TimeLine />
       </section>
-      {/* <section className="mb-10">
-        {EXPERIENCELIST.map((experience) => (
-          <JobExperience jobexperience={experience} />
-        ))}
-      </section> */}
     </div>
   );
 };

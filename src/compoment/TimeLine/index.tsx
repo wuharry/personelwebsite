@@ -35,20 +35,20 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
   useEffect(() => {
     setAnimetion(true);
     return () => {
-      setTimeout(() => setAnimetion(false), 7000);
+      // setTimeout(() => setAnimetion(false), 7000);
     };
   }, []);
   return (
     <div
       className={clsx(
-        `transition-all duration-500 ease-in-out`,
-        animetion ? `h-auto` : `h-0`,
-        "border-l-4 border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5"
+        `transition-all ease-in-out duration-1000`,
+        animetion ? " max-h-max" : "max-h-0 overflow-hidden",
+        "border-l-4  border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5"
       )}
     >
       <div
-        className="relative 
-       justify-between w-full"
+        className={clsx(`relative 
+        justify-between w-full z-10 `)}
       >
         {EXPERIENCELIST.map((experience, index) => (
           <div
@@ -59,7 +59,9 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
               className={clsx(
                 `absolute border-2 border-white bg-blue-300 top-[${
                   index + 1
-                }8rem] -left-[0.8rem] h-6 w-6 rounded-full`
+                }8rem] -left-[0.8rem] h-6 w-6 rounded-full
+                ${animetion ? `animate-jump-in animate-delay-[1500ms]` : ``} 
+                `
               )}
             >
               {/* 圓點 */}
