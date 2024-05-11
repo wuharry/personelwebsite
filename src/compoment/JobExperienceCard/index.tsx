@@ -21,6 +21,11 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
         rounded-lg shadow-md shadow-white animate-fade-left animate-delay-[1000ms]`
       )}
     >
+      <h4
+        className={clsx(`mb-2 text-xl font-bold tracking-tight text-blue-500`)}
+      >
+        {time}
+      </h4>
       <h5
         className={clsx(`mb-2 text-2xl font-bold  text-gray-900 tracking-wide`)}
       >
@@ -31,11 +36,7 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
       >
         jobTitle: {jobTitle}
       </h4>
-      <h4
-        className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900`)}
-      >
-        time: {time}
-      </h4>
+
       <p className={clsx(`font-normal text-gray-700 `)}>
         ProjectName: {projectName}
       </p>
