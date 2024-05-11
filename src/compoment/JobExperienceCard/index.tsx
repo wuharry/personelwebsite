@@ -17,7 +17,7 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
   return (
     <div
       className={clsx(
-        `block max-w-md p-6 max-h-72 bg-white border border-gray-200 
+        `block max-w-md p-6 max-h-auto bg-white border border-gray-200 
         rounded-lg shadow-md shadow-white animate-fade-left animate-delay-[1000ms]`
       )}
     >
@@ -38,8 +38,8 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
       </h4>
       <p className={clsx(`font-normal text-gray-700 `)}>
         ProjectName: {projectName}
-        contribution:
       </p>
+      <p className={clsx(`font-normal text-gray-700 `)}>contribution:</p>
       {Array.isArray(description) ? (
         <ul className={clsx(`list-disc flex flex-col items-baseline`)}>
           {description.map((item, index) => (
