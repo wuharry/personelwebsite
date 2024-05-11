@@ -1,4 +1,6 @@
-import { FunctionComponent, useEffect, useState } from "react";
+/** @format */
+
+import { FunctionComponent } from "react";
 import { JOBEXPERIENCEOBJ } from "../../types";
 import clsx from "clsx";
 
@@ -12,13 +14,6 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
   const { companyName, jobTitle, time, projectName, description } =
     jobexperience;
 
-  const [animetion, setAnimetion] = useState(false);
-  useEffect(() => {
-    setAnimetion(true);
-    return () => {
-      setTimeout(() => setAnimetion(false), 7000);
-    };
-  }, []);
   return (
     <div
       className={clsx(
@@ -32,30 +27,30 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
         companyName: {companyName}
       </h5>
       <h4
-        className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900 `)}
+        className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900`)}
       >
         jobTitle: {jobTitle}
       </h4>
       <h4
-        className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900 `)}
+        className={clsx(`mb-2 text-xl font-bold tracking-tight text-gray-900`)}
       >
         time: {time}
       </h4>
       <p className={clsx(`font-normal text-gray-700 `)}>
         ProjectName: {projectName}
         contribution:
-        {Array.isArray(description) ? (
-          <ul className={clsx(`list-disc flex flex-col items-baseline`)}>
-            {description.map((item, index) => (
-              <li className="pl-[10px]" key={index}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>{description}</p>
-        )}
       </p>
+      {Array.isArray(description) ? (
+        <ul className={clsx(`list-disc flex flex-col items-baseline`)}>
+          {description.map((item, index) => (
+            <li className="pl-[10px]" key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>{description}</p>
+      )}
     </div>
   );
 };

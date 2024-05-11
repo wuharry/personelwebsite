@@ -1,34 +1,33 @@
-import { FunctionComponent } from "react";
+/** @format */
+
+import { FunctionComponent, useEffect, useState } from "react";
 import { NavigationBar } from "../../compoment";
-import { JOBEXPERIENCEOBJ } from "../../types";
-import JobExperience from "../../compoment/JobExperienceCard";
+// import { JOBEXPERIENCEOBJ } from "../../types";
 import TimeLine from "../../compoment/TimeLine";
+import clsx from "clsx";
 interface ExperienceProps {}
 
 const Experience: FunctionComponent<ExperienceProps> = () => {
-  const EXPERIENCELIST: JOBEXPERIENCEOBJ[] = [
-    {
-      companyName: "testcompany",
-      jobTitle: "MESFrontend Engineer",
-      time: "2022/10-2023/05",
-      projectName: "testProject",
-      description: ["test1", "test2", "test3"],
-    },
-    {
-      companyName: "testcompany2",
-      jobTitle: "Frontend Engineer",
-      time: "2023/05-2022/10",
-      projectName: "testProject2",
-      description: ["test4", "test5", "test6"],
-    },
-  ];
+  const [animetion, setAnimetion] = useState(false);
+  useEffect(() => {
+    setAnimetion(false);
+    return () => {
+      setTimeout(() => setAnimetion(true), 500);
+    };
+  }, []);
 
   return (
-    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full">
+    <div className="flex bg-slate-700 flex-col items-start justify-start w-screen !h-auto min-h-screen overflow-y-scroll">
       <NavigationBar />
-      <section className="mt-12 ml-6 w-10/12 h-auto ">
+      <section
+        className={clsx(
+          ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto 
+          ${!animetion ? `h-0` : ` h-screen minh-full flex-grow`}  `
+        )}
+      >
         <TimeLine />
       </section>
+      {/* <div className={clsx(`w-full h-96`)}></div> */}
     </div>
   );
 };

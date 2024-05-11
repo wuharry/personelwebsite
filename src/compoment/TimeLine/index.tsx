@@ -1,3 +1,5 @@
+/** @format */
+
 import { FunctionComponent, useEffect, useState } from "react";
 import { JOBEXPERIENCEOBJ } from "../../types";
 import clsx from "clsx";
@@ -41,9 +43,7 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
   return (
     <div
       className={clsx(
-        `transition-all ease-in-out duration-1000`,
-        animetion ? " max-h-max" : "max-h-0 overflow-hidden",
-        "border-l-4  border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5"
+        "border-l-4 border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5"
       )}
     >
       <div
