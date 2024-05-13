@@ -1,7 +1,7 @@
 /** @format */
 
 import { FunctionComponent, useEffect, useState } from "react";
-import { Button, NavigationBar, HeaderIcon } from "../../compoment";
+import { NavigationBar, HeaderIcon } from "../../compoment";
 import clsx from "clsx";
 interface AboutMeProps {}
 
