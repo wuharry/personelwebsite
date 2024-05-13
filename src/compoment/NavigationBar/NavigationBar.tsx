@@ -21,8 +21,8 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
       link: "/experience",
     },
     {
-      name: "Skills",
-      link: "/skills",
+      name: "Skill",
+      link: "/skill",
     },
     {
       name: "Project",
