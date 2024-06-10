@@ -44,21 +44,21 @@ const Skill: FunctionComponent<ExperienceProps> = () => {
           />
           <SkillCard
             label="javascript"
-            percentage={90}
+            percentage={50}
             className={clsx("w-full")}
             progressColor="yellow"
             size={10}
           />
           <SkillCard
             label="React"
-            percentage={90}
+            percentage={60}
             className={clsx("w-full")}
             progressColor="#00E3E3"
             size={10}
           />
           <SkillCard
             label="NextJS"
-            percentage={90}
+            percentage={40}
             className={clsx("w-full")}
             progressColor="red"
             size={10}
