@@ -13,7 +13,7 @@ export const SkillProgressBar: FC<SkillProgressBarProps> = ({
     <div
       className={clsx("block justify-center items-center w-full min-w-[31rem]")}
     >
-      <span className={clsx("block text-sm font-semibold text-slate-500")}>
+      <span className={clsx("block text-sm font-semibold text-zinc-300")}>
         {label}
       </span>
 
@@ -23,7 +23,7 @@ export const SkillProgressBar: FC<SkillProgressBarProps> = ({
           className={clsx(
             `relative block h-full rounded-lg`,
             "opacity-0",
-            "animate-progress" // 使用自定义动画类"
+            "animate-progress"
           )}
           style={{
             width: `${percentage}%`,
