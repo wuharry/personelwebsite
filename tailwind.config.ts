@@ -16,7 +16,7 @@ module.exports = {
         },
       },
       animation: {
-        progress: 'progress 0.8s ease-in-out forwards',
+        progress: 'progress 1.5s ease-in-out forwards',
       },
       transitionProperty: {
         height: "height",

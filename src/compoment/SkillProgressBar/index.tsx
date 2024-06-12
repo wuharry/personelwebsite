@@ -16,16 +16,19 @@ export const SkillProgressBar: FC<SkillProgressBarProps> = ({
       <span className={clsx("block text-sm font-semibold text-slate-500")}>
         {label}
       </span>
-      {/* skillbar */}
+
       <div className={clsx(" w-full h-3 rounded-lg bg-[rgba(0,0,0,0.1)]")}>
-        {/* skill per */}
         {/* width,background 需要動態調整,調整為percentage */}
         <span
           className={clsx(
-            `relative block h-full w-11/12 bg-sky-600 rounded-lg`,
+            `relative block h-full rounded-lg`,
             "opacity-0",
             "animate-progress" // 使用自定义动画类"
           )}
+          style={{
+            width: `${percentage}%`,
+            backgroundColor: progressColor,
+          }}
         >
           <span
             className={clsx(

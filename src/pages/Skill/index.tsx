@@ -5,73 +5,40 @@ import { NavigationBar } from "../../compoment";
 import SkillCard from "../../compoment/SkillCard";
 import { SkillProgressBar } from "../../compoment/SkillProgressBar";
 import clsx from "clsx";
+import { SKILLS } from "../../static/constant/data/skillProgresion";
+
 interface ExperienceProps {}
 
 const Skill: FunctionComponent<ExperienceProps> = () => {
-  const [animetion, setAnimetion] = useState(false);
-  useEffect(() => {
-    setAnimetion(false);
-    return () => {
-      setTimeout(() => setAnimetion(true), 500);
-    };
-  }, []);
-
   return (
-    <div className="flex bg-slate-700 flex-col items-start justify-start w-screen !h-auto min-h-screen overflow-y-scroll">
+    <div className="flex flex-col items-start justify-start w-screen min-h-screen bg-slate-700 overflow-y-scroll">
       <NavigationBar />
 
-      <section
-        className={clsx(
-          "flex w-full min-h-max mt-14 mb-10 justify-center items-center"
-        )}
-      >
-        {/* 技能進度條 */}
-        <div className={clsx("flex-1 h-screen bg-slate-200")}>
-          <SkillProgressBar
-            label="html"
-            percentage={90}
-            className={clsx("w-full")}
-            progressColor="#FF8000"
-            size={10}
-          />
+      <section className="flex flex-col w-full mt-14 mb-10 space-y-10 px-4">
+        <div className="flex-1 bg-slate-200 p-6 rounded-md">
+          {SKILLS.map((skill) => (
+            <SkillProgressBar
+              key={skill.label}
+              label={skill.label}
+              percentage={skill.percentage}
+              className={clsx(skill.className)}
+              progressColor={skill.progressColor}
+              size={skill.size}
+            />
+          ))}
         </div>
-        {/* 技能圓餅圖 */}
-        <div className={clsx("flex-1 grid grid-cols-4 gap-2")}>
-          <SkillCard
-            label="html"
-            percentage={90}
-            className={clsx("w-full")}
-            progressColor="#FF8000"
-            size={10}
-          />
-          <SkillCard
-            label="css"
-            percentage={90}
-            className={clsx("w-full")}
-            progressColor="#0080FF"
-            size={10}
-          />
-          <SkillCard
-            label="javascript"
-            percentage={50}
-            className={clsx("w-full")}
-            progressColor="yellow"
-            size={10}
-          />
-          <SkillCard
-            label="React"
-            percentage={60}
-            className={clsx("w-full")}
-            progressColor="#00E3E3"
-            size={10}
-          />
-          <SkillCard
-            label="NextJS"
-            percentage={40}
-            className={clsx("w-full")}
-            progressColor="red"
-            size={10}
-          />
+
+        <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 bg-slate-200 p-6 rounded-md">
+          {SKILLS.map((skill) => (
+            <SkillCard
+              key={skill.label}
+              label={skill.label}
+              percentage={skill.percentage}
+              className={clsx(skill.className)}
+              progressColor={skill.progressColor}
+              size={skill.size}
+            />
+          ))}
         </div>
       </section>
     </div>
