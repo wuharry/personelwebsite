@@ -10,13 +10,13 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        slideDown: {
-          // "0%": { transform: "translateY(-100%)" },
-          // "100%": { transform: "translateY(0)" },
+        progress: {
+          '0%': { opacity: '0', width: '0' },
+          '100%': { opacity: '1', },
         },
       },
       animation: {
-        slideDown: "slideDown 1s ease-in-out forwards", // 确保动画持续时间和缓动效果适当
+        progress: 'progress 0.8s ease-in-out forwards',
       },
       transitionProperty: {
         height: "height",

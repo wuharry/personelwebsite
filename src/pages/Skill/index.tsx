@@ -3,6 +3,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { NavigationBar } from "../../compoment";
 import SkillCard from "../../compoment/SkillCard";
+import { SkillProgressBar } from "../../compoment/SkillProgressBar";
 import clsx from "clsx";
 interface ExperienceProps {}
 
@@ -25,7 +26,15 @@ const Skill: FunctionComponent<ExperienceProps> = () => {
         )}
       >
         {/* 技能進度條 */}
-        <div className={clsx("flex-1 min-h-max bg-slate-200")}></div>
+        <div className={clsx("flex-1 h-screen bg-slate-200")}>
+          <SkillProgressBar
+            label="html"
+            percentage={90}
+            className={clsx("w-full")}
+            progressColor="#FF8000"
+            size={10}
+          />
+        </div>
         {/* 技能圓餅圖 */}
         <div className={clsx("flex-1 grid grid-cols-4 gap-2")}>
           <SkillCard
