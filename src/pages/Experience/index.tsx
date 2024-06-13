@@ -21,13 +21,12 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
       <NavigationBar />
       <section
         className={clsx(
-          ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto 
+          ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto overflow-x-hidden
           ${!animetion ? `h-0` : ` h-screen minh-full flex-grow`}  `
         )}
       >
         <TimeLine />
       </section>
-      {/* <div className={clsx(`w-full h-96`)}></div> */}
     </div>
   );
 };
