@@ -7,9 +7,9 @@ import { SkillProgressBar } from "../../compoment/SkillProgressBar";
 import clsx from "clsx";
 import { SKILLS } from "../../static/constant/data/skillProgresion";
 
-interface ExperienceProps {}
+interface SkillProps {}
 
-const Skill: FunctionComponent<ExperienceProps> = () => {
+const Skill: FunctionComponent<SkillProps> = () => {
   return (
     <div className="flex flex-col items-start justify-start w-screen min-h-screen bg-slate-700 overflow-y-scroll">
       <NavigationBar />

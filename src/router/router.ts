@@ -1,31 +1,20 @@
-import {
-  HomePage,
-  DrumKit,
-  WebClock,
-  BlurPicture,
-  FlexPanel,
-  Instagram,
-  WorkPage,
-} from "../portfolioPage";
-import { App } from "../pages/App";
+import { Intro, AboutMe, Experience, Skill } from "../pages";
+// import { DrumKit, WebClock, BlurPicture, FlexPanel, Instagram } from "./portfolioPage";
 
-export const routerList = [
-  { path: "/", element: <HomePage /> },
-  { path: "/works", element: <WorkPage /> },
-  { path: "works/1", element: <DrumKit /> },
-  { path: "works/2", element: <WebClock /> },
-  { path: "works/3", element: <BlurPicture /> },
-  { path: "works/4", element: <FlexPanel /> },
-  { path: "works/5", element: <Instagram /> },
+interface router{
+  path: string;
+  element: JSX.Element;
+}
+
+const routerList:router[] = [
+  { path: "/", element:<Intro /> },
+  { path: "/about", element: <AboutMe /> },
+  { path: "experience", element: <Experience /> },
+  { path: "skill", element: <Skill /> },
+  { path: "contact", element: <Contact /> },
+  // { path: "works/3", element: <BlurPicture /> },
+  // { path: "works/4", element: <FlexPanel /> },
+  // { path: "works/5", element: <Instagram /> },
 ];
 
-// [
-//   { path: "/", element: <HomePage /> },
-//   { path: "/personelwebsite", element: <HomePage /> },
-//   { path: "/works", element: <WorkPage /> },
-//   { path: "works/1", element: <DrumKit /> },
-//   { path: "works/2", element: <WebClock /> },
-//   { path: "works/3", element: <BlurPicture /> },
-//   { path: "works/4", element: <FlexPanel /> },
-//   { path: "works/5", element: <Instagram /> },
-// ];
+export default routerList;

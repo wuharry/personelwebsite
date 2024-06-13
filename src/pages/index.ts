@@ -1,9 +1,9 @@
-/** @format */
-
+// pages/index.js
 import Intro from "./IntroPage";
 import AboutMe from "./AboutMe";
 import Experience from "./Experience";
 import Skill from "./Skill";
-import { WorkPage } from "./Project";
+import Contact from "./Contact";
+// import WorkPage from "./Project";
 
-export { Intro, WorkPage, AboutMe, Experience, Skill };
+export { Intro, AboutMe, Experience, Skill, Contact };
