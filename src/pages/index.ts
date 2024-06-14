@@ -4,6 +4,6 @@ import AboutMe from "./AboutMe";
 import Experience from "./Experience";
 import Skill from "./Skill";
 import Contact from "./Contact";
-// import WorkPage from "./Project";
+import WorkPage from "./Project";
 
-export { Intro, AboutMe, Experience, Skill, Contact };
+export { Intro, AboutMe, Experience, Skill, Contact,WorkPage };
