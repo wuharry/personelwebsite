@@ -2,6 +2,8 @@
 
 import { FunctionComponent } from "react";
 import { NavigationBar } from "../../compoment";
+import { CONTACT_ME_INPUTS } from "../../static/constant/data/ContactMeInput";
+import { Button } from "../../compoment";
 import clsx from "clsx";
 
 interface contactProps {}
@@ -44,76 +46,47 @@ const Contact: FunctionComponent<contactProps> = () => {
           )}
         >
           <form action="" className="w-full">
-            <div className={clsx("mb-4 w-ful")}>
-              <label
-                className={clsx("block text-gray-400 text-sm font-bold mb-2")}
-                htmlFor="name"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                className={clsx(
-                  "w-full h-12 rounded-md shadow-gray-200 shadow-sm"
+            {CONTACT_ME_INPUTS.map((input) => (
+              <div className={clsx("mb-4 w-ful")}>
+                <label
+                  className={clsx("block text-gray-400 text-sm font-bold mb-2")}
+                  htmlFor="name"
+                >
+                  {input.label}
+                </label>
+                {input.type === "text" || input.type === "email" ? (
+                  <input
+                    type={input.type}
+                    name={input.name}
+                    placeholder={`Enter your ${input.name}`}
+                    className={clsx(
+                      "w-11/12 h-12 rounded-md shadow-gray-200 shadow-sm font-semibold text-base",
+                      "border-none outline-none bg-slate-600 text-black mb-2"
+                    )}
+                  />
+                ) : (
+                  <textarea
+                    name={input.name}
+                    placeholder={`Enter your ${input.name}`}
+                    className={clsx(
+                      "w-11/12 h-20 rounded-md shadow-gray-200 shadow-sm font-semibold text-base",
+                      "border-none outline-none bg-slate-600 text-black mb-2 resize-none"
+                    )}
+                  />
                 )}
-              />
-            </div>
-            <div className={clsx("mb-4")}>
-              <label
-                className={clsx("block text-gray-400 text-sm font-bold mb-2")}
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                type="text"
-                name="email"
-                className={clsx(
-                  "w-full h-12 rounded-md shadow-gray-200 shadow-sm"
-                )}
-              />
-            </div>
-            <div className={clsx("mb-4")}>
-              <label
-                className={clsx("block text-gray-400 text-sm font-bold mb-2")}
-                htmlFor="subject"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                name="subject"
-                className={clsx(
-                  "w-full h-12 rounded-md shadow-gray-200 shadow-sm"
-                )}
-              />
-            </div>
-            <div className={clsx("mb-4")}>
-              <label
-                className={clsx("block text-gray-400 text-sm font-bold mb-2")}
-                htmlFor="message"
-              >
-                Message
-              </label>
-              <input
-                type="text"
-                name="message"
-                className={clsx(
-                  "w-full h-12 rounded-md shadow-gray-200 shadow-sm"
-                )}
-              />
-            </div>
+              </div>
+            ))}
 
-            <button
+            <Button
               type="submit"
-              name="submit-Button"
               className={clsx(
-                "w-full h-14 rounded-md border-x-indigo-400 shadow-gray-200 shadow-sm"
+                "w-11/12 h-14 rounded-3xl border-x-indigo-400 shadow-gray-200 shadow-sm",
+                "inline-block px-2 py-3 no-underline tracking-wide font-semibold"
               )}
+              onClickEvent={() => {}}
             >
               送出
-            </button>
+            </Button>
           </form>
         </div>
       </section>
