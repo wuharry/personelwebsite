@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.module.scss";
+
 import {
   Link,
   Route,
