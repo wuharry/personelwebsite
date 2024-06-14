@@ -24,7 +24,7 @@
     "preview": "vite preview",
     "test": "vite test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b gh-pages -d dist",
     "prepare": "husky"
   },
   "homepage": "https://wuharry.github.io/personelwebsite",
