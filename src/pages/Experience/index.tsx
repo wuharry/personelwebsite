@@ -21,7 +21,7 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
       <section
         className={clsx(
           ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto 
-          ${!animetion ? `h-0` : ` h-screen minh-full flex-grow`}  `
+          ${!animetion ? `h-0` : ` h-screen min-h-full flex-grow`}  `
         )}
       >
         <TimeLine />
