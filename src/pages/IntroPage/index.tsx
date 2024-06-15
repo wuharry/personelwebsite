@@ -191,7 +191,7 @@ const Intro: React.FC = () => {
                 classname={clsx(
                   `${
                     animetion
-                      ? `animate-fade animate-once animate-delay-[${index}s] animate-ease-in`
+                      ? `animate-fade animate-once animate-delay-[1s] animate-ease-in`
                       : ``
                   }`
                 )}
