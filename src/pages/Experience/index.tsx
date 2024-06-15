@@ -7,11 +7,10 @@ import clsx from "clsx";
 interface ExperienceProps {}
 
 const Experience: FunctionComponent<ExperienceProps> = () => {
-  const [animetion, setAnimetion] = useState(false);
+  const [animetion, setAnimetion] = useState(true);
   useEffect(() => {
-    return () => {
-      setAnimetion(true);
-    };
+    setAnimetion(false);
+    return () => {};
   }, []);
 
   return (
@@ -22,9 +21,9 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
           ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto `
         )}
         style={{
-          height: !animetion ? "0" : "100vh",
-          minHeight: !animetion ? "auto" : "100%",
-          flexGrow: !animetion ? "initial" : 1,
+          height: animetion ? "0" : "100vh",
+          minHeight: animetion ? "auto" : "100%",
+          flexGrow: animetion ? "initial" : 1,
         }}
       >
         <TimeLine />
