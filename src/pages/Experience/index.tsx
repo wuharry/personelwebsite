@@ -9,9 +9,9 @@ interface ExperienceProps {}
 const Experience: FunctionComponent<ExperienceProps> = () => {
   const [animetion, setAnimetion] = useState(false);
   useEffect(() => {
-    setAnimetion(false);
+    setAnimetion(true);
     return () => {
-      setTimeout(() => setAnimetion(true), 500);
+      // setTimeout(() => setAnimetion(false), 500);
     };
   }, []);
 
