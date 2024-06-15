@@ -17,9 +17,7 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
     <div className="flex bg-slate-700 flex-col items-start justify-start w-screen !h-auto min-h-screen overflow-y-scroll">
       <NavigationBar />
       <section
-        className={clsx(
-          ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto `
-        )}
+        className="transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto"
         style={{
           height: animetion ? "0" : "100vh",
           minHeight: animetion ? "auto" : "100%",
