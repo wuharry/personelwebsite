@@ -5,9 +5,7 @@ import { JOBEXPERIENCEOBJ } from "../../types";
 import clsx from "clsx";
 import JobExperience from "../JobExperienceCard";
 
-interface TimeLineProps {
-  // jobExperience: JOBEXPERIENCEOBJ[];
-}
+interface TimeLineProps {}
 
 const EXPERIENCELIST: JOBEXPERIENCEOBJ[] = [
   {
@@ -36,13 +34,6 @@ const EXPERIENCELIST: JOBEXPERIENCEOBJ[] = [
       "與團隊人員討論和code review來達成高品質的開發",
     ],
   },
-  // {
-  //   companyName: "testcompany3",
-  //   jobTitle: "Frontend Engineer",
-  //   time: "2023/10-2024/12",
-  //   projectName: "testProject3",
-  //   description: ["test7", "test8", "test9"],
-  // },
 ];
 const TimeLine: FunctionComponent<TimeLineProps> = () => {
   const [animetion, setAnimetion] = useState(false);
@@ -53,14 +44,10 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
     };
   }, []);
   return (
-    <div
-      className={clsx(
-        "border-l-4 border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5"
-      )}
-    >
+    <div className="border-l-4 border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5">
       <div
-        className={clsx(`relative 
-        justify-between w-full z-10 `)}
+        className="relative 
+        justify-between w-full z-10"
       >
         {EXPERIENCELIST.map((experience, index) => (
           <div
@@ -75,9 +62,7 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
                 ${animetion ? `animate-jump-in animate-delay-[1500ms]` : ``} 
                 `
               )}
-            >
-              {/* 圓點 */}
-            </div>
+            ></div>
             <JobExperience jobexperience={experience} />
           </div>
         ))}

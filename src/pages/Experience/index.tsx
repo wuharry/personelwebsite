@@ -2,7 +2,6 @@
 
 import { FunctionComponent, useEffect, useState } from "react";
 import { NavigationBar } from "../../compoment";
-// import { JOBEXPERIENCEOBJ } from "../../types";
 import TimeLine from "../../compoment/TimeLine";
 import clsx from "clsx";
 interface ExperienceProps {}
@@ -21,7 +20,7 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
       <NavigationBar />
       <section
         className={clsx(
-          ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto overflow-x-hidden
+          ` transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto 
           ${!animetion ? `h-0` : ` h-screen minh-full flex-grow`}  `
         )}
       >
