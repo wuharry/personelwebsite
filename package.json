@@ -24,7 +24,6 @@
     "preview": "vite preview",
     "test": "vite test",
     "deploy": "gh-pages -b gh-pages -d dist",
-    //這個指令是依賴gh-pages的, -b gh-pages (代表部署分支) -d dist 代表要部署的資料夾(build 後的)
     "prepare": "husky"
   },
   "homepage": "https://wuharry.github.io/personelwebsite",
