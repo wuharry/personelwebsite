@@ -22,9 +22,6 @@ const routerList = [
   { path: "/skill", element: <Skill /> },
   { path: "/contact", element: <Contact /> },
   { path: "/project", element: <WorkPage /> },
-  // { path: "works/3", element: <BlurPicture /> },
-  // { path: "works/4", element: <FlexPanel /> },
-  // { path: "works/5", element: <Instagram /> },
 ];
 
 const router = createHashRouter(routerList);

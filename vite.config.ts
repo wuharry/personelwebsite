@@ -1,22 +1,23 @@
-/** @format */
-
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
-import sassDts from "vite-plugin-sass-dts";
-import svgr from "vite-plugin-svgr";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import sassDts from 'vite-plugin-sass-dts';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig((configEnv) => {
-  // const isDevelopment = configEnv.mode === "development";
-
   return {
-    base: '/personelwebsite/',
+    base: '/personelwebsite/',  // 設置 base 屬性
     plugins: [react(), sassDts(), svgr()],
-    rules: [
-      // 其他规则...
-      {
-        test: /\.svg$/,
-        use: ["@svgr/webpack"],
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: '/assets/[name]-[hash][extname]',
+        },
       },
-    ],
+    },
+    resolve: {
+      alias: {
+        '@': '/src',  // 根據你的項目結構設置別名
+      },
+    },
   };
 });
