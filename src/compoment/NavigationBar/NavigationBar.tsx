@@ -2,7 +2,7 @@
 
 import React, { FunctionComponent, useEffect, useState } from "react";
 import clsx from "clsx";
-
+import { Link } from "react-router-dom"; //git hub 需要hash router
 interface NavigationBarProps {}
 
 const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
@@ -62,9 +62,9 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
         </a>
         <nav className={clsx(`flex justify-around items-center gap-4`)}>
           {routerList.map((item, index) => (
-            <a
+            <Link
               key={`${index}-${item.name}`}
-              href={item.link}
+              to={item.link}
               className={clsx(
                 `${aTagStyle} ${
                   navBarAnimetion
@@ -74,7 +74,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
               )}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </header>
