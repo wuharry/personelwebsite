@@ -6,7 +6,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: false,
   theme: {
     extend: {
       keyframes: {

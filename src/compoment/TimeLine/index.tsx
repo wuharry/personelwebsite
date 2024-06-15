@@ -59,9 +59,13 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
                 `absolute border-2 border-white bg-blue-300 top-[${
                   index + 1
                 }8rem] -left-[0.8rem] h-6 w-6 rounded-full
-                ${animetion ? `animate-jump-in animate-delay-[1500ms]` : ``} 
                 `
               )}
+              style={{
+                top: `${(index + 1) * 12}rem`,
+                left: "-0.8rem",
+                animationDelay: `${index * 1.5}s`,
+              }}
             ></div>
             <JobExperience jobexperience={experience} />
           </div>

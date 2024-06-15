@@ -5,18 +5,18 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig((configEnv) => {
   return {
-    base: '/personelwebsite/',  // 設置 base 屬性
+    base: '/personelwebsite/', 
     plugins: [react(), sassDts(), svgr()],
     build: {
       rollupOptions: {
         output: {
-          assetFileNames: '/assets/[name]-[hash][extname]',
+          assetFileNames: 'assets/[name]-[hash][extname]',
         },
       },
     },
     resolve: {
       alias: {
-        '@': '/src',  // 根據你的項目結構設置別名
+        '@': '/src',  
       },
     },
   };
