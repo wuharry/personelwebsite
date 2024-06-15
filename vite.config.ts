@@ -9,6 +9,7 @@ export default defineConfig((configEnv) => {
   // const isDevelopment = configEnv.mode === "development";
 
   return {
+    base: '/personelwebsite/',
     plugins: [react(), sassDts(), svgr()],
     rules: [
       // 其他规则...
@@ -17,12 +18,5 @@ export default defineConfig((configEnv) => {
         use: ["@svgr/webpack"],
       },
     ],
-    // css: {
-    //   modules: {
-    //     generateScopedName: isDevelopment
-    //       ? "[name]__[local]__[hash:base64:5]"
-    //       : "[hash:base64:5]",
-    //   },
-    // },
   };
 });
