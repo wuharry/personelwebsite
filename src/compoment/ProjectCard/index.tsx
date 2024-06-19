@@ -24,6 +24,7 @@ const ProjectCard: FC<Project> = ({
     <div
       className={clsx(
         "relative flex flex-col w-80 h-96 bg-slate-600 rounded-md",
+        "min-w-[20rem] sm:min-w-[24rem]",
         className
       )}
       onMouseEnter={handleMouseEnter}
