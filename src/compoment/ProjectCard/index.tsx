@@ -20,6 +20,10 @@ const ProjectCard: FC<Project> = ({
     setOpenDescription(false);
   };
 
+  const handleClick = () => {
+    window.open(link, "_blank");
+  };
+
   return (
     <div
       className={clsx(
@@ -46,7 +50,11 @@ const ProjectCard: FC<Project> = ({
             openDescription ? "h-full opacity-100" : "h-0 opacity-0"
           )}
         >
-          <Button onClickEvent={() => {}} className="text-red-700" type={null}>
+          <Button
+            onClickEvent={handleClick}
+            className="text-red-700"
+            type={null}
+          >
             跳轉
           </Button>
         </div>
