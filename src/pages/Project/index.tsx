@@ -14,6 +14,7 @@ const PROJECT_LIST: Project[] = [
     description: "js 的 DOM 練習,當按下按鍵的時候",
     image: day1,
     className: "mt-10",
+    // 暫時添加mt來對齊
   },
   {
     label: "JS+CSS clock",
