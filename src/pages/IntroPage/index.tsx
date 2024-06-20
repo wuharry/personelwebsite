@@ -64,24 +64,8 @@ const Intro: React.FC = () => {
     },
     {
       name: "CakeResume",
-      SVGElement: (
-        // <svg
-        //   xmlns="http://www.w3.org/2000/svg"
-        //   fill="none"
-        //   viewBox="0 0 24 24"
-        //   strokeWidth="1.5"
-        //   stroke="currentColor"
-        //   className="w-6 h-6"
-        // >
-        //   <path
-        //     strokeLinecap="round"
-        //     strokeLinejoin="round"
-        //     d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-        //   />
-        // </svg>
-        <CakeResume></CakeResume>
-      ),
-      link: "https://www.cakeresume.com/dashboard",
+      SVGElement: <CakeResume></CakeResume>,
+      link: "https://www.cakeresume.com/s--CVgjtgYwBTaPbAWMZfUNhw--/whw880218cool",
     },
     {
       name: "Telegram",
@@ -114,12 +98,10 @@ const Intro: React.FC = () => {
 
   return (
     <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full min-h-screen">
-      <div>
-        <NavigationBar />
-      </div>
+      <NavigationBar />
 
-      <section className="mt-14 mb-10 flex justify-evenly">
-        <div className={clsx(`flex justify-start flex-col`)}>
+      <section className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-col ">
+        <div className={clsx("flex justify-start flex-col sm:items-start")}>
           <h3
             className={clsx(
               `text-white text-3xl font-medium ${
@@ -201,21 +183,18 @@ const Intro: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className={clsx(`felx justify-end ml-10`)}>
-          <HeaderIcon />
-        </div>
       </section>
 
       <div
         className={clsx(
-          `flex justify-start items-center relative right-[28.5rem]`
+          "sm:flex sm:justify-start sm:items-center sm:relative right-[20.5rem]"
         )}
       >
         <Button
           className={clsx(
             ` ${
               animetion
-                ? `animate-fade animate-once animate-delay-[1ms] animate-ease-in`
+                ? "animate-fade animate-once animate-delay-[1ms] animate-ease-in"
                 : ``
             }`
           )}

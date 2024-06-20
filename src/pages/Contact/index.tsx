@@ -10,7 +10,7 @@ interface contactProps {}
 
 const Contact: FunctionComponent<contactProps> = () => {
   return (
-    <div className="flex flex-col items-start justify-start w-screen min-h-screen bg-slate-700 overflow-y-scroll">
+    <div className="flex flex-col items-start justify-start w-full h-full min-h-screen bg-slate-700 overflow-y-scroll">
       <NavigationBar />
       <section className="flex w-full mt-16 mb-10 space-y-10 px-4">
         <div className={clsx("flex-1 w-full h-ful flex flex-col p-2 m-2")}>
