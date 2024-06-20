@@ -11,7 +11,7 @@ interface SkillProps {}
 
 const Skill: FunctionComponent<SkillProps> = () => {
   return (
-    <div className="flex flex-col items-start justify-start w-screen min-h-screen bg-slate-700 overflow-y-scroll">
+    <div className="flex flex-col items-start justify-start w-full h-full min-h-screen bg-slate-700 overflow-y-scroll">
       <NavigationBar />
       <section className="flex flex-col w-full mt-14 mb-10 space-y-10 px-4">
         <div className="flex-1 bg-slate-600 p-4 flex flex-col justify-between gap-4 rounded-md">

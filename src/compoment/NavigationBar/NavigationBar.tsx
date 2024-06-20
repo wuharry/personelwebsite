@@ -53,13 +53,13 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
           `fixed top-0 left-0 w-full px-5 py-3 bg-transparent z-10 flex items-center justify-between`
         )}
       >
-        <a href="/">
+        <Link to="/">
           <div
             className={clsx(` relative text-2xl text-violet-50 font-semibold`)}
           >
             Portfolio
-          </div>{" "}
-        </a>
+          </div>
+        </Link>
         <nav className={clsx(`flex justify-around items-center gap-4`)}>
           {routerList.map((item, index) => (
             <Link

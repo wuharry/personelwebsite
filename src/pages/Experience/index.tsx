@@ -14,7 +14,7 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
   }, []);
 
   return (
-    <div className="flex bg-slate-700 flex-col items-start justify-start w-screen !h-auto min-h-screen overflow-y-scroll">
+    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full min-h-screen">
       <NavigationBar />
       <section
         className="transition-all ease-in-out duration-1000 mt-12 ml-6 w-full overflow-y-auto"
