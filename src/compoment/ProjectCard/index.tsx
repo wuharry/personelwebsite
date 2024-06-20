@@ -12,6 +12,7 @@ const ProjectCard: FC<Project> = ({
   size,
 }) => {
   const [openDescription, setOpenDescription] = useState(false);
+
   const handleMouseEnter = () => {
     setOpenDescription(true);
   };
@@ -27,7 +28,7 @@ const ProjectCard: FC<Project> = ({
   return (
     <div
       className={clsx(
-        "relative flex flex-col w-80 h-96 bg-slate-600 rounded-md",
+        "relative flex flex-col w-80 h-96 bg-slate-600 mt-0 rounded-md",
         "min-w-[20rem] sm:min-w-[24rem]",
         className
       )}

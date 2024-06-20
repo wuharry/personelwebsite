@@ -13,7 +13,7 @@ const PROJECT_LIST: Project[] = [
     link: "https://wuharry.github.io/day1/",
     description: "js 的 DOM 練習,當按下按鍵的時候",
     image: day1,
-    className: "",
+    className: "mt-10",
   },
   {
     label: "JS+CSS clock",
@@ -47,7 +47,7 @@ const PROJECT_LIST: Project[] = [
 
 const WorkPage: FunctionComponent = () => {
   return (
-    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full min-h-screen overflow-y-scroll">
+    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full min-h-screen">
       <NavigationBar />
       <section
         className={clsx(
@@ -55,14 +55,16 @@ const WorkPage: FunctionComponent = () => {
         )}
       >
         {PROJECT_LIST.map((project) => (
-          <ProjectCard
-            key={`${project.label}-${project.link}`}
-            className={project.className}
-            label={project.label}
-            description={project.description}
-            image={project.image}
-            link={project.link}
-          />
+          <>
+            <ProjectCard
+              key={`${project.label}-${project.link}`}
+              className={project.className}
+              label={project.label}
+              description={project.description}
+              image={project.image}
+              link={project.link}
+            />
+          </>
         ))}
       </section>
     </div>
