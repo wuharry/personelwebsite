@@ -11,36 +11,36 @@ module.exports = {
       keyframes: {
         progress: {
           '0%': { opacity: '0', width: '0' },
-          '100%': { opacity: '1', },
+          '100%': { opacity: '1' },
         },
       },
       animation: {
         progress: 'progress 1.5s ease-in-out forwards',
       },
-     transitionProperty: {
-        'height': 'height', 
-        'spacing': 'margin, padding', 
-        'width': 'width', 
+      transitionProperty: {
+        height: 'height',
+        spacing: 'margin, padding',
+        width: 'width',
       },
       transitionTimingFunction: {
-        'ease-in-out': 'ease-in-out', 
+        'ease-in-out': 'ease-in-out',
       },
       transitionDuration: {
-        '200': '200ms', 
+        '200': '200ms',
       },
       width: (theme: (arg0: string) => any) => ({
         'bar-width': '30px',
-        'hamburger-close-width': `calc(${theme('height.bar-height')} * 3 + ${theme('gap.hamburger-gap')} * 2) * 0.51421356237`,
+        'hamburger-close-width': '2rem',
       }),
       height: {
         'bar-height': '4px',
       },
-      gap:{
+      gap: {
         'hamburger-gap': '6px',
       },
       translate: (theme: (arg0: string) => any) => ({
-        'close-bar-height-after': `calc(0.1rem / 2)`,
-        'close-bar-height-before': `calc(0.1rem / 2)`,
+        'close-bar-height-after': `calc(${theme('height.bar-height')} / 2)`,
+        'close-bar-height-before': `calc(${theme('height.bar-height')} / -2)`,
       }),
     },
   },
