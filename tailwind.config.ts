@@ -21,6 +21,7 @@ module.exports = {
         height: 'height',
         spacing: 'margin, padding',
         width: 'width',
+        transform: 'transform', 
       },
       transitionTimingFunction: {
         'ease-in-out': 'ease-in-out',
@@ -28,10 +29,10 @@ module.exports = {
       transitionDuration: {
         '200': '200ms',
       },
-      width: (theme: (arg0: string) => any) => ({
+      width:{
         'bar-width': '30px',
         'hamburger-close-width': '2rem',
-      }),
+      },
       height: {
         'bar-height': '4px',
       },
