@@ -97,11 +97,12 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
           <label
             className={clsx(
               "before:content-[''] before:w-bar-width before:h-bar-height before:bg-slate-400 before:rounded-full",
-              "before:transition-opacity before:ease-in-out before:duration-200  before:origin-bottom-left ",
+              "before:transition-opacity before:ease-in-out before:duration-200 before:origin-bottom-left",
               "after:content-[''] after:w-bar-width after:h-bar-height after:bg-slate-400 after:rounded-full",
-              "after:transition-opacity after:ease-in-out after:duration-200 after:origin-top-left ",
+              "after:transition-opacity after:ease-in-out after:duration-200 after:origin-top-left",
               "flex flex-col gap-hamburger-gap w-max absolute top-[0.2rem] left-[0.2rem] cursor-pointer",
-              "has-[:checked]:after:box-border has-[:checked]:before:box-border before:transition-all after:transition-all",
+              "has-[:checked]:after:box-border has-[:checked]:before:box-border",
+              "before:transition-all after:transition-all",
               "has-[:checked]:before:rotate-45 has-[:checked]:after:rotate-[-45deg]",
               "has-[:checked]:before:w-hamburger-close-width has-[:checked]:after:w-hamburger-close-width",
               "has-[:checked]:before:translate-x-0 has-[:checked]:after:translate-x-0",
