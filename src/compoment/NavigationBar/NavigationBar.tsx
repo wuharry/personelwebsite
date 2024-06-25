@@ -60,10 +60,14 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
         className={clsx(
           "fixed top-0 w-full px-5 py-3 bg-transparent z-20 flex items-center transition-all ",
           hamburgerAnimation ? "w-full" : "",
-          hamburgerAnimation ? "bg-slate-800" : "",
           hamburgerAnimation ? "h-full" : "",
           "sm:justify-between justify-start"
         )}
+        style={{
+          backgroundColor: hamburgerAnimation
+            ? "rgba(0, 191, 255, 1)"
+            : "transparent",
+        }}
       >
         <Link to="/">
           <div
