@@ -1,6 +1,6 @@
 /** @format */
 import React, { useEffect, useState } from "react";
-import { Button, NavigationBar, IconButton, HeaderIcon } from "../../compoment";
+import { Button, NavigationBar, IconButton } from "../../compoment";
 import { Icon104, CakeResume } from "../../static/constant/svg";
 import clsx from "clsx";
 
@@ -97,10 +97,10 @@ const Intro: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full min-h-screen">
+    <div className="flex bg-slate-700 flex-col items-center justify-center w-full sm:h-full min-h-screen">
       <NavigationBar />
 
-      <section className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-col ">
+      <section className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-co min-h-screen ">
         <div className={clsx("flex justify-start flex-col sm:items-start")}>
           <h3
             className={clsx(
@@ -181,29 +181,29 @@ const Intro: React.FC = () => {
                 {icon.SVGElement}
               </IconButton>
             ))}
+
+            <div
+              className={clsx(
+                "sm:flex sm:justify-start sm:items-center sm:relative right-[20.5rem] sm:right-0 mt-2"
+              )}
+            >
+              <Button
+                className={clsx(
+                  ` ${
+                    animetion
+                      ? "animate-fade animate-once animate-delay-[1ms] animate-ease-in"
+                      : ``
+                  }`
+                )}
+                type=""
+                onClickEvent={handleClick}
+              >
+                關於我
+              </Button>
+            </div>
           </div>
         </div>
       </section>
-
-      <div
-        className={clsx(
-          "sm:flex sm:justify-start sm:items-center sm:relative right-[20.5rem]"
-        )}
-      >
-        <Button
-          className={clsx(
-            ` ${
-              animetion
-                ? "animate-fade animate-once animate-delay-[1ms] animate-ease-in"
-                : ``
-            }`
-          )}
-          type=""
-          onClickEvent={handleClick}
-        >
-          關於我
-        </Button>
-      </div>
     </div>
   );
 };
