@@ -14,10 +14,22 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
     };
   }, []);
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full h-full min-h-screen">
+    <div
+      className={clsx(
+        "flex bg-slate-700 flex-col items-center justify-center",
+        "w-full h-full min-h-screen ms-auto	me-auto"
+      )}
+    >
       <NavigationBar />
-      <div className={clsx(`w-full flex justify-evenly items-center gap-1`)}>
-        <HeaderIcon />
+      <div
+        className={clsx(
+          `w-full sm:flex flex-col sm:flex-row sm:justify-evenly items-center gap-1`
+        )}
+      >
+        <div className={clsx("sm:mt-0 mt-24")}>
+          <HeaderIcon />
+        </div>
+
         <section className={clsx(`mt-14 mb-10 flex flex-col justify-between`)}>
           <div className={clsx(`${animetion ? `animate-fade-down` : ``}`)}>
             <h1 className={clsx(`text-white text-4xl font-bold mx-0 my-1`)}>

@@ -11,7 +11,9 @@ export const SkillProgressBar: FC<SkillProgressBarProps> = ({
 }) => {
   return (
     <div
-      className={clsx("block justify-center items-center w-full min-w-[31rem]")}
+      className={clsx(
+        "block justify-center items-center w-full sm:min-w-[20rem] min-w-[15rem]"
+      )}
     >
       <span className={clsx("block text-sm font-semibold text-zinc-300")}>
         {label}
