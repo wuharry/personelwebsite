@@ -58,8 +58,10 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
     <>
       <header
         className={clsx(
-          "fixed top-0 w-full px-5 py-3 bg-transparent z-20 flex items-center transition-all",
-          hamburgerAnimation ? "bg-cyan-900 w-full h-full" : "",
+          "fixed top-0 w-full px-5 py-3 bg-transparent z-20 flex items-center transition-all ",
+          hamburgerAnimation ? "w-full" : "",
+          hamburgerAnimation ? "bg-slate-800" : "",
+          hamburgerAnimation ? "h-full" : "",
           "sm:justify-between justify-start"
         )}
       >
@@ -98,12 +100,11 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
           <label
             className={clsx(
               "before:content-[''] before:w-bar-width before:h-bar-height before:bg-slate-400 before:rounded-full",
-              "before:transition-opacity before:ease-in-out before:duration-200 before:origin-bottom-left",
+              "before:transition-transform before:ease-in-out before:duration-200 before:origin-bottom-left",
               "after:content-[''] after:w-bar-width after:h-bar-height after:bg-slate-400 after:rounded-full",
-              "after:transition-opacity after:ease-in-out after:duration-200 after:origin-top-left",
+              "after:transition-transform after:ease-in-out after:duration-200 after:origin-top-left",
               "flex flex-col gap-hamburger-gap w-max absolute top-[0.2rem] left-[0.2rem] cursor-pointer",
               "has-[:checked]:after:box-border has-[:checked]:before:box-border",
-              "before:transition-all after:transition-all",
               hamburgerAnimation
                 ? "before:rotate-45 after:rotate-[-45deg]"
                 : "",
@@ -117,7 +118,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
                 ? "before:translate-y-close-bar-height-before after:translate-y-close-bar-height-after"
                 : "",
               hamburgerAnimation
-                ? "before:transition-all ease-in-out duration-200 after:transition-all"
+                ? "before:transition-transform ease-in-out duration-200 after:transition-transform"
                 : ""
             )}
           >
@@ -140,7 +141,12 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
               hamburgerAnimation ? "translate-x-0" : "-translate-x-full"
             )}
           >
-            <nav className="flex flex-col gap-4 w-full h-full">
+            <nav
+              className={clsx(
+                "flex flex-col gap-4 h-full transition-transform"
+                // hamburgerAnimation ? "w-full" : "w-0"
+              )}
+            >
               {ROUTER_LIST.map((item, index) => (
                 <Link
                   key={`${index}-${item.name}`}
@@ -149,7 +155,8 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
                     LINK_STYLE,
                     navBarAnimation
                       ? "animate-fade-down animate-once animate-ease-in"
-                      : ""
+                      : "",
+                    hamburgerAnimation ? "block" : "hidden"
                   )}
                 >
                   {item.name}
