@@ -13,13 +13,21 @@ const Contact: FunctionComponent<contactProps> = () => {
     <div
       className={clsx(
         'flex sm:flex-col items-start justify-start',
-        'sm:w-full sm:h-full bg-slate-700 overflow-y-scroll',
-        'min-h-screen'
+        'w-full min-h-screen',
+        'bg-gradient-to-b from-[#1f2937] to-[#111827]',
+        'overflow-y-auto'
       )}
     >
       <NavigationBar />
-      <section className="flex sm:flex-row flex-col sm:w-full min-w-fit mt-16 mb-10 space-y-10 px-4">
-        <div className={clsx('flex-1 w-full h-ful flex flex-col p-2 m-2')}>
+      <section
+        className={clsx(
+          'flex sm:flex-row flex-col sm:w-full',
+          'mt-20 sm:mt-14 mb-10 space-y-10 px-4',
+          'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
+          'max-w-7xl mx-auto'
+        )}
+      >
+        <div className={clsx('flex-1 w-full h-full flex flex-col')}>
           {/* 文字區 */}
           <div className={clsx('mb-8 text-start')}>
             {/* 標題 */}
