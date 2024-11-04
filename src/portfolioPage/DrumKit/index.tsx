@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import day1 from "../../assets/day1.png";
+import React, { useState } from 'react';
+import day1 from '../../assets/day1.png';
 
 export const DrumKit: React.FC = () => {
   const [imgshader, setImgshader] = useState(false);

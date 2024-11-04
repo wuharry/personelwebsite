@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig((configEnv) => {
   return {
-    base: '/personelwebsite/', 
+    base: '/personelwebsite/',
     plugins: [react(), sassDts(), svgr()],
     build: {
       rollupOptions: {
@@ -16,7 +16,7 @@ export default defineConfig((configEnv) => {
     },
     resolve: {
       alias: {
-        '@': '/src',  
+        '@': '/src',
       },
     },
   };

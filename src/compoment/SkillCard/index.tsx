@@ -1,6 +1,6 @@
-import { FC, useEffect, useRef, useState } from "react";
-import clsx from "clsx";
-import { SkillCardProps } from "./type";
+import { FC, useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
+import { SkillCardProps } from './type';
 
 const SkillCard: FC<SkillCardProps> = ({
   label,
@@ -24,10 +24,10 @@ const SkillCard: FC<SkillCardProps> = ({
     };
 
     updateSize();
-    window.addEventListener("resize", updateSize);
+    window.addEventListener('resize', updateSize);
 
     return () => {
-      window.removeEventListener("resize", updateSize);
+      window.removeEventListener('resize', updateSize);
     };
   }, [percentage]);
 
@@ -49,7 +49,7 @@ const SkillCard: FC<SkillCardProps> = ({
   return (
     <div
       className={clsx(
-        "w-1/4 h-52 bg-white rounded-lg shadow-lg shadow-slate-50",
+        'w-1/4 h-52 bg-white rounded-lg shadow-lg shadow-slate-50',
         `flex flex-col items-center justify-around text-fuchsia-500 text-center`,
         className
       )}
@@ -60,7 +60,7 @@ const SkillCard: FC<SkillCardProps> = ({
           cx="50"
           cy="50"
           r="45"
-          stroke={progressColor ? progressColor : "blue"}
+          stroke={progressColor ? progressColor : 'blue'}
           strokeWidth="5"
           fill="none"
         />
@@ -76,7 +76,7 @@ const SkillCard: FC<SkillCardProps> = ({
           ref={ref}
           strokeDasharray={`${circumference}px`} //白線的部分是圓周長
           style={{
-            transition: "stroke-dashoffset 2s ease-in-out",
+            transition: 'stroke-dashoffset 2s ease-in-out',
             strokeDashoffset: dashOffset, //白線的偏移量,會是從0~(圓周長 - (100-percentage)的長度),那麼過度偏移的stroke會被忽略只會剩下還在圓周長範圍內的
           }}
         />
@@ -91,7 +91,7 @@ const SkillCard: FC<SkillCardProps> = ({
           {`${percentage}%`}
         </text>
       </svg>
-      <p className={clsx("font-bold text-center text-2xl")}>{label}</p>
+      <p className={clsx('font-bold text-center text-2xl')}>{label}</p>
     </div>
   );
 };

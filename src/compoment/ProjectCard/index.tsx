@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
-import clsx from "clsx";
-import { Project } from "./type";
-import Button from "../Button/Button";
+import { FC, useState } from 'react';
+import clsx from 'clsx';
+import { Project } from './type';
+import Button from '../Button/Button';
 
 const ProjectCard: FC<Project> = ({
   label,
@@ -22,14 +22,14 @@ const ProjectCard: FC<Project> = ({
   };
 
   const handleClick = () => {
-    window.open(link, "_blank");
+    window.open(link, '_blank');
   };
 
   return (
     <div
       className={clsx(
-        "relative flex flex-col w-80 h-96 bg-slate-600 mt-0 rounded-md",
-        "min-w-[20rem] sm:min-w-[24rem]",
+        'relative flex flex-col w-80 h-96 bg-slate-600 mt-0 rounded-md',
+        'min-w-[20rem] sm:min-w-[24rem]',
         className
       )}
       onMouseEnter={handleMouseEnter}
@@ -44,11 +44,11 @@ const ProjectCard: FC<Project> = ({
         {/* hover跳上來區域 */}
         <div
           className={clsx(
-            "group-hover:block text-white mt-2 text-center w-full ",
-            "absolute flex justify-center items-center flex-col gap-2",
-            "bg-gradient-to-t from-white to-transparent bottom-7 left-0",
-            " transition-all duration-300 ease-in-out rounded-b-lg",
-            openDescription ? "h-full opacity-100" : "h-0 opacity-0"
+            'group-hover:block text-white mt-2 text-center w-full ',
+            'absolute flex justify-center items-center flex-col gap-2',
+            'bg-gradient-to-t from-white to-transparent bottom-7 left-0',
+            ' transition-all duration-300 ease-in-out rounded-b-lg',
+            openDescription ? 'h-full opacity-100' : 'h-0 opacity-0'
           )}
         >
           <Button
@@ -61,7 +61,7 @@ const ProjectCard: FC<Project> = ({
         </div>
       </div>
       <div
-        className={clsx("flex flex-col items-center justify-center mb  -1.5")}
+        className={clsx('flex flex-col items-center justify-center mb  -1.5')}
       >
         <h2 className="text-white text-2xl">{label}</h2>
         <p className="text-white">{description}</p>

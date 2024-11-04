@@ -1,6 +1,6 @@
-import React from "react";
-import day5 from "../../assets/day5.png";
-import { useState } from "react";
+import React from 'react';
+import day5 from '../../assets/day5.png';
+import { useState } from 'react';
 
 interface InstagramProps {
   // 這裡可以定義額外的 props

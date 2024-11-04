@@ -1,37 +1,37 @@
 /** @format */
 
-import { FunctionComponent, useEffect, useState } from "react";
-import { JOBEXPERIENCEOBJ } from "../../types";
-import clsx from "clsx";
-import JobExperience from "../JobExperienceCard";
+import { FunctionComponent, useEffect, useState } from 'react';
+import { JOBEXPERIENCEOBJ } from '../../types';
+import clsx from 'clsx';
+import JobExperience from '../JobExperienceCard';
 
 interface TimeLineProps {}
 
 const EXPERIENCELIST: JOBEXPERIENCEOBJ[] = [
   {
-    companyName: "英業達Inventec",
-    jobTitle: "MES Frontend Engineer",
-    time: "2022/10 - 2023/05",
-    projectName: "工廠生產線站台系統",
+    companyName: '英業達Inventec',
+    jobTitle: 'MES Frontend Engineer',
+    time: '2022/10 - 2023/05',
+    projectName: '工廠生產線站台系統',
     description: [
-      "新站台後端功能的開發",
-      "維護舊站台功能,添加輸入防呆機制以防人為輸入錯誤",
-      "協助站台資料錯誤的除錯",
+      '新站台後端功能的開發',
+      '維護舊站台功能,添加輸入防呆機制以防人為輸入錯誤',
+      '協助站台資料錯誤的除錯',
     ],
   },
   {
-    companyName: "PGTalk必礦科技",
-    jobTitle: "Frontend Engineer",
-    time: "2023/05 - now",
-    projectName: "亞通兌點後台",
+    companyName: 'PGTalk必礦科技',
+    jobTitle: 'Frontend Engineer',
+    time: '2023/05 - now',
+    projectName: '亞通兌點後台',
     description: [
-      "符合PM的需求以及SA文件去開發新的功能跟頁面",
-      "根據PM需求開發出客製化的時間選擇器",
-      "將重複性高的部分做成通用元件,以便簡化網頁",
-      "refector:移除不必要的react優化",
-      "refector:移除不符合react寫法上的程式",
-      "refector:將資料處理的部分改成以hook的方式處理",
-      "與團隊人員討論和code review來達成高品質的開發",
+      '符合PM的需求以及SA文件去開發新的功能跟頁面',
+      '根據PM需求開發出客製化的時間選擇器',
+      '將重複性高的部分做成通用元件,以便簡化網頁',
+      'refector:移除不必要的react優化',
+      'refector:移除不符合react寫法上的程式',
+      'refector:將資料處理的部分改成以hook的方式處理',
+      '與團隊人員討論和code review來達成高品質的開發',
     ],
   },
 ];
@@ -63,7 +63,7 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
               )}
               style={{
                 top: `${(index + 1) * 12}rem`,
-                left: "-0.8rem",
+                left: '-0.8rem',
                 animationDelay: `${index * 1.5}s`,
               }}
             ></div>
