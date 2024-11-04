@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import day4 from "../../assets/day4.png";
+import React, { useState } from 'react';
+import day4 from '../../assets/day4.png';
 
 const FlexPanel: React.FC = () => {
   const [imgshader, setImgshader] = useState(false);

@@ -1,7 +1,7 @@
 /** @format */
 
-import clsx from "clsx";
-import { FunctionComponent, ReactNode, useEffect } from "react";
+import clsx from 'clsx';
+import { FunctionComponent, ReactNode, useEffect } from 'react';
 
 interface IconButtonProps {
   onClickEvent: () => void;

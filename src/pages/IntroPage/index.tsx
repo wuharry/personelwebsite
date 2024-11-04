@@ -1,18 +1,18 @@
 /** @format */
-import React, { useEffect, useState } from "react";
-import { Button, NavigationBar, IconButton } from "../../compoment";
-import { Icon104, CakeResume } from "../../static/constant/svg";
-import clsx from "clsx";
+import React, { useEffect, useState } from 'react';
+import { Button, NavigationBar, IconButton } from '../../compoment';
+import { Icon104, CakeResume } from '../../static/constant/svg';
+import clsx from 'clsx';
 
 const Intro: React.FC = () => {
   const [animetion, setAnimetion] = useState(false);
   const linkHandler = (link: string) => {
-    window.open(link, "_blank");
+    window.open(link, '_blank');
   };
   const handleClick = () => {};
   const ICONLIST = [
     {
-      name: "GitHub",
+      name: 'GitHub',
       SVGElement: (
         <>
           <svg
@@ -30,10 +30,10 @@ const Intro: React.FC = () => {
           </svg>
         </>
       ),
-      link: "https://github.com/wuharry",
+      link: 'https://github.com/wuharry',
     },
     {
-      name: "Gmail",
+      name: 'Gmail',
       SVGElement: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -45,10 +45,10 @@ const Intro: React.FC = () => {
           <path d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64z"></path>
         </svg>
       ),
-      link: "mailto:whw880218we@gmail.com",
+      link: 'mailto:whw880218we@gmail.com',
     },
     {
-      name: "Linkedin",
+      name: 'Linkedin',
       SVGElement: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -60,15 +60,15 @@ const Intro: React.FC = () => {
           <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path>
         </svg>
       ),
-      link: "https://www.linkedin.com/feed/",
+      link: 'https://www.linkedin.com/feed/',
     },
     {
-      name: "CakeResume",
+      name: 'CakeResume',
       SVGElement: <CakeResume></CakeResume>,
-      link: "https://www.cakeresume.com/s--CVgjtgYwBTaPbAWMZfUNhw--/whw880218cool",
+      link: 'https://www.cakeresume.com/s--CVgjtgYwBTaPbAWMZfUNhw--/whw880218cool',
     },
     {
-      name: "Telegram",
+      name: 'Telegram',
       SVGElement: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -80,12 +80,12 @@ const Intro: React.FC = () => {
           <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path>
         </svg>
       ),
-      link: "https://web.telegram.org/a/",
+      link: 'https://web.telegram.org/a/',
     },
     {
-      name: "104Bank",
+      name: '104Bank',
       SVGElement: <Icon104></Icon104>,
-      link: "https://pda.104.com.tw/profile/share/8sw2sYtjxtWwHu7cKUoGcgPZdo9ocnmu",
+      link: 'https://pda.104.com.tw/profile/share/8sw2sYtjxtWwHu7cKUoGcgPZdo9ocnmu',
     },
   ];
 
@@ -101,7 +101,7 @@ const Intro: React.FC = () => {
       <NavigationBar />
 
       <section className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-co min-h-screen ">
-        <div className={clsx("flex justify-start flex-col sm:items-start")}>
+        <div className={clsx('flex justify-start flex-col sm:items-start')}>
           <h3
             className={clsx(
               `text-white text-3xl font-medium ${
@@ -184,14 +184,14 @@ const Intro: React.FC = () => {
 
             <div
               className={clsx(
-                "sm:flex sm:justify-start sm:items-center sm:relative right-[20.5rem] sm:right-0 mt-2"
+                'sm:flex sm:justify-start sm:items-center sm:relative right-[20.5rem] sm:right-0 mt-2'
               )}
             >
               <Button
                 className={clsx(
                   ` ${
                     animetion
-                      ? "animate-fade animate-once animate-delay-[1ms] animate-ease-in"
+                      ? 'animate-fade animate-once animate-delay-[1ms] animate-ease-in'
                       : ``
                   }`
                 )}

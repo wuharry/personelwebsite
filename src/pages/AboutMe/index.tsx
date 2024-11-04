@@ -1,8 +1,8 @@
 /** @format */
 
-import { FunctionComponent, useEffect, useState } from "react";
-import { NavigationBar, HeaderIcon } from "../../compoment";
-import clsx from "clsx";
+import { FunctionComponent, useEffect, useState } from 'react';
+import { NavigationBar, HeaderIcon } from '../../compoment';
+import clsx from 'clsx';
 interface AboutMeProps {}
 
 const AboutMe: FunctionComponent<AboutMeProps> = () => {
@@ -16,8 +16,8 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
   return (
     <div
       className={clsx(
-        "flex bg-slate-700 flex-col items-center justify-center",
-        "w-full h-full min-h-screen ms-auto	me-auto"
+        'flex bg-slate-700 flex-col items-center justify-center',
+        'w-full h-full min-h-screen ms-auto	me-auto'
       )}
     >
       <NavigationBar />
@@ -26,7 +26,7 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
           `w-full sm:flex flex-col sm:flex-row sm:justify-evenly items-center gap-1`
         )}
       >
-        <div className={clsx("sm:mt-0 mt-24")}>
+        <div className={clsx('sm:mt-0 mt-24')}>
           <HeaderIcon />
         </div>
 

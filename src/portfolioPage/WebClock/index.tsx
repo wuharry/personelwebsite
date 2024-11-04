@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import day2 from "../../assets/day2.png";
+import React, { useState } from 'react';
+import day2 from '../../assets/day2.png';
 
 const WebClock: React.FC = () => {
   const [imgshader, setImgshader] = useState(false);

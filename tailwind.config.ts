@@ -1,10 +1,10 @@
-import eslintPlugin from "vite-plugin-eslint";
+import eslintPlugin from 'vite-plugin-eslint';
 
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
@@ -21,7 +21,7 @@ module.exports = {
         height: 'height',
         spacing: 'margin, padding',
         width: 'width',
-        transform: 'transform', 
+        transform: 'transform',
       },
       transitionTimingFunction: {
         'ease-in-out': 'ease-in-out',
@@ -29,7 +29,7 @@ module.exports = {
       transitionDuration: {
         '200': '200ms',
       },
-      width:{
+      width: {
         'bar-width': '30px',
         'hamburger-close-width': '2rem',
       },
@@ -50,8 +50,8 @@ module.exports = {
   },
   plugins: [
     eslintPlugin({
-      exclude: ["/@react-refresh", "**/*.css"],
+      exclude: ['/@react-refresh', '**/*.css'],
     }),
-    require("tailwindcss-animated"),
+    require('tailwindcss-animated'),
   ],
 };

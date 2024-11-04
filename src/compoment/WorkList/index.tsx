@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { WORKPROPS } from "../../types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { WORKPROPS } from '../../types';
 
 interface WorkListProps {
   dataSource: WORKPROPS[];
