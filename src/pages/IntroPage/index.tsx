@@ -95,105 +95,105 @@ const Intro: React.FC = () => {
       setTimeout(() => setAnimetion(false), 7000);
     };
   }, []);
-
   return (
-    <div className="flex bg-slate-700 flex-col items-center justify-center w-full sm:h-full min-h-screen">
+    <div
+      className="flex flex-col items-center justify-center w-full min-h-screen
+        bg-gradient-to-b from-[#1f2937] to-[#111827]"
+    >
       <NavigationBar />
 
-      <section className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-co min-h-screen ">
+      <section
+        className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-col min-h-screen
+          backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl w-full max-w-7xl mx-auto"
+      >
         <div className={clsx('flex justify-start flex-col sm:items-start')}>
+          {/* Hello 標題使用漸變色 */}
           <h3
             className={clsx(
-              `text-white text-3xl font-medium ${
-                animetion
-                  ? `animate-fade-down animate-once animate-ease-in`
-                  : ``
-              }`
+              `text-3xl font-medium bg-gradient-to-r from-[#0ef] to-[#2563eb] 
+                 bg-clip-text text-transparent`,
+              animetion ? `animate-fade-down animate-once animate-ease-in` : ``
             )}
           >
             Hello 你好
           </h3>
+
+          {/* 名字使用白色並加大字體 */}
           <h1
             className={clsx(
-              `text-white text-4xl font-bold mx-0 my-1 ${
-                animetion
-                  ? `animate-fade-right animate-once animate-ease-in`
-                  : ``
-              }`
+              `text-white text-5xl font-bold mx-0 my-3
+                 drop-shadow-lg`,
+              animetion ? `animate-fade-right animate-once animate-ease-in` : ``
             )}
           >
             我是 吳浩維
           </h1>
+
+          {/* 職稱使用半透明白色 */}
           <h3
             className={clsx(
-              `text-white text-3xl font-medium ${
-                animetion ? `animate-fade-up animate-once animate-ease-in` : ``
-              }`
+              `text-white/90 text-3xl font-medium`,
+              animetion ? `animate-fade-up animate-once animate-ease-in` : ``
             )}
           >
             我是一名前端工程師
           </h3>
 
+          {/* 內容文字使用更柔和的顏色 */}
           <div
             className={clsx(
-              `${
-                animetion
-                  ? `animate-fade-left animate-once animate-ease-in`
-                  : ``
-              }`
+              `mt-8 space-y-4`,
+              animetion ? `animate-fade-left animate-once animate-ease-in` : ``
             )}
           >
-            <p className="text-gray-300 mt-2">關於我：</p>
-            <p className="text-gray-300 mt-4">
+            <p className="text-[#94a3b8] font-medium text-lg">關於我：</p>
+            <p className="text-[#cbd5e1] leading-relaxed">
               充滿熱情的前端工程師，擁有 1 年以上前端開發經驗，尋求新的挑戰。
-              {/* Passionate Front-End Engineer with 1+ years of experience seeking new challenges. */}
-              {/* TODO:多語系 */}
             </p>
-            <p className="text-gray-300 mt-4">
+            <p className="text-[#cbd5e1] leading-relaxed">
               熟悉 JavaScript、React 和 Linux 系統。
-              {/* Expertise in JavaScript, React, and Linux systems.*/}
-              {/* TODO:多語系 */}
               有解決問題的能力，對程式有高品質要求，並善於與他人溝通,合作。
             </p>
-            {/* Strong communication, collaboration, and problem-solving skills. */}
-            {/* TODO:多語系+文字不對
-             */}
-            <p className="text-gray-300 mt-4">渴望學習和成長，始終追求卓越。</p>
-            {/* Eager to learn and grow, always striving for excellence.
-             */}
-            {/* TODO:多語系 */}
-
-            <p className="text-gray-300 mt-2">聯絡方式:</p>
+            <p className="text-[#cbd5e1] leading-relaxed">
+              渴望學習和成長，始終追求卓越。
+            </p>
+            <p className="text-[#94a3b8] font-medium text-lg mt-6">
+              聯絡方式：
+            </p>
           </div>
-          <div>
+
+          {/* 社交媒體圖標區域 */}
+          <div className="mt-6">
             {ICONLIST.map((icon, index) => (
               <IconButton
                 onClickEvent={() => linkHandler(icon.link)}
                 key={`${icon.name}-${index}`}
                 classname={clsx(
-                  `${
-                    animetion
-                      ? `animate-fade animate-once animate-delay-[1s] animate-ease-in`
-                      : ``
-                  }`
+                  `hover:scale-110 transition-transform duration-300
+                     bg-white/10 hover:bg-white/20 rounded-full p-2 mx-2
+                     backdrop-blur-sm`,
+                  animetion
+                    ? `animate-fade animate-delay-[1s] animate-ease-in`
+                    : ``
                 )}
               >
                 {icon.SVGElement}
               </IconButton>
             ))}
 
+            {/* 關於我按鈕 */}
             <div
-              className={clsx(
-                'sm:flex sm:justify-start sm:items-center sm:relative right-[20.5rem] sm:right-0 mt-2'
-              )}
+              className={clsx('sm:flex sm:justify-start sm:items-center mt-8')}
             >
               <Button
                 className={clsx(
-                  ` ${
-                    animetion
-                      ? 'animate-fade animate-once animate-delay-[1ms] animate-ease-in'
-                      : ``
-                  }`
+                  `bg-gradient-to-r from-[#0ef] to-[#2563eb]
+                     hover:opacity-90 transition-opacity duration-300
+                     text-white font-medium px-6 py-3 rounded-lg
+                     shadow-lg hover:shadow-xl`,
+                  animetion
+                    ? 'animate-fade animate-delay-[1ms] animate-ease-in'
+                    : ``
                 )}
                 type=""
                 onClickEvent={handleClick}

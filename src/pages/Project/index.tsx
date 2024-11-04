@@ -48,11 +48,20 @@ const PROJECT_LIST: Project[] = [
 
 const WorkPage: FunctionComponent = () => {
   return (
-    <div className="flex bg-slate-700 flex-col items-start justify-start w-full h-full min-h-screen">
+    <div
+      className={clsx(
+        'flex flex-col items-start justify-start',
+        'w-full min-h-screen',
+        'bg-gradient-to-b from-[#1f2937] to-[#111827]'
+      )}
+    >
       <NavigationBar />
       <section
         className={clsx(
-          'flex flex-wrap gap-8 w-full mt-16 mb-10 space-y-10 px-4'
+          'w-full max-w-7xl mx-auto',
+          'mt-20 sm:mt-14 mb-10 px-4',
+          'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
+          'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'
         )}
       >
         {PROJECT_LIST.map((project) => (

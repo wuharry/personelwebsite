@@ -16,21 +16,24 @@ const AboutMe: FunctionComponent<AboutMeProps> = () => {
   return (
     <div
       className={clsx(
-        'flex bg-slate-700 flex-col items-center justify-center',
-        'w-full h-full min-h-screen ms-auto	me-auto'
+        'flex flex-col items-center justify-center',
+        'w-full min-h-screen',
+        'bg-gradient-to-b from-[#1f2937] to-[#111827]'
       )}
     >
       <NavigationBar />
       <div
         className={clsx(
-          `w-full sm:flex flex-col sm:flex-row sm:justify-evenly items-center gap-1`
+          'w-full sm:flex flex-col sm:flex-row sm:justify-evenly items-center gap-1',
+          'mt-20 sm:mt-14 backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
+          'max-w-7xl mx-auto'
         )}
       >
-        <div className={clsx('sm:mt-0 mt-24')}>
+        <div className={clsx('sm:mt-0')}>
           <HeaderIcon />
         </div>
 
-        <section className={clsx(`mt-14 mb-10 flex flex-col justify-between`)}>
+        <section className={clsx('flex flex-col justify-between')}>
           <div className={clsx(`${animetion ? `animate-fade-down` : ``}`)}>
             <h1 className={clsx(`text-white text-4xl font-bold mx-0 my-1`)}>
               我是 吳浩維

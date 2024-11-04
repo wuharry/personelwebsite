@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
@@ -36,16 +34,10 @@ const ROUTER_LIST: RouteItem[] = [
     link: '/contact',
   },
 ];
-type ActiveSection = (typeof ROUTER_LIST)[number]['name'];
-
-const LINK_STYLE: string = `
-  inline-block text-2xl text-white text-decoration-none font-medium ml-9 
-  transition duration-300 hover:text-[#0ef]
-`;
 
 const STYLES = {
   link: `
-    inline-block text-2xl font-medium ml-9 
+    inline-block text-xl font-medium
     relative                            
     transition-all duration-300
     text-white hover:text-[#0ef]
@@ -67,11 +59,12 @@ const STYLES = {
     hover:after:opacity-100           
     hover:after:scale-x-100    
   `,
-  activeLink: `text-[#0ef] relative after:content-[''] 
-              after:absolute after:bottom-[-5px] after:left-0 after:opacity-100 
-              after:w-full after:h-[2px] after:bg-[#0ef] after:scale-x-100 `,
-  hamburgerBase: `flex flex-col gap-hamburger-gap w-max 
-                  absolute top-[0.2rem] left-[0.2rem] cursor-pointer`,
+  mobileLink: `
+    block w-full text-xl font-medium py-4
+    text-center
+    transition-all duration-300
+    text-white hover:text-[#0ef]
+  `,
 } as const;
 
 const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
@@ -85,8 +78,8 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      setTimeout(() => setNavBarAnimation(false), 5000);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
@@ -96,138 +89,104 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
   };
 
   return (
-    <>
+    <header className="relative">
+      {/* Fixed Navigation Bar */}
       <nav
         className={clsx(
-          'fixed top-0 w-full px-5 py-3 bg-transparent z-20 flex items-center transition-all ',
-          hamburgerAnimation ? 'w-full' : '',
-          hamburgerAnimation ? 'bg-sky-600' : '',
-          hamburgerAnimation ? 'h-full' : '',
-          'sm:justify-between justify-start',
-          `fixed w-full transition-all duration-300 ${
-            scrolled
-              ? 'bg-[#1f2937]/90 backdrop-blur-md shadow-lg'
-              : 'bg-transparent'
-          }`
+          'fixed top-0 left-0 right-0 px-5 py-3 z-50',
+          'transition-all duration-300',
+          'flex items-center justify-between',
+          scrolled
+            ? 'bg-[#1f2937]/90 backdrop-blur-md shadow-lg'
+            : 'bg-transparent'
         )}
-        style={{
-          backgroundColor: hamburgerAnimation
-            ? 'rgba(0, 191, 255, 1)'
-            : 'transparent',
-        }}
       >
-        <Link to="/">
-          <div className="text-2xl font-bold bg-gradient-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-transparent">
-            Portfolio
-          </div>
-        </Link>
-        <div
+        {/* Logo/Title */}
+        <Link
+          to="/"
           className={clsx(
-            'sm:flex sm:justify-around sm:items-center sm:gap-4',
-            'hidden sm:flex'
+            'z-50 text-2xl font-bold',
+            'bg-gradient-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-transparent',
+            'sm:ml-0 ml-12'
           )}
         >
+          Portfolio
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden sm:flex sm:items-center sm:gap-8">
           {ROUTER_LIST.map((item, index) => (
             <Link
               key={`${index}-${item.name}`}
               to={item.link}
               className={clsx(
                 STYLES.link,
-                navBarAnimation
-                  ? 'animate-fade-down animate-once animate-ease-in'
-                  : ''
+                navBarAnimation &&
+                  'animate-fade-down animate-once animate-ease-in'
               )}
             >
               {item.name}
             </Link>
           ))}
         </div>
-        <div className={clsx('sm:hidden block')}>
-          <label
+
+        {/* Hamburger Button */}
+        <button
+          onClick={handleHamburgerClick}
+          className={clsx(
+            'sm:hidden fixed top-5 left-5 z-50',
+            'w-8 h-6 flex flex-col justify-between',
+            'focus:outline-none'
+          )}
+        >
+          <span
             className={clsx(
-              "before:content-[''] before:w-bar-width before:h-bar-height before:bg-slate-400 before:rounded-full",
-              'before:transition-transform before:ease-in-out before:duration-200 before:origin-bottom-left',
-              "after:content-[''] after:w-bar-width after:h-bar-height after:bg-slate-400 after:rounded-full",
-              'after:transition-transform after:ease-in-out after:duration-200 after:origin-top-left',
-              'flex flex-col gap-hamburger-gap w-max absolute top-[0.2rem] left-[0.2rem] cursor-pointer',
-              'has-[:checked]:after:box-border has-[:checked]:before:box-border',
-              hamburgerAnimation
-                ? 'before:rotate-45 after:rotate-[-45deg]'
-                : '',
-              hamburgerAnimation
-                ? 'before:w-hamburger-close-width after:w-hamburger-close-width'
-                : '',
-              hamburgerAnimation
-                ? 'before:translate-x-0 after:translate-x-0'
-                : '',
-              hamburgerAnimation
-                ? 'before:translate-y-close-bar-height-before after:translate-y-close-bar-height-after'
-                : '',
-              hamburgerAnimation
-                ? 'before:transition-transform ease-in-out duration-200 after:transition-transform'
-                : ''
+              'w-full h-0.5 bg-white transition-all duration-300',
+              hamburgerAnimation && 'rotate-45 translate-y-2.5'
             )}
-          >
-            <input
-              type="checkbox"
-              name="hamburger-button"
-              id="hamburger-button"
-              onChange={handleHamburgerClick}
-              checked={hamburgerAnimation}
-              className={clsx(
-                "content-[''] w-bar-width h-bar-height bg-slate-400 rounded-full appearance-none",
-                'p-0 m-0 outline-none pointer-events-none transition-opacity ease-in-out duration-200',
-                hamburgerAnimation ? 'opacity-0 w-0' : 'opacity-100 w-bar-width'
-              )}
-            />
-          </label>
-          <aside
+          />
+          <span
             className={clsx(
-              'transition-transform',
-              hamburgerAnimation ? 'translate-x-0' : '-translate-x-full'
+              'w-full h-0.5 bg-white transition-all duration-300',
+              hamburgerAnimation && 'opacity-0'
             )}
-          >
-            <div
+          />
+          <span
+            className={clsx(
+              'w-full h-0.5 bg-white transition-all duration-300',
+              hamburgerAnimation && '-rotate-45 -translate-y-2.5'
+            )}
+          />
+        </button>
+      </nav>
+      {/* Mobile Menu Overlay */}
+      <div
+        className={clsx(
+          'sm:hidden fixed inset-0 z-40',
+          'transition-all duration-300 ease-in-out',
+          hamburgerAnimation
+            ? 'opacity-100 visible bg-[#1f2937]/95'
+            : 'opacity-0 invisible pointer-events-none'
+        )}
+      >
+        {/* Mobile Menu Items Container */}
+        <div className="h-full flex flex-col items-center justify-center pt-16">
+          {ROUTER_LIST.map((item, index) => (
+            <Link
+              key={`mobile-${index}-${item.name}`}
+              to={item.link}
+              onClick={() => setHamburgerAnimation(false)}
               className={clsx(
-                'flex flex-col gap-4 h-full transition-transform'
-                // hamburgerAnimation ? "w-full" : "w-0"
+                STYLES.mobileLink,
+                activeSection === item.name && 'text-[#0ef]'
               )}
             >
-              {ROUTER_LIST.map((item, index) => (
-                <Link
-                  key={`${index}-${item.name}`}
-                  to={item.link}
-                  className={clsx(
-                    LINK_STYLE,
-                    navBarAnimation
-                      ? 'animate-fade-down animate-once animate-ease-in'
-                      : '',
-                    hamburgerAnimation ? 'block' : 'hidden',
-                    activeSection === item.name
-                      ? 'text-[#0ef]' // 活動項目使用亮藍色
-                      : 'text-white hover:text-[#0ef]/80' // 非活動項目使用白色，懸停時使用半透明亮藍色
-                  )}
-                >
-                  {item.name}
-                  {activeSection === item.name && (
-                    <div
-                      className="
-                    absolute bottom-0 left-0 
-                    w-full h-0.5 
-                    bg-gradient-to-r from-[#0ef] to-[#2563eb] 
-                    rounded-full
-                    transform transition-transform duration-300 
-                    hover:scale-x-110
-                  "
-                    />
-                  )}
-                </Link>
-              ))}
-            </div>
-          </aside>
+              {item.name}
+            </Link>
+          ))}
         </div>
-      </nav>
-    </>
+      </div>
+    </header>
   );
 };
 

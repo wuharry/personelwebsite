@@ -7,13 +7,23 @@ import { SkillProgressBar } from '../../compoment/SkillProgressBar';
 import clsx from 'clsx';
 import { SKILLS } from '../../static/constant/data/skillProgresion';
 
-interface SkillProps {}
+interface ExperienceProps {}
 
-const Skill: FunctionComponent<SkillProps> = () => {
+const Skill: FunctionComponent<ExperienceProps> = () => {
   return (
-    <div className="flex flex-col items-start justify-start w-full h-full min-h-screen bg-slate-700 overflow-y-scroll">
+    <div
+      className={clsx(
+        'flex flex-col items-center justify-start w-full min-h-screen',
+        'bg-gradient-to-b from-[#1f2937] to-[#111827]' // 使用漸層背景
+      )}
+    >
       <NavigationBar />
-      <section className="flex flex-col w-full mt-14 mb-10 space-y-10 px-4">
+      <section
+        className={clsx(
+          'mt-20 sm:mt-14 sm:mb-10 w-full max-w-7xl mx-auto',
+          'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl'
+        )}
+      >
         <div className="flex-1 bg-slate-600 p-4 flex flex-col justify-between gap-4 rounded-md">
           <h2 className="text-lg font-semibold mb-4 text-white">
             Technical Skills
