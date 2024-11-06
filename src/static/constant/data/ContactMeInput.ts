@@ -1,28 +1,33 @@
-interface input {
+interface InputField<T> {
   label: string;
-  type: string;
-  name: string;
+  type: 'text' | 'email' | 'textarea';
+  name: keyof T;
 }
-
-export const CONTACT_ME_INPUTS: input[] = [
+export type Inputs = {
+  Name: string;
+  Email: string;
+  Subject: string;
+  Message: string;
+};
+export const CONTACT_ME_INPUTS: InputField<Inputs>[] = [
   {
     label: 'Name',
     type: 'text',
-    name: 'Name',
+    name: 'Name' as keyof Inputs,
   },
   {
     label: 'Email',
     type: 'email',
-    name: 'Email',
+    name: 'Email' as keyof Inputs,
   },
   {
     label: 'Subject',
     type: 'text',
-    name: 'Subject',
+    name: 'Subject' as keyof Inputs,
   },
   {
     label: 'Message',
     type: 'textarea',
-    name: 'Message',
+    name: 'Message' as keyof Inputs,
   },
 ];

@@ -3,13 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { Button, NavigationBar, IconButton } from '../../compoment';
 import { Icon104, CakeResume } from '../../static/constant/svg';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 
 const Intro: React.FC = () => {
   const [animetion, setAnimetion] = useState(false);
   const linkHandler = (link: string) => {
     window.open(link, '_blank');
   };
-  const handleClick = () => {};
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/about', { replace: true });
+  };
   const ICONLIST = [
     {
       name: 'GitHub',
