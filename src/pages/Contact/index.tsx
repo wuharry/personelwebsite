@@ -2,13 +2,52 @@
 
 import { FunctionComponent } from 'react';
 import { NavigationBar } from '../../compoment';
-import { CONTACT_ME_INPUTS } from '../../static/constant/data/ContactMeInput';
+import {
+  CONTACT_ME_INPUTS,
+  Inputs,
+} from '../../static/constant/data/ContactMeInput';
 import { Button } from '../../compoment';
 import clsx from 'clsx';
+import emailjs from '@emailjs/browser';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 interface contactProps {}
 
 const Contact: FunctionComponent<contactProps> = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const sendEmailHandler: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    emailjs
+      .send(
+        'service_4ma43h6',
+        'template_rkh0dkg',
+        {
+          from_name: data.Name,
+          to_name: 'Wu.Harvey',
+          message: data.Message,
+          reply_to: data.Email,
+          subject: data.Subject,
+        },
+        'NudTZXCk8kRq5mPQH'
+      )
+      .then(
+        (result) => {
+          alert('Email sent successfully!');
+          window.location.reload();
+          console.log(result.text);
+        },
+        (error) => {
+          alert('Failed to send email. Please try again later.');
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <div
       className={clsx(
@@ -59,7 +98,7 @@ const Contact: FunctionComponent<contactProps> = () => {
             'flex flex-col  flex-1 items-center justify-start min-h-screen'
           )}
         >
-          <form action="" className="w-full">
+          <form onSubmit={handleSubmit(sendEmailHandler)} className="w-full">
             {CONTACT_ME_INPUTS.map((input) => (
               <div className={clsx('mb-4 w-ful')}>
                 <label
@@ -71,7 +110,11 @@ const Contact: FunctionComponent<contactProps> = () => {
                 {input.type === 'text' || input.type === 'email' ? (
                   <input
                     type={input.type}
-                    name={input.name}
+                    {...register(input.name, {
+                      required: true,
+                      pattern:
+                        input.type === 'email' ? /^\S+@\S+$/i : undefined,
+                    })}
                     placeholder={`Enter your ${input.name}`}
                     className={clsx(
                       'w-11/12 h-12 rounded-md shadow-gray-200 shadow-sm font-semibold text-base',
@@ -80,8 +123,8 @@ const Contact: FunctionComponent<contactProps> = () => {
                   />
                 ) : (
                   <textarea
-                    name={input.name}
                     placeholder={`Enter your ${input.name}`}
+                    {...register('Message')}
                     className={clsx(
                       'w-11/12 h-20 rounded-md shadow-gray-200 shadow-sm font-semibold text-base',
                       'border-none outline-none bg-slate-600 text-black mb-2 resize-none'
