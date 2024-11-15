@@ -41,9 +41,6 @@ const Skill: FunctionComponent<ExperienceProps> = () => {
         </div>
 
         <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 bg-slate-600 p-6 rounded-md">
-          <h2 className="col-span-full text-lg font-semibold mb-4 text-white">
-            Professional Skills
-          </h2>
           {SKILLS.map((skill) => (
             <SkillCard
               key={skill.label}

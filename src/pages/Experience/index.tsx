@@ -26,7 +26,7 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
         className={clsx(
           'transition-all ease-in-out duration-1000 mt-20 sm:mt-14 w-full',
           'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
-          'overflow-y-auto mx-4'
+          'overflow-y-auto px-4'
         )}
         style={{
           height: animetion ? '0' : 'calc(100vh - 5rem)',

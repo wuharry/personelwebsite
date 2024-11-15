@@ -170,7 +170,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
         )}
       >
         {/* Mobile Menu Items Container */}
-        <div className="h-full flex flex-col items-center justify-center pt-16">
+        <div className="h-full flex flex-col items-center justify-center">
           {ROUTER_LIST.map((item, index) => (
             <Link
               key={`mobile-${index}-${item.name}`}

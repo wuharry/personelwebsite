@@ -22,7 +22,7 @@ const EXPERIENCELIST: JOBEXPERIENCEOBJ[] = [
   {
     companyName: 'PGTalk必礦科技',
     jobTitle: 'Frontend Engineer',
-    time: '2023/05 - now',
+    time: '2023/05 - 2024/09',
     projectName: '亞通兌點後台',
     description: [
       '符合PM的需求以及SA文件去開發新的功能跟頁面',
