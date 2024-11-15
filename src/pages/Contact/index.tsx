@@ -32,7 +32,7 @@ const Contact: FunctionComponent<contactProps> = () => {
           <div className={clsx('mb-8 text-start')}>
             {/* 標題 */}
             <h2 className="text-7xl font-semibold mb-4 text-white">Contact </h2>
-            <h2 className="text-7xl font-semibold mb-4 text-sky-600">me </h2>
+            <h2 className="text-7xl font-semibold mb-4 text-sky-600">Me </h2>
           </div>
           {/* 內文區 */}
 

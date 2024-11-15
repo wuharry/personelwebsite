@@ -13,7 +13,7 @@ const PROJECT_LIST: Project[] = [
     link: 'https://wuharry.github.io/day1/',
     description: 'js 的 DOM 練習,當按下按鍵的時候',
     image: day1,
-    className: 'mt-10',
+    className: '',
     // 暫時添加mt來對齊
   },
   {
@@ -61,7 +61,8 @@ const WorkPage: FunctionComponent = () => {
           'w-full max-w-7xl mx-auto',
           'mt-20 sm:mt-14 mb-10 px-4',
           'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
-          'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'
+          'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8',
+          'place-items-center sm:place-items-start'
         )}
       >
         {PROJECT_LIST.map((project) => (
