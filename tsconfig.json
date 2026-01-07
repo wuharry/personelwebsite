@@ -1,28 +1,93 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["cypress", "vite-plugin-svgr/client"],
-    "allowJs": true,
+    /* ===========================
+     * 目標輸出環境
+     * =========================== */
+
+    // 編譯目標語法版本
+    // ES2022 對應現代瀏覽器，搭配 Vite 不需要再降轉
+    "target": "ES2022",
+
+    // class field 採用 ECMAScript 標準行為
+    // 避免 TS 與實際 JS 行為不一致（特別是繼承時）
+    "useDefineForClassFields": true,
+
+    // 編譯時可用的內建 API 型別
+    // DOM / DOM.Iterable 對 React + 瀏覽器環境是必要的
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // 使用原生 ES Module，不轉成 CommonJS
+    // 讓 bundler（Vite / Rollup）處理模組
+    "module": "ESNext",
+
+    // 跳過 node_modules 的型別檢查
+    // 提升編譯速度，實務上幾乎必開
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+
+    /* ===========================
+     * Bundler 模式（Vite 關鍵設定）
+     * =========================== */
+
+    // 告訴 TypeScript：模組解析交給 bundler（而不是 Node.js）
+    // 可正確支援：
+    // - package.json exports
+    // - ESM-only 套件
+    // - Vite / Rollup 的解析行為
+    "moduleResolution": "bundler",
+
+    // 允許 import 時寫完整副檔名（例如 .ts / .tsx）
+    // 符合原生 ESM 規範（瀏覽器 / Node ESM）
+    "allowImportingTsExtensions": true,
+
+    // 允許 import JSON 檔案
+    // 常用於設定檔或 mock data
     "resolveJsonModule": true,
+
+    // 每個檔案都必須是「可獨立轉譯的模組」
+    // 這是 Vite、ESBuild、SWC 的基本前提
     "isolatedModules": true,
+
+    // 不輸出任何編譯檔案
+    // TS 僅作為 type checker，實際 build 交給 Vite
     "noEmit": true,
-    "jsx": "react-jsx"
+
+    // 使用 React 17+ 的新 JSX runtime
+    // 不需要再 import React
+    "jsx": "react-jsx",
+
+    /* ===========================
+     * 型別與程式碼品質（Lint 向）
+     * =========================== */
+
+    // 開啟所有嚴格型別檢查（強烈建議）
+    "strict": true,
+
+    // 未使用的變數直接報錯
+    // 與 ESLint no-unused-vars 形成雙保險
+    "noUnusedLocals": true,
+
+    // 未使用的參數直接報錯
+    // 可搭配 ESLint argsIgnorePattern: '^_' 使用
+    "noUnusedParameters": true,
+
+    // switch case 沒有 break 直接報錯
+    // 防止隱性 bug
+    "noFallthroughCasesInSwitch": true,
+
+    /* ===========================
+     * Path Alias（搭配 Vite / ESLint）
+     * =========================== */
+
+    // 路徑別名
+    // 讓你可以使用 @/xxx 取代相對路徑地獄
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
 
-  "include": [
-    "src",
-    "tests",
-    "jest.config.js",
-    "cypress.config.ts",
-    "vite.config.ts"
-  ]
+  // TypeScript 檢查範圍
+  "include": ["src"],
+
+  // 排除不需要檢查的資料夾
+  "exclude": ["node_modules", "dist"]
 }

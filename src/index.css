@@ -1,22 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  /* user-select: none; */
-}
 
-@layer base {
-  :root {
-    --bar-width: 60px;
-    --bar-height: 8px;
-    --hamburger-gap: 6px;
-    --animation-timing: 200ms ease-in-out;
+@plugin "tailwindcss-animated";
+
+@theme {
+  /* 2. Keyframes 定義 */
+  @keyframes progress {
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; }
   }
+
+  /* 3. Animation 定義 */
+  --animate-progress: progress 1.5s ease-in-out forwards;
+
+  /* 4. 自定義數值 (Width, Height, Gap) */
+  --width-bar-width: 30px;
+  --width-hamburger-close-width: 2rem;
+  
+  --height-bar-height: 4px;
+  
+  --spacing-hamburger-gap: 6px;
+
+
+  --translate-close-bar-height-after: calc(var(--height-bar-height) / 2);
+  --translate-close-bar-height-before: calc(var(--height-bar-height) / -2);
+
+  /* 6. Transition 設定  */
+  --transition-property-height: height;
+  --transition-property-spacing: margin, padding;
+  --transition-property-width: width;
+  --transition-property-transform: transform;
+  
+  --ease-in-out: ease-in-out;
+  --duration-200: 200ms;
 }
