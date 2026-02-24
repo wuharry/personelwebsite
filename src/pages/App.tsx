@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import './App.module.scss';
 export function App() {
   return (
