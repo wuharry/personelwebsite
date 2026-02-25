@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { type FC, useState } from 'react';
 
-import Button from '../Button/Button';
+import Button from '../ui/Button/Button';
 
 import { type Project } from './type';
 

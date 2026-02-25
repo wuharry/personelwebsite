@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, NavigationBar, IconButton } from '../../compoment';
+import { Button, NavigationBar, IconButton } from '../../components';
 import { Icon104, CakeResume } from '../../static/constant/svg';
 
 const Intro: React.FC = () => {

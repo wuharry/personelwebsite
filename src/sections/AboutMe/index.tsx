@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { type FunctionComponent, useEffect, useState } from 'react';
 
-import { NavigationBar, HeaderIcon } from '../../compoment';
+import { NavigationBar, HeaderIcon } from '../../components';
 interface AboutMeProps {}
 
 const AboutMe: FunctionComponent<AboutMeProps> = () => {

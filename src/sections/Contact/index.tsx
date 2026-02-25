@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { type FunctionComponent } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 
-import { NavigationBar, Button } from '../../compoment';
+import { NavigationBar, Button } from '../../components';
 import {
   CONTACT_ME_INPUTS,
   type Inputs,

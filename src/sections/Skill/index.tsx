@@ -3,9 +3,9 @@
 import clsx from 'clsx';
 import { type FunctionComponent } from 'react';
 
-import { NavigationBar } from '../../compoment';
-import SkillCard from '../../compoment/SkillCard';
-import { SkillProgressBar } from '../../compoment/SkillProgressBar';
+import { NavigationBar } from '../../components';
+import SkillCard from '../../components/SkillCard';
+import { SkillProgressBar } from '../../components/SkillProgressBar';
 import { SKILLS } from '../../static/constant/data/skillProgresion';
 
 interface ExperienceProps {}

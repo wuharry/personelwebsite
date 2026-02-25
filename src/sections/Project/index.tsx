@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { type FunctionComponent } from 'react';
 
 import { day1, day2, day3, day4, day5 } from '../../assets';
-import { NavigationBar } from '../../compoment';
-import ProjectCard from '../../compoment/ProjectCard';
-import { type Project } from '../../compoment/ProjectCard/type';
+import { NavigationBar } from '../../components';
+import ProjectCard from '../../components/ProjectCard';
+import { type Project } from '../../components/ProjectCard/type';
 
 const PROJECT_LIST: Project[] = [
   {

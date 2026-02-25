@@ -106,7 +106,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
           to="/"
           className={clsx(
             'z-50 text-2xl font-bold',
-            'bg-gradient-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-transparent',
+            'bg-linear-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-transparent',
             'ml-12 sm:ml-0',
           )}
         >
