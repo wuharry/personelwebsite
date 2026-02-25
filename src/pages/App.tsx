@@ -1,4 +1,3 @@
-import './App.module.scss';
 export function App() {
   return (
     <div className="App">

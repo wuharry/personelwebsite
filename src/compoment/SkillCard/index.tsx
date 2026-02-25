@@ -1,13 +1,12 @@
 import clsx from 'clsx';
-import { FC, useEffect, useRef, useState } from 'react';
+import { type FC, useEffect, useRef, useState } from 'react';
 
-import { SkillCardProps } from './type';
+import { type SkillCardProps } from './type';
 
 const SkillCard: FC<SkillCardProps> = ({
   label,
   percentage,
   progressColor,
-  size,
   className,
 }) => {
   const ref = useRef<SVGCircleElement>(null);
@@ -50,9 +49,9 @@ const SkillCard: FC<SkillCardProps> = ({
   return (
     <div
       className={clsx(
-        'w-1/4 h-52 bg-white rounded-lg shadow-lg shadow-slate-50',
-        `flex flex-col items-center justify-around text-fuchsia-500 text-center`,
-        className
+        'h-52 w-1/4 rounded-lg bg-white shadow-lg shadow-slate-50',
+        `flex flex-col items-center justify-around text-center text-fuchsia-500`,
+        className,
       )}
     >
       <svg width="60%" height="60%" viewBox="0 0 100 100">
@@ -92,7 +91,7 @@ const SkillCard: FC<SkillCardProps> = ({
           {`${percentage}%`}
         </text>
       </svg>
-      <p className={clsx('font-bold text-center text-2xl')}>{label}</p>
+      <p className={clsx('text-center text-2xl font-bold')}>{label}</p>
     </div>
   );
 };

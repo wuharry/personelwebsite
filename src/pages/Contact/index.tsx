@@ -2,27 +2,21 @@
 
 import emailjs from '@emailjs/browser';
 import clsx from 'clsx';
-import { FunctionComponent } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { type FunctionComponent } from 'react';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 
-import { NavigationBar, Button  } from '../../compoment';
+import { NavigationBar, Button } from '../../compoment';
 import {
   CONTACT_ME_INPUTS,
-  Inputs,
+  type Inputs,
 } from '../../static/constant/data/ContactMeInput';
 
 interface contactProps {}
 
 const Contact: FunctionComponent<contactProps> = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
   const sendEmailHandler: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
     emailjs
       .send(
         'service_4ma43h6',
@@ -34,49 +28,47 @@ const Contact: FunctionComponent<contactProps> = () => {
           reply_to: data.Email,
           subject: data.Subject,
         },
-        'NudTZXCk8kRq5mPQH'
+        'NudTZXCk8kRq5mPQH',
       )
       .then(
-        (result) => {
+        (_result) => {
           alert('Email sent successfully!');
           window.location.reload();
-          console.log(result.text);
         },
-        (error) => {
+        (_error) => {
           alert('Failed to send email. Please try again later.');
-          console.log(error.text);
-        }
+        },
       );
   };
   return (
     <div
       className={clsx(
-        'flex sm:flex-col items-start justify-start',
-        'w-full min-h-screen',
-        'bg-gradient-to-b from-[#1f2937] to-[#111827]',
-        'overflow-y-auto'
+        'flex items-start justify-start sm:flex-col',
+        'min-h-screen w-full',
+        'bg-linear-to-b from-[#1f2937] to-[#111827]',
+        'overflow-y-auto',
       )}
     >
       <NavigationBar />
       <section
         className={clsx(
-          'flex sm:flex-row flex-col sm:w-full',
-          'mt-20 sm:mt-14 mb-10 space-y-10 px-4',
-          'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
-          'max-w-7xl mx-auto'
+          'flex flex-col sm:w-full sm:flex-row',
+          'mt-20 mb-10 space-y-10 px-4 sm:mt-14',
+          'rounded-lg bg-white/5 p-8 shadow-xl backdrop-blur-md',
+          'mx-auto max-w-7xl',
         )}
       >
-        <div className={clsx('flex-1 w-full h-full flex flex-col')}>
+        <div className={clsx('flex h-full w-full flex-1 flex-col')}>
           {/* 文字區 */}
           <div className={clsx('mb-8 text-start')}>
             {/* 標題 */}
-            <h2 className="text-7xl font-semibold mb-4 text-white">Contact </h2>
-            <h2 className="text-7xl font-semibold mb-4 text-sky-600">Me </h2>
+            <h2 className="mb-4 text-7xl font-semibold text-white">Contact </h2>
+            <h2 className="mb-4 text-7xl font-semibold text-sky-600">Me </h2>
           </div>
           {/* 內文區 */}
 
-          <div className={clsx('text-lg text-white mb-8')}>
-            <h2 className={clsx('text-2xl mb-4')}>let's work together</h2>
+          <div className={clsx('mb-8 text-lg text-white')}>
+            <h2 className={clsx('mb-4 text-2xl')}>let&apos;s work together</h2>
 
             <p>
               我是一名充滿熱誠的前端工程師,我正在尋找一份前端工作.
@@ -95,14 +87,14 @@ const Contact: FunctionComponent<contactProps> = () => {
 
         <div
           className={clsx(
-            'flex flex-col  flex-1 items-center justify-start min-h-screen'
+            'flex min-h-screen flex-1 flex-col items-center justify-start',
           )}
         >
           <form onSubmit={handleSubmit(sendEmailHandler)} className="w-full">
             {CONTACT_ME_INPUTS.map((input) => (
-              <div className={clsx('mb-4 w-ful')}>
+              <div key={input.name} className={clsx('w-ful mb-4')}>
                 <label
-                  className={clsx('block text-gray-400 text-sm font-bold mb-2')}
+                  className={clsx('mb-2 block text-sm font-bold text-gray-400')}
                   htmlFor="name"
                 >
                   {input.label}
@@ -117,8 +109,8 @@ const Contact: FunctionComponent<contactProps> = () => {
                     })}
                     placeholder={`Enter your ${input.name}`}
                     className={clsx(
-                      'w-11/12 h-12 rounded-md shadow-gray-200 shadow-sm font-semibold text-base',
-                      'border-none outline-none bg-slate-600 text-black mb-2'
+                      'h-12 w-11/12 rounded-md text-base font-semibold shadow-sm shadow-gray-200',
+                      'mb-2 border-none bg-slate-600 text-black outline-none',
                     )}
                   />
                 ) : (
@@ -126,8 +118,8 @@ const Contact: FunctionComponent<contactProps> = () => {
                     placeholder={`Enter your ${input.name}`}
                     {...register('Message')}
                     className={clsx(
-                      'w-11/12 h-20 rounded-md shadow-gray-200 shadow-sm font-semibold text-base',
-                      'border-none outline-none bg-slate-600 text-black mb-2 resize-none'
+                      'h-20 w-11/12 rounded-md text-base font-semibold shadow-sm shadow-gray-200',
+                      'mb-2 resize-none border-none bg-slate-600 text-black outline-none',
                     )}
                   />
                 )}
@@ -137,10 +129,10 @@ const Contact: FunctionComponent<contactProps> = () => {
             <Button
               type="submit"
               className={clsx(
-                'w-11/12 h-14 rounded-3xl border-x-indigo-400 shadow-gray-200 shadow-sm',
-                'inline-block px-2 py-3 no-underline tracking-wide font-semibold'
+                'h-14 w-11/12 rounded-3xl border-x-indigo-400 shadow-sm shadow-gray-200',
+                'inline-block px-2 py-3 font-semibold tracking-wide no-underline',
               )}
-              onClickEvent={() => {}}
+              onClick={() => {}}
             >
               送出
             </Button>

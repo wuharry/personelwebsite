@@ -1,6 +1,6 @@
 /** @format */
 import clsx from 'clsx';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { type FunctionComponent, useEffect, useState } from 'react';
 
 import { NavigationBar } from '../../compoment';
 import TimeLine from '../../compoment/TimeLine';
@@ -18,16 +18,16 @@ const Experience: FunctionComponent<ExperienceProps> = () => {
   return (
     <div
       className={clsx(
-        'flex flex-col items-start justify-start w-full min-h-screen',
-        'bg-gradient-to-b from-[#1f2937] to-[#111827]' // 使用漸層背景
+        'flex min-h-screen w-full flex-col items-start justify-start',
+        'bg-linear-to-b from-[#1f2937] to-[#111827]', // 使用漸層背景
       )}
     >
       <NavigationBar />
       <section
         className={clsx(
-          'transition-all ease-in-out duration-1000 mt-20 sm:mt-14 w-full',
-          'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
-          'overflow-y-auto px-4'
+          'mt-20 w-full transition-all duration-1000 ease-in-out sm:mt-14',
+          'rounded-lg bg-white/5 p-8 shadow-xl backdrop-blur-md',
+          'overflow-y-auto px-4',
         )}
         style={{
           height: animetion ? '0' : 'calc(100vh - 5rem)',

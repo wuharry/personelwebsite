@@ -5,34 +5,38 @@ import day3 from '../../assets/day3.png';
 export const BlurPicture: React.FC = () => {
   const [imgshader, setImgshader] = useState(false);
 
-  function mouseEnterHandler() {
-    setImgshader(true);
-  }
+  // function mouseEnterHandler() {
+  //   setImgshader(true);
+  // }
 
-  function mouseLeaveHandler() {
-    setImgshader(false);
-  }
+  // function mouseLeaveHandler() {
+  //   setImgshader(false);
+  // }
 
   return (
-    <div className="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
-      <div className="max-w-2xl w-full">
-        <div className="bg-white p-8 rounded-lg shadow-md">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+      <div className="w-full max-w-2xl">
+        <div className="rounded-lg bg-white p-8 shadow-md">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold">BlurPicture</h1>
-            <p className="text-gray-500 text-sm">2022/1/2</p>
+            <p className="text-sm text-gray-500">2022/1/2</p>
           </div>
 
           <div className="mt-6">
             <div className="relative">
-              <a href="https://wuharry.github.io/day3/" target="_blank" rel="noreferrer">
+              <a
+                href="https://wuharry.github.io/day3/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img
                   src={day3}
                   alt=""
-                  className="w-full h-auto rounded-lg shadow-md"
+                  className="h-auto w-full rounded-lg shadow-md"
                 />
               </a>
               {imgshader && (
-                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                <div className="absolute top-0 left-0 h-full w-full bg-black opacity-50"></div>
               )}
             </div>
 
@@ -50,7 +54,8 @@ export const BlurPicture: React.FC = () => {
             <a
               href="https://wuharry.github.io/day3/"
               target="_blank"
-              className="mt-4 text-blue-500 underline" rel="noreferrer"
+              className="mt-4 text-blue-500 underline"
+              rel="noreferrer"
             >
               點我前往
             </a>

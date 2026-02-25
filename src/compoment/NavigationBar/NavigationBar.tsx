@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import { type FunctionComponent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface NavigationBarProps {}
@@ -93,12 +93,12 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
       {/* Fixed Navigation Bar */}
       <nav
         className={clsx(
-          'fixed top-0 left-0 right-0 px-5 py-3 z-50',
+          'fixed top-0 right-0 left-0 z-50 px-5 py-3',
           'transition-all duration-300',
           'flex items-center justify-between',
           scrolled
-            ? 'bg-[#1f2937]/90 backdrop-blur-md shadow-lg'
-            : 'bg-transparent'
+            ? 'bg-[#1f2937]/90 shadow-lg backdrop-blur-md'
+            : 'bg-transparent',
         )}
       >
         {/* Logo/Title */}
@@ -107,7 +107,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
           className={clsx(
             'z-50 text-2xl font-bold',
             'bg-gradient-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-transparent',
-            'sm:ml-0 ml-12'
+            'ml-12 sm:ml-0',
           )}
         >
           Portfolio
@@ -122,7 +122,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
               className={clsx(
                 STYLES.link,
                 navBarAnimation &&
-                  'animate-fade-down animate-once animate-ease-in'
+                  'animate-fade-down animate-once animate-ease-in',
               )}
             >
               {item.name}
@@ -134,27 +134,27 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
         <button
           onClick={handleHamburgerClick}
           className={clsx(
-            'sm:hidden fixed top-5 left-5 z-50',
-            'w-8 h-6 flex flex-col justify-between',
-            'focus:outline-none'
+            'fixed top-5 left-5 z-50 sm:hidden',
+            'flex h-6 w-8 flex-col justify-between',
+            'focus:outline-none',
           )}
         >
           <span
             className={clsx(
-              'w-full h-0.5 bg-white transition-all duration-300',
-              hamburgerAnimation && 'rotate-45 translate-y-2.5'
+              'h-0.5 w-full bg-white transition-all duration-300',
+              hamburgerAnimation && 'translate-y-2.5 rotate-45',
             )}
           />
           <span
             className={clsx(
-              'w-full h-0.5 bg-white transition-all duration-300',
-              hamburgerAnimation && 'opacity-0'
+              'h-0.5 w-full bg-white transition-all duration-300',
+              hamburgerAnimation && 'opacity-0',
             )}
           />
           <span
             className={clsx(
-              'w-full h-0.5 bg-white transition-all duration-300',
-              hamburgerAnimation && '-rotate-45 -translate-y-2.5'
+              'h-0.5 w-full bg-white transition-all duration-300',
+              hamburgerAnimation && '-translate-y-2.5 -rotate-45',
             )}
           />
         </button>
@@ -162,15 +162,15 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={clsx(
-          'sm:hidden fixed inset-0 z-40',
+          'fixed inset-0 z-40 sm:hidden',
           'transition-all duration-300 ease-in-out',
           hamburgerAnimation
-            ? 'opacity-100 visible bg-[#1f2937]/95'
-            : 'opacity-0 invisible pointer-events-none'
+            ? 'visible bg-[#1f2937]/95 opacity-100'
+            : 'pointer-events-none invisible opacity-0',
         )}
       >
         {/* Mobile Menu Items Container */}
-        <div className="h-full flex flex-col items-center justify-center">
+        <div className="flex h-full flex-col items-center justify-center">
           {ROUTER_LIST.map((item, index) => (
             <Link
               key={`mobile-${index}-${item.name}`}
@@ -178,7 +178,7 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
               onClick={() => setHamburgerAnimation(false)}
               className={clsx(
                 STYLES.mobileLink,
-                activeSection === item.name && 'text-[#0ef]'
+                activeSection === item.name && 'text-[#0ef]',
               )}
             >
               {item.name}

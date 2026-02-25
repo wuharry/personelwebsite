@@ -1,9 +1,9 @@
 /** @format */
 
 import clsx from 'clsx';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { type FunctionComponent, useEffect, useState } from 'react';
 
-import { JOBEXPERIENCEOBJ } from '../../types';
+import { type JOBEXPERIENCEOBJ } from '../../types';
 import JobExperience from '../JobExperienceCard';
 
 interface TimeLineProps {}
@@ -45,22 +45,18 @@ const TimeLine: FunctionComponent<TimeLineProps> = () => {
     };
   }, []);
   return (
-    <div className="border-l-4 border-gray-300 ml-3 mt-3 py-10 space-y-14 w-4/5">
-      <div
-        className="relative 
-        justify-between w-full z-10"
-      >
+    <div className="mt-3 ml-3 w-4/5 space-y-14 border-l-4 border-gray-300 py-10">
+      <div className="relative z-10 w-full justify-between">
         {EXPERIENCELIST.map((experience, index) => (
           <div
-            className={clsx(`flex justify-between items-center p-6`)}
+            className={clsx(`flex items-center justify-between p-6`)}
             key={`${experience.companyName}-${experience.time}-${index}`}
           >
             <div
               className={clsx(
                 `absolute border-2 border-white bg-blue-300 top-[${
                   index + 1
-                }8rem] -left-[0.8rem] h-6 w-6 rounded-full
-                `
+                }8rem] -left-[0.8rem] h-6 w-6 rounded-full`,
               )}
               style={{
                 top: `${(index + 1) * 12}rem`,

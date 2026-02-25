@@ -1,4 +1,4 @@
-import { WORKPROPS } from '../types';
+import { type WORKPROPS } from '../types';
 
 export const WORKS: WORKPROPS[] = [
   {

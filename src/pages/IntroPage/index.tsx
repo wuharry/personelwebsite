@@ -102,23 +102,16 @@ const Intro: React.FC = () => {
     };
   }, []);
   return (
-    <div
-      className="flex flex-col items-center justify-center w-full min-h-screen
-        bg-gradient-to-b from-[#1f2937] to-[#111827]"
-    >
+    <div className="flex min-h-screen w-full flex-col items-center justify-center bg-linear-to-b from-[#1f2937] to-[#111827]">
       <NavigationBar />
 
-      <section
-        className="mt-20 sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly flex flex-col min-h-screen
-          backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl w-full max-w-7xl mx-auto"
-      >
-        <div className={clsx('flex justify-start flex-col sm:items-start')}>
+      <section className="mx-auto mt-20 flex min-h-screen w-full max-w-7xl flex-col rounded-lg bg-white/5 p-8 shadow-xl backdrop-blur-md sm:mt-14 sm:mb-10 sm:flex sm:justify-evenly">
+        <div className={clsx('flex flex-col justify-start sm:items-start')}>
           {/* Hello 標題使用漸變色 */}
           <h3
             className={clsx(
-              `text-3xl font-medium bg-gradient-to-r from-[#0ef] to-[#2563eb] 
-                 bg-clip-text text-transparent`,
-              animetion ? `animate-fade-down animate-once animate-ease-in` : ``
+              `bg-linear-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-3xl font-medium text-transparent`,
+              animetion ? `animate-fade-down animate-once animate-ease-in` : ``,
             )}
           >
             Hello 你好
@@ -127,9 +120,10 @@ const Intro: React.FC = () => {
           {/* 名字使用白色並加大字體 */}
           <h1
             className={clsx(
-              `text-white text-5xl font-bold mx-0 my-3
-                 drop-shadow-lg`,
-              animetion ? `animate-fade-right animate-once animate-ease-in` : ``
+              `mx-0 my-3 text-5xl font-bold text-white drop-shadow-lg`,
+              animetion
+                ? `animate-fade-right animate-once animate-ease-in`
+                : ``,
             )}
           >
             我是 吳浩維
@@ -138,8 +132,8 @@ const Intro: React.FC = () => {
           {/* 職稱使用半透明白色 */}
           <h3
             className={clsx(
-              `text-white/90 text-3xl font-medium`,
-              animetion ? `animate-fade-up animate-once animate-ease-in` : ``
+              `text-3xl font-medium text-white/90`,
+              animetion ? `animate-fade-up animate-once animate-ease-in` : ``,
             )}
           >
             我是一名前端工程師
@@ -149,21 +143,21 @@ const Intro: React.FC = () => {
           <div
             className={clsx(
               `mt-8 space-y-4`,
-              animetion ? `animate-fade-left animate-once animate-ease-in` : ``
+              animetion ? `animate-fade-left animate-once animate-ease-in` : ``,
             )}
           >
-            <p className="text-[#94a3b8] font-medium text-lg">關於我：</p>
-            <p className="text-[#cbd5e1] leading-relaxed">
+            <p className="text-lg font-medium text-[#94a3b8]">關於我：</p>
+            <p className="leading-relaxed text-[#cbd5e1]">
               充滿熱情的前端工程師，擁有 1 年以上前端開發經驗，尋求新的挑戰。
             </p>
-            <p className="text-[#cbd5e1] leading-relaxed">
+            <p className="leading-relaxed text-[#cbd5e1]">
               熟悉 JavaScript、React 和 Linux 系統。
               有解決問題的能力，對程式有高品質要求，並善於與他人溝通,合作。
             </p>
-            <p className="text-[#cbd5e1] leading-relaxed">
+            <p className="leading-relaxed text-[#cbd5e1]">
               渴望學習和成長，始終追求卓越。
             </p>
-            <p className="text-[#94a3b8] font-medium text-lg mt-6">
+            <p className="mt-6 text-lg font-medium text-[#94a3b8]">
               聯絡方式：
             </p>
           </div>
@@ -179,8 +173,8 @@ const Intro: React.FC = () => {
                      bg-white/10 hover:bg-white/20 rounded-full p-2 mx-2
                      backdrop-blur-sm`,
                   animetion
-                    ? `animate-fade animate-delay-[1s] animate-ease-in`
-                    : ``
+                    ? `animate-fade animate-delay-1000 animate-ease-in`
+                    : ``,
                 )}
               >
                 {icon.SVGElement}
@@ -189,20 +183,16 @@ const Intro: React.FC = () => {
 
             {/* 關於我按鈕 */}
             <div
-              className={clsx('sm:flex sm:justify-start sm:items-center mt-8')}
+              className={clsx('mt-8 sm:flex sm:items-center sm:justify-start')}
             >
               <Button
                 className={clsx(
-                  `bg-gradient-to-r from-[#0ef] to-[#2563eb]
-                     hover:opacity-90 transition-opacity duration-300
-                     text-white font-medium px-6 py-3 rounded-lg
-                     shadow-lg hover:shadow-xl`,
+                  `rounded-lg bg-linear-to-r from-[#0ef] to-[#2563eb] px-6 py-3 font-medium text-white shadow-lg transition-opacity duration-300 hover:opacity-90 hover:shadow-xl`,
                   animetion
                     ? 'animate-fade animate-delay-[1ms] animate-ease-in'
-                    : ``
+                    : ``,
                 )}
-                type=""
-                onClickEvent={handleClick}
+                onClick={handleClick}
               >
                 關於我
               </Button>

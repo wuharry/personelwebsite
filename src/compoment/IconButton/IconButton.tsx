@@ -1,7 +1,7 @@
 /** @format */
 
 import clsx from 'clsx';
-import { FunctionComponent, ReactNode, useEffect } from 'react';
+import { type FunctionComponent, type ReactNode } from 'react';
 
 interface IconButtonProps {
   onClickEvent: () => void;
@@ -18,11 +18,9 @@ const IconButton: FunctionComponent<IconButtonProps> = ({
     <>
       <button
         className={clsx(
-          `inline-block px-2 py-2 m-2 bg-transparent text-black font-semibold text-base tracking-widest no-underline 
-          border-2 border-black rounded-full`,
-          `hover:shadow-[0_0_50px_rgba(0,_128,_225,_1.8)] hover:text-white
-           hover:bg-[rgba(128,215,237,0.94)] hover:border-green-300`,
-          classname
+          `m-2 inline-block rounded-full border-2 border-black bg-transparent px-2 py-2 text-base font-semibold tracking-widest text-black no-underline`,
+          `hover:border-green-300 hover:bg-[rgba(128,215,237,0.94)] hover:text-white hover:shadow-[0_0_50px_rgba(0,128,225,1.8)]`,
+          classname,
         )}
         onClick={() => onClickEvent()}
       >

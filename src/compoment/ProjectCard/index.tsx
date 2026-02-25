@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import { FC, useState } from 'react';
+import { type FC, useState } from 'react';
 
 import Button from '../Button/Button';
 
-import { Project } from './type';
-
+import { type Project } from './type';
 
 const ProjectCard: FC<Project> = ({
   label,
@@ -12,7 +11,6 @@ const ProjectCard: FC<Project> = ({
   description,
   image,
   className,
-  size,
 }) => {
   const [openDescription, setOpenDescription] = useState(false);
 
@@ -31,42 +29,38 @@ const ProjectCard: FC<Project> = ({
   return (
     <div
       className={clsx(
-        'relative flex flex-col w-80 h-96 bg-slate-600 mt-0 rounded-md',
+        'relative mt-0 flex h-96 w-80 flex-col rounded-md bg-slate-600',
         'min-w-[20rem] sm:min-w-[24rem]',
-        className
+        className,
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative w-full h-72 overflow-hidden flex flex-col justify-center p-4 ">
+      <div className="relative flex h-72 w-full flex-col justify-center overflow-hidden p-4">
         <img
           src={image}
           alt={label}
-          className="w-full h-4/5 rounded-md absolute top-50 left-0"
+          className="absolute top-50 left-0 h-4/5 w-full rounded-md"
         />
         {/* hover跳上來區域 */}
         <div
           className={clsx(
-            'group-hover:block text-white mt-2 text-center w-full ',
-            'absolute flex justify-center items-center flex-col gap-2',
-            'bg-gradient-to-t from-white to-transparent bottom-7 left-0',
-            ' transition-all duration-300 ease-in-out rounded-b-lg',
-            openDescription ? 'h-full opacity-100' : 'h-0 opacity-0'
+            'mt-2 w-full text-center text-white group-hover:block',
+            'absolute flex flex-col items-center justify-center gap-2',
+            'bottom-7 left-0 bg-linear-to-t from-white to-transparent',
+            'rounded-b-lg transition-all duration-300 ease-in-out',
+            openDescription ? 'h-full opacity-100' : 'h-0 opacity-0',
           )}
         >
-          <Button
-            onClickEvent={handleClick}
-            className="text-red-700"
-            type={null}
-          >
+          <Button onClick={handleClick} className="text-red-700">
             跳轉
           </Button>
         </div>
       </div>
       <div
-        className={clsx('flex flex-col items-center justify-center mb  -1.5')}
+        className={clsx('mb -1.5 flex flex-col items-center justify-center')}
       >
-        <h2 className="text-white text-2xl">{label}</h2>
+        <h2 className="text-2xl text-white">{label}</h2>
         <p className="text-white">{description}</p>
       </div>
     </div>

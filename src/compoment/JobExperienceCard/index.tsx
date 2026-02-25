@@ -1,9 +1,9 @@
 /** @format */
 
 import clsx from 'clsx';
-import { FunctionComponent } from 'react';
+import { type FunctionComponent } from 'react';
 
-import { JOBEXPERIENCEOBJ } from '../../types';
+import { type JOBEXPERIENCEOBJ } from '../../types';
 
 interface jobExperienceProps {
   jobexperience: JOBEXPERIENCEOBJ;
@@ -18,8 +18,7 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
   return (
     <div
       className={clsx(
-        `block max-w-md p-6 max-h-auto bg-white border border-gray-200 
-        rounded-lg shadow-md shadow-white animate-fade-left animate-delay-[1000ms]`
+        `max-h-auto animate-fade-left animate-delay-[1000ms] block max-w-md rounded-lg border border-gray-200 bg-white p-6 shadow-md shadow-white`,
       )}
     >
       <h4
@@ -28,7 +27,7 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
         {time}
       </h4>
       <h5
-        className={clsx(`mb-2 text-2xl font-bold  text-gray-900 tracking-wide`)}
+        className={clsx(`mb-2 text-2xl font-bold tracking-wide text-gray-900`)}
       >
         companyName: {companyName}
       </h5>
@@ -38,12 +37,12 @@ const JobExperience: FunctionComponent<jobExperienceProps> = ({
         jobTitle: {jobTitle}
       </h4>
 
-      <p className={clsx(`font-normal text-gray-700 `)}>
+      <p className={clsx(`font-normal text-gray-700`)}>
         ProjectName: {projectName}
       </p>
-      <p className={clsx(`font-normal text-gray-700 `)}>contribution:</p>
+      <p className={clsx(`font-normal text-gray-700`)}>contribution:</p>
       {Array.isArray(description) ? (
-        <ul className={clsx(`list-disc flex flex-col items-baseline`)}>
+        <ul className={clsx(`flex list-disc flex-col items-baseline`)}>
           {description.map((item, index) => (
             <li className="pl-[10px]" key={index}>
               {item}

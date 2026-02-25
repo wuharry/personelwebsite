@@ -1,12 +1,12 @@
 /** @format */
 
 import clsx from 'clsx';
-import { FunctionComponent } from 'react';
+import { type FunctionComponent } from 'react';
 
 import { day1, day2, day3, day4, day5 } from '../../assets';
 import { NavigationBar } from '../../compoment';
 import ProjectCard from '../../compoment/ProjectCard';
-import { Project } from '../../compoment/ProjectCard/type';
+import { type Project } from '../../compoment/ProjectCard/type';
 
 const PROJECT_LIST: Project[] = [
   {
@@ -52,18 +52,18 @@ const WorkPage: FunctionComponent = () => {
     <div
       className={clsx(
         'flex flex-col items-start justify-start',
-        'w-full min-h-screen',
-        'bg-gradient-to-b from-[#1f2937] to-[#111827]'
+        'min-h-screen w-full',
+        'bg-linear-to-b from-[#1f2937] to-[#111827]',
       )}
     >
       <NavigationBar />
       <section
         className={clsx(
-          'w-full max-w-7xl mx-auto',
-          'mt-20 sm:mt-14 mb-10 px-4',
-          'backdrop-blur-md bg-white/5 rounded-lg p-8 shadow-xl',
-          'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8',
-          'place-items-center sm:place-items-start'
+          'mx-auto w-full max-w-7xl',
+          'mt-20 mb-10 px-4 sm:mt-14',
+          'rounded-lg bg-white/5 p-8 shadow-xl backdrop-blur-md',
+          'grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3',
+          'place-items-center sm:place-items-start',
         )}
       >
         {PROJECT_LIST.map((project) => (

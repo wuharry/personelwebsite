@@ -6,4 +6,4 @@ interface JOBEXPERIENCEOBJ {
   description: string | string[];
 }
 
-export default JOBEXPERIENCEOBJ;
+export type { JOBEXPERIENCEOBJ };
