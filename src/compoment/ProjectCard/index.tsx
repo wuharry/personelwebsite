@@ -1,7 +1,10 @@
-import { FC, useState } from 'react';
 import clsx from 'clsx';
-import { Project } from './type';
+import { FC, useState } from 'react';
+
 import Button from '../Button/Button';
+
+import { Project } from './type';
+
 
 const ProjectCard: FC<Project> = ({
   label,

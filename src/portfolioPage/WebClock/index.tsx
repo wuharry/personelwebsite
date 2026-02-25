@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import day2 from '../../assets/day2.png';
 
 const WebClock: React.FC = () => {
@@ -23,7 +24,7 @@ const WebClock: React.FC = () => {
 
           <div className="mt-6">
             <div className="relative">
-              <a href="https://wuharry.github.io/day2/" target="_blank">
+              <a href="https://wuharry.github.io/day2/" target="_blank" rel="noreferrer">
                 <img
                   src={day2}
                   alt=""

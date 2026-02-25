@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import day1 from '../../assets/day1.png';
 
 export const DrumKit: React.FC = () => {
@@ -23,7 +24,7 @@ export const DrumKit: React.FC = () => {
 
           <div className="mt-6">
             <div className="relative">
-              <a href="https://wuharry.github.io/day1/" target="_blank">
+              <a href="https://wuharry.github.io/day1/" target="_blank" rel="noreferrer">
                 <img
                   src={day1}
                   alt=""
@@ -53,7 +54,7 @@ export const DrumKit: React.FC = () => {
             <a
               href="https://wuharry.github.io/day1/"
               target="_blank"
-              className="mt-4 text-blue-500 underline"
+              className="mt-4 text-blue-500 underline" rel="noreferrer"
             >
               點我前往
             </a>

@@ -1,10 +1,11 @@
 /** @format */
 
+import clsx from 'clsx';
 import { FunctionComponent } from 'react';
+
 import { NavigationBar } from '../../compoment';
 import SkillCard from '../../compoment/SkillCard';
 import { SkillProgressBar } from '../../compoment/SkillProgressBar';
-import clsx from 'clsx';
 import { SKILLS } from '../../static/constant/data/skillProgresion';
 
 interface ExperienceProps {}

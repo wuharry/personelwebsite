@@ -36,7 +36,7 @@ export const SKILLS: skill[] = [
     className: 'w-full',
   },
   {
-    label: 'NextJS',
+    label: 'Next.js',
     percentage: 40,
     progressColor: 'red',
     size: 10,

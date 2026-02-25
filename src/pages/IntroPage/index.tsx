@@ -1,9 +1,10 @@
 /** @format */
+import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Button, NavigationBar, IconButton } from '../../compoment';
 import { Icon104, CakeResume } from '../../static/constant/svg';
-import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom';
 
 const Intro: React.FC = () => {
   const [animetion, setAnimetion] = useState(false);
@@ -53,7 +54,7 @@ const Intro: React.FC = () => {
       link: 'mailto:whw880218we@gmail.com',
     },
     {
-      name: 'Linkedin',
+      name: 'LinkedIn',
       SVGElement: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

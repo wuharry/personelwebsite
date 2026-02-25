@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import day4 from '../../assets/day4.png';
 
 const FlexPanel: React.FC = () => {
@@ -23,7 +24,7 @@ const FlexPanel: React.FC = () => {
 
           <div className="mt-6">
             <div className="relative">
-              <a href="https://wuharry.github.io/day4/" target="_blank">
+              <a href="https://wuharry.github.io/day4/" target="_blank" rel="noreferrer">
                 <img
                   src={day4}
                   alt=""
@@ -46,7 +47,7 @@ const FlexPanel: React.FC = () => {
             <a
               href="https://wuharry.github.io/day4/"
               target="_blank"
-              className="mt-4 text-blue-500 underline"
+              className="mt-4 text-blue-500 underline" rel="noreferrer"
             >
               點我前往
             </a>

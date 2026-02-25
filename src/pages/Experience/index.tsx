@@ -1,8 +1,9 @@
 /** @format */
+import clsx from 'clsx';
 import { FunctionComponent, useEffect, useState } from 'react';
+
 import { NavigationBar } from '../../compoment';
 import TimeLine from '../../compoment/TimeLine';
-import clsx from 'clsx';
 
 interface ExperienceProps {}
 

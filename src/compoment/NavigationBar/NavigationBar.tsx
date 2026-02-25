@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
 import clsx from 'clsx';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface NavigationBarProps {}

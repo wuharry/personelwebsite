@@ -1,5 +1,6 @@
-import type { RouteObject } from 'react-router-dom';
 import { Intro, AboutMe, Experience, Skill, Contact } from '../pages';
+
+import type { RouteObject } from 'react-router-dom';
 
 const routerList: RouteObject[] = [
   { path: '/', element: <Intro /> },

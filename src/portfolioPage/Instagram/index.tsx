@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import day5 from '../../assets/day5.png';
-import { useState } from 'react';
 
 interface InstagramProps {
   // 這裡可以定義額外的 props
@@ -30,7 +30,7 @@ const Instagram: React.FC<InstagramProps> = () => {
             <div className="relative">
               <a
                 href="https://62b2624dfafbbb095f5b5e9c--dazzling-rugelach-a2ba75.netlify.app/"
-                target="_blank"
+                target="_blank" rel="noreferrer"
               >
                 <img
                   src={day5}
@@ -50,7 +50,7 @@ const Instagram: React.FC<InstagramProps> = () => {
             <a
               href="https://62b2624dfafbbb095f5b5e9c--dazzling-rugelach-a2ba75.netlify.app/"
               target="_blank"
-              className="mt-4 text-blue-500 underline"
+              className="mt-4 text-blue-500 underline" rel="noreferrer"
             >
               點我前往
             </a>

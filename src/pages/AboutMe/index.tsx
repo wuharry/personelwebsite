@@ -1,8 +1,9 @@
 /** @format */
 
-import { FunctionComponent, useEffect, useState } from 'react';
-import { NavigationBar, HeaderIcon } from '../../compoment';
 import clsx from 'clsx';
+import { FunctionComponent, useEffect, useState } from 'react';
+
+import { NavigationBar, HeaderIcon } from '../../compoment';
 interface AboutMeProps {}
 
 const AboutMe: FunctionComponent<AboutMeProps> = () => {

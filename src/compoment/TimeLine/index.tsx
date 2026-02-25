@@ -1,8 +1,9 @@
 /** @format */
 
-import { FunctionComponent, useEffect, useState } from 'react';
-import { JOBEXPERIENCEOBJ } from '../../types';
 import clsx from 'clsx';
+import { FunctionComponent, useEffect, useState } from 'react';
+
+import { JOBEXPERIENCEOBJ } from '../../types';
 import JobExperience from '../JobExperienceCard';
 
 interface TimeLineProps {}

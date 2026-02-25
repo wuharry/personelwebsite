@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import day3 from '../../assets/day3.png';
 
 export const BlurPicture: React.FC = () => {
@@ -23,7 +24,7 @@ export const BlurPicture: React.FC = () => {
 
           <div className="mt-6">
             <div className="relative">
-              <a href="https://wuharry.github.io/day3/" target="_blank">
+              <a href="https://wuharry.github.io/day3/" target="_blank" rel="noreferrer">
                 <img
                   src={day3}
                   alt=""
@@ -49,7 +50,7 @@ export const BlurPicture: React.FC = () => {
             <a
               href="https://wuharry.github.io/day3/"
               target="_blank"
-              className="mt-4 text-blue-500 underline"
+              className="mt-4 text-blue-500 underline" rel="noreferrer"
             >
               點我前往
             </a>

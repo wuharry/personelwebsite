@@ -1,9 +1,9 @@
 // pages/index.js
-import Intro from './IntroPage';
 import AboutMe from './AboutMe';
-import Experience from './Experience';
-import Skill from './Skill';
 import Contact from './Contact';
+import Experience from './Experience';
+import Intro from './IntroPage';
 import WorkPage from './Project';
+import Skill from './Skill';
 
 export { Intro, AboutMe, Experience, Skill, Contact, WorkPage };

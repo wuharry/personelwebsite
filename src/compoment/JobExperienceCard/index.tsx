@@ -1,8 +1,9 @@
 /** @format */
 
-import { FunctionComponent } from 'react';
-import { JOBEXPERIENCEOBJ } from '../../types';
 import clsx from 'clsx';
+import { FunctionComponent } from 'react';
+
+import { JOBEXPERIENCEOBJ } from '../../types';
 
 interface jobExperienceProps {
   jobexperience: JOBEXPERIENCEOBJ;

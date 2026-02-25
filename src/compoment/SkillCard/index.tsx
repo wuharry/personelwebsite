@@ -1,5 +1,6 @@
-import { FC, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
+import { FC, useEffect, useRef, useState } from 'react';
+
 import { SkillCardProps } from './type';
 
 const SkillCard: FC<SkillCardProps> = ({

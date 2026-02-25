@@ -1,11 +1,12 @@
 /** @format */
 
+import clsx from 'clsx';
 import { FunctionComponent } from 'react';
+
+import { day1, day2, day3, day4, day5 } from '../../assets';
 import { NavigationBar } from '../../compoment';
 import ProjectCard from '../../compoment/ProjectCard';
-import clsx from 'clsx';
 import { Project } from '../../compoment/ProjectCard/type';
-import { day1, day2, day3, day4, day5 } from '../../assets';
 
 const PROJECT_LIST: Project[] = [
   {
