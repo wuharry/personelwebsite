@@ -1,5 +1,6 @@
 import { NavigationBar } from './components';
 import AboutSection from './sections/AboutSection';
+import ContactSection from './sections/ContactSection';
 import ExperienceSection from './sections/ExperienceSection';
 import HeroSection from './sections/HeroSection';
 
@@ -20,7 +21,9 @@ export function App() {
           <ExperienceSection />
         </section>
         <section id="skill">Skill - 待移植</section>
-        <section id="contact">Contact - 待移植</section>
+        <section id="contact">
+          <ContactSection />
+        </section>
       </main>
     </div>
   );

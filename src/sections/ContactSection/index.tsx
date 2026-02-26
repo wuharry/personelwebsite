@@ -1,7 +1,6 @@
 /** @format */
 
 import emailjs from '@emailjs/browser';
-import clsx from 'clsx';
 import { type FunctionComponent } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 
@@ -10,8 +9,33 @@ import {
   CONTACT_ME_INPUTS,
   type Inputs,
 } from '../../static/constant/data/ContactMeInput';
+import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 
 interface contactProps {}
+
+const CONTACT_LINKS = [
+  {
+    label: 'Email',
+    value: 'whw880218we@email.com',
+    href: 'mailto:whw880218we@email.com',
+    icon: Mail,
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/wuharry',
+    href: 'https://github.com/wuharry',
+    icon: Github,
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com',
+    href: 'https://www.linkedin.com/in/%E6%B5%A9%E7%B6%AD-%E5%90%B3-251289232/',
+    icon: Linkedin,
+  },
+];
 
 const Contact: FunctionComponent<contactProps> = () => {
   const { register, handleSubmit } = useForm<Inputs>();
@@ -40,106 +64,113 @@ const Contact: FunctionComponent<contactProps> = () => {
         },
       );
   };
+
   return (
-    <div
-      className={clsx(
-        'flex items-start justify-start sm:flex-col',
-        'min-h-screen w-full',
-        'bg-linear-to-b from-[#1f2937] to-[#111827]',
-        'overflow-y-auto',
-      )}
-    >
-      <NavigationBar />
-      <section
-        className={clsx(
-          'flex flex-col sm:w-full sm:flex-row',
-          'mt-20 mb-10 space-y-10 px-4 sm:mt-14',
-          'rounded-lg bg-white/5 p-8 shadow-xl backdrop-blur-md',
-          'mx-auto max-w-7xl',
-        )}
-      >
-        <div className={clsx('flex h-full w-full flex-1 flex-col')}>
-          {/* 文字區 */}
-          <div className={clsx('mb-8 text-start')}>
-            {/* 標題 */}
-            <h2 className="mb-4 text-7xl font-semibold text-white">Contact </h2>
-            <h2 className="mb-4 text-7xl font-semibold text-sky-600">Me </h2>
-          </div>
-          {/* 內文區 */}
+    <section className="relative mx-auto max-w-5xl px-6 py-24">
+      {/* 標題 */}
+      <div className="mb-12 flex items-center gap-4">
+        <h2 className="text-primary shrink-0 text-sm font-semibold tracking-widest uppercase">
+          聯絡方式
+        </h2>
+        <div className="bg-border/60 h-px flex-1" />
+      </div>
 
-          <div className={clsx('mb-8 text-lg text-white')}>
-            <h2 className={clsx('mb-4 text-2xl')}>let&apos;s work together</h2>
-
-            <p>
-              我是一名充滿熱誠的前端工程師,我正在尋找一份前端工作.
-              {/* I am a passionate front-end developer seeking a front-end development position. */}
-              我善於溝通並且具有一定的獨立工作能力,並且樂於學新知識,我具備一年的React的開發經驗,熟悉React生態系統,能夠快速高效地開發出高質量的用戶介面。
-              {/* I excel in communication, possess strong independent working skills, and am eager to learn new knowledge. */}
-              我擅長使用現代化的前端工具和框架,如Webpack、vite等,並且對性能優化有一定的理解和實踐經驗。
-              {/* With one year of React development experience,I am well-versed in the React ecosystem and capable of quickly and efficiently developing high-quality user interfaces. I am proficient in using modern front-end tools and frameworks such as Webpack and Vite, and have a good understanding and practical experience in performance optimization. 
-              I have strong teamwork skills and can work closely with designers and backend developers to drive product development forward. */}
-              我有良好的團隊合作精神,能夠與設計師、後端工程師等緊密配合,共同推進產品開發。
+      <div className="grid gap-16 lg:grid-cols-2">
+        {/* 左側：說明 + 連結 */}
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-foreground mb-2 text-4xl font-semibold">
+              Contact
+            </h3>
+            <h3 className="text-primary mb-4 text-4xl font-semibold">Me</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              目前正在尋找新的機會。無論是合作邀請還是只是打個招呼，都歡迎隨時聯繫我！
             </p>
-            <p className={clsx('mb-4')}>可以用右邊的表單去聯繫我</p>
-            <p className={clsx('mb-4')}>我會盡快回覆您</p>
+          </div>
+
+          <div className="space-y-3">
+            {CONTACT_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={
+                  link.href.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
+                className="group border-border bg-card/50 hover:border-primary/30 hover:bg-card/80 flex items-center gap-4 rounded-xl border p-5 transition-all duration-300"
+              >
+                <div className="bg-primary/10 text-primary group-hover:bg-primary/20 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors">
+                  <link.icon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
+                    {link.label}
+                  </p>
+                  <p className="text-foreground truncate text-sm">
+                    {link.value}
+                  </p>
+                </div>
+                <ArrowUpRight className="text-muted-foreground group-hover:text-primary h-4 w-4 shrink-0 opacity-0 transition-all group-hover:opacity-100" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div
-          className={clsx(
-            'flex min-h-screen flex-1 flex-col items-center justify-start',
-          )}
-        >
-          <form onSubmit={handleSubmit(sendEmailHandler)} className="w-full">
+        {/* 右側：表單 */}
+        <div className="border-border bg-card/50 flex flex-col justify-center rounded-xl border p-8 backdrop-blur-md">
+          {/* 2. 新增表單區塊的標題與說明 */}
+          <div className="mb-8">
+            <h4 className="text-foreground mb-2 text-2xl font-bold">
+              直接聯繫我
+            </h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              請填寫下方表單，您的訊息將會直接發送至我的個人信箱，我會在看到後盡快回覆您。
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit(sendEmailHandler)} className="space-y-5">
             {CONTACT_ME_INPUTS.map((input) => (
-              <div key={input.name} className={clsx('w-ful mb-4')}>
-                <label
-                  className={clsx('mb-2 block text-sm font-bold text-gray-400')}
-                  htmlFor="name"
+              <div key={input.name} className="space-y-2">
+                <Label
+                  htmlFor={input.name}
+                  className="text-muted-foreground text-sm font-medium"
                 >
                   {input.label}
-                </label>
+                </Label>
+
                 {input.type === 'text' || input.type === 'email' ? (
-                  <input
+                  <Input
+                    id={input.name}
                     type={input.type}
+                    placeholder={`Enter your ${input.name}`}
+                    className="bg-background/50" // 加上一點背景色層次
                     {...register(input.name, {
                       required: true,
                       pattern:
                         input.type === 'email' ? /^\S+@\S+$/i : undefined,
                     })}
-                    placeholder={`Enter your ${input.name}`}
-                    className={clsx(
-                      'h-12 w-11/12 rounded-md text-base font-semibold shadow-sm shadow-gray-200',
-                      'mb-2 border-none bg-slate-600 text-black outline-none',
-                    )}
                   />
                 ) : (
-                  <textarea
+                  <Textarea
+                    id={input.name}
                     placeholder={`Enter your ${input.name}`}
+                    className="bg-background/50 min-h-[120px] resize-none" // 設定最小高度並禁止手動縮放
                     {...register('Message')}
-                    className={clsx(
-                      'h-20 w-11/12 rounded-md text-base font-semibold shadow-sm shadow-gray-200',
-                      'mb-2 resize-none border-none bg-slate-600 text-black outline-none',
-                    )}
                   />
                 )}
               </div>
             ))}
 
-            <Button
-              type="submit"
-              className={clsx(
-                'h-14 w-11/12 rounded-3xl border-x-indigo-400 shadow-sm shadow-gray-200',
-                'inline-block px-2 py-3 font-semibold tracking-wide no-underline',
-              )}
-              onClick={() => {}}
-            >
-              送出
+            {/* 3. 移除無用的 onClick={() => {}} */}
+            <Button type="submit" className="mt-4 h-11 w-full text-base">
+              送出訊息
             </Button>
           </form>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
