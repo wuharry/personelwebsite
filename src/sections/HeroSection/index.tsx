@@ -3,9 +3,11 @@ import { ArrowDown } from 'lucide-react';
 import { type FC, useEffect, useState } from 'react';
 
 import { Icon104, CakeResume } from '../../static/constant/svg';
+import { useTranslation } from 'react-i18next';
 
 const HeroSection: FC = () => {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
 
   const linkHandler = (link: string) => window.open(link, '_blank');
 
@@ -97,7 +99,6 @@ const HeroSection: FC = () => {
       id="hero"
       className="relative flex min-h-screen items-center justify-center px-6"
     >
-      {/* Radial glow - 來自 v0 */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="bg-primary/5 absolute top-1/3 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
       </div>
@@ -111,7 +112,7 @@ const HeroSection: FC = () => {
             visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
           )}
         >
-          Hello 你好
+          {t('hero.greeting')}
         </p>
 
         {/* 名字 */}
@@ -123,7 +124,7 @@ const HeroSection: FC = () => {
             visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
           )}
         >
-          我是 吳浩維 (Harvey)
+          {t('hero.name')}
         </h1>
 
         {/* 職稱 */}
@@ -135,10 +136,10 @@ const HeroSection: FC = () => {
             visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
           )}
         >
-          前端工程師
+          {t('hero.title')}
         </h2>
 
-        {/* 自我介紹 - 你的內容，v0 沒有 */}
+        {/* 自我介紹 */}
         <div
           className={clsx(
             'text-muted-foreground mb-8 space-y-2 text-sm leading-relaxed',
@@ -147,14 +148,11 @@ const HeroSection: FC = () => {
             visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
           )}
         >
-          <p>充滿熱情的前端工程師，擁有 3 年以上前端開發經驗。</p>
-          <p>
-            熟悉 JavaScript、React ，懂一點Next.js、React Native
-            ，對程式有高品質要求。
-          </p>
+          <p>{t('hero.desc1')}</p>
+          <p>{t('hero.desc2')}</p>
         </div>
 
-        {/* 社交連結 - 你的 6 個，v0 只有 3 個 */}
+        {/* 社交連結 */}
         <div
           className={clsx(
             'flex items-center justify-center gap-3',
@@ -178,7 +176,6 @@ const HeroSection: FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <a
         href="#about"
         className="text-muted-foreground hover:text-primary absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce transition-colors"

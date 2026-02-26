@@ -1,49 +1,63 @@
 import clsx from 'clsx';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { type FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-type NavItem = { name: string; id: string };
+type NavItem = { nameKey: string; id: string };
 
 const NAV_LIST: NavItem[] = [
-  { name: 'Home', id: 'hero' },
-  { name: 'About', id: 'about' },
-  { name: 'Experience', id: 'experience' },
-  { name: 'Skill', id: 'skill' },
-  { name: 'Project', id: 'project' },
-  { name: 'Contact', id: 'contact' },
+  { nameKey: 'nav.home', id: 'hero' },
+  { nameKey: 'nav.about', id: 'about' },
+  { nameKey: 'nav.experience', id: 'experience' },
+  { nameKey: 'nav.skill', id: 'skill' },
+  { nameKey: 'nav.project', id: 'project' },
+  { nameKey: 'nav.contact', id: 'contact' },
 ];
 
 const Navbar: FC = () => {
+  const { t, i18n } = useTranslation();
+  const { resolvedTheme, setTheme } = useTheme();
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [mounted, setMounted] = useState(false);
 
-  // scroll 偵測 navbar 背景
+  // next-themes 需等 mount 後才能讀到正確 theme
+  useEffect(() => setMounted(true), []);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // IntersectionObserver 偵測 active section
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-
     NAV_LIST.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (!el) return;
-
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(id);
         },
-        { threshold: 0.4 }, // 40% 可見才觸發
+        { threshold: 0.4 },
       );
       observer.observe(el);
       observers.push(observer);
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
+
+  const toggleLang = () =>
+    i18n.changeLanguage(i18n.language.startsWith('zh') ? 'en' : 'zh');
+
+  const toggleTheme = () =>
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+
+  /** 語系按鈕文字：目前是中文 → 顯示 EN；目前是英文 → 顯示 中文 */
+  const langLabel = i18n.language.startsWith('zh') ? 'EN' : '中文';
 
   return (
     <header>
@@ -65,7 +79,7 @@ const Navbar: FC = () => {
           Harvey.
         </a>
 
-        {/* Desktop links */}
+        {/* Desktop links + 控制按鈕 */}
         <div className="hidden items-center gap-6 sm:flex">
           {NAV_LIST.map((item) => (
             <a
@@ -81,9 +95,39 @@ const Navbar: FC = () => {
                   : 'text-muted-foreground hover:text-foreground after:scale-x-0 after:opacity-0',
               )}
             >
-              {item.name}
+              {t(item.nameKey)}
             </a>
           ))}
+
+          {/* 語系切換 */}
+          <button
+            onClick={toggleLang}
+            className={clsx(
+              'border-border rounded-md border px-2.5 py-1',
+              'text-muted-foreground font-mono text-xs',
+              'hover:border-primary/50 hover:text-primary transition-colors',
+            )}
+            aria-label="Toggle language"
+          >
+            {langLabel}
+          </button>
+
+          {/* 亮暗切換 */}
+          <button
+            onClick={toggleTheme}
+            className={clsx(
+              'flex h-8 w-8 items-center justify-center rounded-md',
+              'border-border text-muted-foreground border',
+              'hover:border-primary/50 hover:text-primary transition-colors',
+            )}
+            aria-label="Toggle theme"
+          >
+            {mounted && resolvedTheme === 'dark' ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </button>
         </div>
 
         {/* Hamburger */}
@@ -137,9 +181,29 @@ const Navbar: FC = () => {
                 : 'text-muted-foreground',
             )}
           >
-            {item.name}
+            {t(item.nameKey)}
           </a>
         ))}
+
+        {/* Mobile 控制按鈕 */}
+        <div className="mt-4 flex items-center gap-4">
+          <button
+            onClick={toggleLang}
+            className="border-border text-muted-foreground hover:text-primary rounded-md border px-3 py-1.5 font-mono text-sm transition-colors"
+          >
+            {langLabel}
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="border-border text-muted-foreground hover:text-primary flex h-9 w-9 items-center justify-center rounded-md border transition-colors"
+          >
+            {mounted && resolvedTheme === 'dark' ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -23,6 +23,9 @@ export function App() {
         <section id="skill">
           <SkillsSection />
         </section>
+        <section id="project"> Project- 待移植</section>
+        <section id="active"> 動態- 待移植</section>
+
         <section id="contact">
           <ContactSection />
         </section>

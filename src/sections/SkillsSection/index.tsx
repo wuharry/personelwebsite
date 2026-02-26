@@ -1,7 +1,5 @@
-/** @format */
-
-import { useEffect, useRef, useState } from 'react';
-import { type FunctionComponent } from 'react';
+import { useEffect, useRef, useState, type FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next'; // 引入 i18n
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 
@@ -11,40 +9,32 @@ import { SKILLS } from '../../static/constant/data/skillProgresion';
 
 interface SkillProps {}
 
-const skillCategories = [
-  {
-    title: '前端開發',
-    skills: [
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'Next.js',
-      'HTML5',
-      'CSS3',
-      'Tailwind CSS',
-    ],
-  },
-  {
-    title: '工具與其他',
-    skills: [
-      'Git',
-      'Vite',
-      'Webpack',
-      'Docker',
-      'REST API',
-      'Node.js',
-      'Linux',
-    ],
-  },
-  {
-    title: '軟技能',
-    skills: ['問題解決', '團隊合作', 'Code Review', '持續學習', '品質意識'],
-  },
-];
-
 const Skill: FunctionComponent<SkillProps> = () => {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation(); // 取得 t 函式
+
+  // 將原本寫在外部的常數移入元件內，並利用 t 函式與 returnObjects 動態取得陣列
+  const skillCategories = [
+    {
+      title: t('skill.categories.frontend.title'),
+      skills: t('skill.categories.frontend.items', {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      title: t('skill.categories.tools.title'),
+      skills: t('skill.categories.tools.items', {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      title: t('skill.categories.soft.title'),
+      skills: t('skill.categories.soft.items', {
+        returnObjects: true,
+      }) as string[],
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,7 +56,7 @@ const Skill: FunctionComponent<SkillProps> = () => {
       {/* 標題 */}
       <div className="mb-12 flex items-center gap-4">
         <h2 className="text-primary shrink-0 text-sm font-semibold tracking-widest uppercase">
-          技能
+          {t('skill.sectionTitle')}
         </h2>
         <Separator className="bg-border/60" />
       </div>
@@ -105,7 +95,7 @@ const Skill: FunctionComponent<SkillProps> = () => {
         {/* 熟練度進度條 */}
         <div className="border-border bg-card/50 rounded-xl border p-8">
           <h3 className="text-muted-foreground mb-8 text-sm font-semibold tracking-widest uppercase">
-            熟練度
+            {t('skill.proficiency')}
           </h3>
           <div className="space-y-5">
             {SKILLS.map((skill) => (

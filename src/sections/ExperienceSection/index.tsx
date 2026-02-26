@@ -1,62 +1,11 @@
 import { ExternalLink } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Badge } from '@/components/ui/badge';
 
-const EXPERIENCES = [
-  {
-    period: '2025/02 — 2025/12',
-    title: 'Frontend Engineer',
-    company: '華能平方',
-    projectName: '企業內外網與 UI 套件庫',
-    descriptions: [
-      '推動 JS 漸進式轉移至 TypeScript，建立型別邊界與 ESLint 規範，降低維護成本與執行風險。',
-      '以 SonarQube 指標驅動程式碼重構，成功將技術債問題數由 3,011 降低至 1,400（減少 53%）。',
-      '基於 shadcn/ui + Tailwind v4 打造企業級 UI 套件庫，並導入 Storybook 與 Vitest 建立測試文檔。',
-      '設計 API Factory 與 Router Guard，建立前端架構防護欄，並優化 React State 管理解決非同步渲染 Bug。',
-      '建置 CI/CD 自動化流程 (Jenkinsfile)，移除明碼環境變數入庫風險，提升部署安全性與透明度。',
-    ],
-    tags: [
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'CI/CD',
-      'SonarQube',
-      'Storybook',
-      'turborepo',
-    ],
-    link: '#',
-  },
-  {
-    period: '2023/05 — 2024/09',
-    title: 'Frontend Engineer',
-    company: 'PGTalk 必礦科技',
-    projectName: '亞通兌點平台後台',
-    descriptions: [
-      '使用 React.js / Next.js 負責亞通兌點後台與投資者平台的核心功能開發與維護。',
-      '重構高耦合程式碼，將資料處理邏輯抽象為 Custom Hooks，並封裝高頻使用的 UI 為通用元件。',
-      '整合 React Hook Form 與客製化時間選擇器，精準實現 PM 需求並提升表單驗證效能。',
-      '優化code,移除在組件中宣告組件的寫法，減少不必要的重複宣告與渲染，提升整體效能與可維護性。',
-    ],
-    tags: ['Next.js', 'React', 'React Hook Form', 'Hooks', 'Redux'],
-    link: '#',
-  },
-  {
-    period: '2022/10 — 2023/04',
-    title: 'MES Frontend Engineer',
-    company: '英業達 Inventec',
-    projectName: '工廠生產線站台系統',
-    descriptions: [
-      '參與生產線系統後端開發，負責 .NET 後端 API end point實作。',
-      '維護舊有產線系統，導入前端輸入防呆機制，大幅降低人為操作錯誤率。',
-      '負責跨部門溝通，釐清使用者需求並協助排查、修復站台的生產資料異常。',
-    ],
-    tags: ['.NET', 'Vue', 'JavaScript', 'MES'],
-    link: '#',
-  },
-];
-
 const ExperienceSection = () => {
+  const { t } = useTranslation();
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -71,6 +20,15 @@ const ExperienceSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const EXPERIENCES = t('experience.items', { returnObjects: true }) as {
+    period: string;
+    title: string;
+    company: string;
+    descriptions: string[];
+    tags: string[];
+    link: string;
+  }[];
+
   return (
     <section
       id="experience"
@@ -79,7 +37,7 @@ const ExperienceSection = () => {
     >
       <div className="mb-12 flex items-center gap-4">
         <h2 className="text-primary shrink-0 text-sm font-semibold tracking-widest uppercase">
-          經歷
+          {t('experience.sectionTitle')}
         </h2>
         <div className="bg-border/60 h-px flex-1" />
       </div>
@@ -91,7 +49,7 @@ const ExperienceSection = () => {
       >
         {EXPERIENCES.map((exp, idx) => (
           <a
-            key={idx}
+            key={`${exp}-${idx}`}
             href={exp.link}
             className="group border-border/0 hover:border-border hover:bg-card/60 block rounded-xl border p-6 transition-all duration-300"
           >

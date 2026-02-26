@@ -1,0 +1,166 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於我",
+    "experience": "經歷",
+    "skill": "技能",
+    "project": "專案",
+    "contact": "聯絡"
+  },
+  "hero": {
+    "greeting": "Hello 你好",
+    "name": "我是 吳浩維 (Harvey)",
+    "title": "前端工程師",
+    "desc1": "充滿熱情的前端工程師，擁有 3 年以上前端開發經驗。",
+    "desc2": "熟悉 JavaScript、React，懂一點 Next.js、React Native，對程式有高品質要求。"
+  },
+  "about": {
+    "sectionTitle": "關於我",
+    "intro": {
+      "title": "簡介",
+      "content": "我是 Harvey，是 Frontend Engineer，擁有近 3 年前端開發經驗，專注於打造可維護且具擴展性的 React 生態系與跨平台應用開發。"
+    },
+    "growth": {
+      "title": "學習與成長",
+      "content": "熟悉 React 與 JavaScript，並持續投入 TypeScript、React Native、React Query 等現代化開發模式。在 Side Project 中持續拓展後端與全端能力，使用 Hono 建構 Node.js API，並實作 Next.js 應用、導入 Turborepo 進行 Monorepo 架構管理，同時具備 npm 套件開發與發佈經驗。"
+    },
+    "work": {
+      "title": "工作經驗",
+      "company1": {
+        "name": "華能平方 · 前端工程師",
+        "item1": "主導內部 npm 套件開發與發佈，供團隊共用",
+        "item2": "重構既有程式碼，修復 SonarQube 檢測問題，程式碼異味降低 40%"
+      },
+      "company2": {
+        "name": "必礦科技 · 前端工程師",
+        "item1": "與設計師緊密協作，負責核心業務頁面的切版與功能開發"
+      }
+    },
+    "strengths": {
+      "title": "優勢",
+      "items": [
+        "重視程式碼品質，習慣在開發過程中自我審查與重構",
+        "具備獨立排查問題的能力，能系統性地定位與修復 Bug",
+        "保持批判性思維，評估技術方案時不盲從，注重實際場景的適用性",
+        "持續關注前端生態趨勢，樂於嘗試並評估新技術的導入價值",
+        "善於跨職能協作，能有效與設計師、後端工程師對齊需求與實作細節"
+      ]
+    },
+    "info": {
+      "sectionTitle": "快速資訊",
+      "titleLabel": "職稱",
+      "titleValue": "前端工程師",
+      "expLabel": "經驗",
+      "expValue": "2+ 年",
+      "locLabel": "位置",
+      "locValue": "台灣",
+      "focusLabel": "專注",
+      "focusValue": "React / JavaScript"
+    }
+  },
+  "experience": {
+    "sectionTitle": "經歷",
+    "items": [
+      {
+        "period": "2025/02 — 2025/12",
+        "title": "Frontend Engineer",
+        "company": "華能平方",
+        "descriptions": [
+          "推動 JS 漸進式轉移至 TypeScript，建立型別邊界與 ESLint 規範，降低維護成本與執行風險。",
+          "以 SonarQube 指標驅動程式碼重構，成功將技術債問題數由 3,011 降低至 1,400（減少 53%）。",
+          "基於 shadcn/ui + Tailwind v4 打造企業級 UI 套件庫，並導入 Storybook 與 Vitest 建立測試文檔。",
+          "設計 API Factory 與 Router Guard，建立前端架構防護欄，並優化 React State 管理解決非同步渲染 Bug。",
+          "建置 CI/CD 自動化流程 (Jenkinsfile)，移除明碼環境變數入庫風險，提升部署安全性與透明度。"
+        ],
+        "tags": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "CI/CD",
+          "SonarQube",
+          "Storybook",
+          "turborepo"
+        ],
+        "link": "#"
+      },
+      {
+        "period": "2023/05 — 2024/09",
+        "title": "Frontend Engineer",
+        "company": "PGTalk 必礦科技",
+        "descriptions": [
+          "使用 React.js / Next.js 負責亞通兌點後台與投資者平台的核心功能開發與維護。",
+          "重構高耦合程式碼，將資料處理邏輯抽象為 Custom Hooks，並封裝高頻使用的 UI 為通用元件。",
+          "整合 React Hook Form 與客製化時間選擇器，精準實現 PM 需求並提升表單驗證效能。",
+          "優化 code，移除在組件中宣告組件的寫法，減少不必要的重複宣告與渲染，提升整體效能與可維護性。"
+        ],
+        "tags": ["Next.js", "React", "React Hook Form", "Hooks", "Redux"],
+        "link": "#"
+      },
+      {
+        "period": "2022/10 — 2023/04",
+        "title": "MES Frontend Engineer",
+        "company": "英業達 Inventec",
+        "descriptions": [
+          "參與生產線系統後端開發，負責 .NET 後端 API endpoint 實作。",
+          "維護舊有產線系統，導入前端輸入防呆機制，大幅降低人為操作錯誤率。",
+          "負責跨部門溝通，釐清使用者需求並協助排查、修復站台的生產資料異常。"
+        ],
+        "tags": [".NET", "Vue", "JavaScript", "MES"],
+        "link": "#"
+      }
+    ]
+  },
+  "contact": {
+    "sectionTitle": "聯絡方式",
+    "heading1": "Contact",
+    "heading2": "Me",
+    "description": "目前正在尋找新的機會。無論是合作邀請還是只是打個招呼，都歡迎隨時聯繫我！",
+    "links": {
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "title": "直接聯繫我",
+      "subtitle": "請填寫下方表單，您的訊息將會直接發送至我的個人信箱，我會在看到後盡快回覆您。",
+      "placeholder": "請輸入您的 {{field}}",
+      "submit": "送出訊息",
+      "successMsg": "Email 已成功送出！",
+      "errorMsg": "Email 發送失敗，請稍後再試。"
+    }
+  },
+  "skill": {
+    "sectionTitle": "技能",
+    "proficiency": "熟練度",
+    "categories": {
+      "frontend": {
+        "title": "前端開發",
+        "items": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Next.js",
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS"
+        ]
+      },
+      "tools": {
+        "title": "工具與其他",
+        "items": [
+          "Git",
+          "Vite",
+          "Webpack",
+          "Docker",
+          "REST API",
+          "Node.js",
+          "Linux"
+        ]
+      },
+      "soft": {
+        "title": "軟技能",
+        "items": ["問題解決", "團隊合作", "Code Review", "持續學習", "品質意識"]
+      }
+    }
+  }
+}

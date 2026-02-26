@@ -1,16 +1,15 @@
-/** @format */
+import './i18n';
+import { ThemeProvider } from 'next-themes';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
 import { App } from './App';
+import './index.css';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
-
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <App />
+    </ThemeProvider>
+  </StrictMode>,
 );

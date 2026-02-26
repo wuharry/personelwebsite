@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skill": "Skill",
+    "project": "Project",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, World!",
+    "name": "I'm Harvey Wu",
+    "title": "Frontend Engineer",
+    "desc1": "A passionate Frontend Engineer with over 3 years of web development experience.",
+    "desc2": "Proficient in JavaScript and React, with working knowledge of Next.js and React Native. Committed to delivering high-quality, maintainable code."
+  },
+  "about": {
+    "sectionTitle": "About Me",
+    "intro": {
+      "title": "Introduction",
+      "content": "I'm Harvey, a Frontend Engineer with nearly 3 years of experience focused on building maintainable and scalable React ecosystems and cross-platform applications."
+    },
+    "growth": {
+      "title": "Learning & Growth",
+      "content": "Proficient in React and JavaScript, with ongoing investment in TypeScript, React Native, and React Query. Through side projects, I've expanded into full-stack development — building Node.js APIs with Hono, implementing Next.js apps, managing Monorepo architecture with Turborepo, and publishing npm packages."
+    },
+    "work": {
+      "title": "Work Experience",
+      "company1": {
+        "name": "Huaneng Square · Frontend Engineer",
+        "item1": "Led internal npm package development and publishing for team-wide reuse",
+        "item2": "Refactored legacy code and resolved SonarQube issues, reducing code smells by 40%"
+      },
+      "company2": {
+        "name": "PGTalk · Frontend Engineer",
+        "item1": "Collaborated closely with designers to implement core business pages and features"
+      }
+    },
+    "strengths": {
+      "title": "Strengths",
+      "items": [
+        "Strong focus on code quality with a habit of self-review and refactoring during development",
+        "Capable of independently diagnosing issues and systematically locating and fixing bugs",
+        "Applies critical thinking when evaluating technical solutions, prioritizing practical fit over trends",
+        "Stays current with frontend ecosystem trends and evaluates new technologies for adoption value",
+        "Effective cross-functional collaborator, aligning with designers and backend engineers on requirements"
+      ]
+    },
+    "info": {
+      "sectionTitle": "Quick Info",
+      "titleLabel": "Role",
+      "titleValue": "Frontend Engineer",
+      "expLabel": "Experience",
+      "expValue": "2+ Years",
+      "locLabel": "Location",
+      "locValue": "Taiwan",
+      "focusLabel": "Focus",
+      "focusValue": "React / JavaScript"
+    }
+  },
+  "experience": {
+    "sectionTitle": "Experience",
+    "items": [
+      {
+        "period": "2025/02 — 2025/12",
+        "title": "Frontend Engineer",
+        "company": "Huaneng Square",
+        "descriptions": [
+          "Led incremental migration from JavaScript to TypeScript, establishing type boundaries and ESLint rules to reduce maintenance cost and runtime risk.",
+          "Drove code refactoring with SonarQube metrics, reducing technical debt issues from 3,011 to ~1,400 (a 53% decrease).",
+          "Built an enterprise UI component library using shadcn/ui + Tailwind v4, with Storybook documentation and Vitest test coverage.",
+          "Designed API Factory and Router Guard patterns to establish frontend architecture guardrails, and resolved async rendering bugs through React state optimization.",
+          "Automated CI/CD pipelines via Jenkinsfile, eliminated plaintext env vars from version control, improving deployment security and transparency."
+        ],
+        "tags": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "CI/CD",
+          "SonarQube",
+          "Storybook",
+          "turborepo"
+        ],
+        "link": "#"
+      },
+      {
+        "period": "2023/05 — 2024/09",
+        "title": "Frontend Engineer",
+        "company": "PGTalk",
+        "descriptions": [
+          "Developed and maintained core features for the Atong points admin panel and investor platform using React.js / Next.js.",
+          "Refactored tightly-coupled code by abstracting data logic into Custom Hooks and encapsulating reusable UI components.",
+          "Integrated React Hook Form with a custom date picker to precisely meet PM requirements and improve form validation performance.",
+          "Optimized codebase by removing component declarations inside components, reducing unnecessary re-renders and improving maintainability."
+        ],
+        "tags": ["Next.js", "React", "React Hook Form", "Hooks", "Redux"],
+        "link": "#"
+      },
+      {
+        "period": "2022/10 — 2023/04",
+        "title": "MES Frontend Engineer",
+        "company": "Inventec",
+        "descriptions": [
+          "Participated in production line system development, implementing .NET backend API endpoints.",
+          "Maintained legacy station systems and introduced frontend input validation to significantly reduce human operation errors.",
+          "Handled cross-department communication to clarify user requirements and assist in diagnosing and resolving production data anomalies."
+        ],
+        "tags": [".NET", "Vue", "JavaScript", "MES"],
+        "link": "#"
+      }
+    ]
+  },
+  "contact": {
+    "sectionTitle": "Contact",
+    "heading1": "Contact",
+    "heading2": "Me",
+    "description": "I'm currently open to new opportunities. Whether it's a collaboration or just a hello, feel free to reach out!",
+    "links": {
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "title": "Get In Touch",
+      "subtitle": "Fill out the form below and your message will be sent directly to my inbox. I'll get back to you as soon as I can.",
+      "placeholder": "Enter your {{field}}",
+      "submit": "Send Message",
+      "successMsg": "Email sent successfully!",
+      "errorMsg": "Failed to send email. Please try again later."
+    }
+  },
+  "skill": {
+    "sectionTitle": "Skills",
+    "proficiency": "Proficiency",
+    "categories": {
+      "frontend": {
+        "title": "Frontend Development",
+        "items": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Next.js",
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS"
+        ]
+      },
+      "tools": {
+        "title": "Tools & Others",
+        "items": [
+          "Git",
+          "Vite",
+          "Webpack",
+          "Docker",
+          "REST API",
+          "Node.js",
+          "Linux"
+        ]
+      },
+      "soft": {
+        "title": "Soft Skills",
+        "items": [
+          "Problem Solving",
+          "Teamwork",
+          "Code Review",
+          "Continuous Learning",
+          "Quality Awareness"
+        ]
+      }
+    }
+  }
+}

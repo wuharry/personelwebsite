@@ -29,7 +29,8 @@ const SkillCard: FC<SkillCardProps> = ({
       if (ref.current) {
         const RADIUS = ref.current.r.baseVal.value;
         const circumference = RADIUS * 2 * Math.PI;
-        const filledLength = (1 - percentage / 100) * circumference;
+        // ✅ filledLength 是「要顯示的長度」，offset = 剩餘空白
+        const filledLength = (percentage / 100) * circumference;
         setDashOffset(circumference - filledLength);
       }
     }, 100);
