@@ -1,4 +1,4 @@
-interface skill {
+interface Skill {
   label: string;
   percentage: number;
   progressColor: string;
@@ -6,7 +6,7 @@ interface skill {
   size?: number;
 }
 
-export const SKILLS: skill[] = [
+export const SKILLS: Skill[] = [
   {
     label: 'html',
     percentage: 90,

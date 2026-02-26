@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import day5 from '../../assets/day5.png';
+import { day5 } from '@/assets';
 
 interface InstagramProps {
   // 這裡可以定義額外的 props
@@ -18,28 +18,29 @@ const Instagram: React.FC<InstagramProps> = () => {
   }
 
   return (
-    <div className="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
-      <div className="max-w-2xl w-full">
-        <div className="bg-white p-8 rounded-lg shadow-md">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+      <div className="w-full max-w-2xl">
+        <div className="rounded-lg bg-white p-8 shadow-md">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold">Instagram</h1>
-            <p className="text-gray-500 text-sm">2022/1/2</p>
+            <p className="text-sm text-gray-500">2022/1/2</p>
           </div>
 
           <div className="mt-6">
             <div className="relative">
               <a
                 href="https://62b2624dfafbbb095f5b5e9c--dazzling-rugelach-a2ba75.netlify.app/"
-                target="_blank" rel="noreferrer"
+                target="_blank"
+                rel="noreferrer"
               >
                 <img
                   src={day5}
                   alt=""
-                  className="w-full h-auto rounded-lg shadow-md"
+                  className="h-auto w-full rounded-lg shadow-md"
                 />
               </a>
               {imgshader && (
-                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+                <div className="absolute top-0 left-0 h-full w-full bg-black opacity-50"></div>
               )}
             </div>
 
@@ -50,7 +51,8 @@ const Instagram: React.FC<InstagramProps> = () => {
             <a
               href="https://62b2624dfafbbb095f5b5e9c--dazzling-rugelach-a2ba75.netlify.app/"
               target="_blank"
-              className="mt-4 text-blue-500 underline" rel="noreferrer"
+              className="mt-4 text-blue-500 underline"
+              rel="noreferrer"
             >
               點我前往
             </a>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import day3 from '../../assets/day3.png';
-
+import { day3 } from '@/assets';
 export const BlurPicture: React.FC = () => {
   const [imgshader, setImgshader] = useState(false);
 
