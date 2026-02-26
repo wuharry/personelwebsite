@@ -35,44 +35,99 @@ const AboutSection: FC = () => {
 
       <div
         className={clsx(
-          'grid gap-12 transition-all duration-700 md:grid-cols-[200px_1fr]',
+          'grid gap-12 transition-all duration-700 md:grid-cols-[1fr_280px]',
           visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         )}
       >
-        {/* 頭像 - 你的個人化元素 */}
+        {/* 頭像 - 個人化元素 */}
         {/* <div className="flex justify-center md:justify-start">
           <HeaderIcon />
         </div> */}
 
-        {/* 文字內容 - 你的原版文字，保留個人味 */}
         <div className="text-muted-foreground space-y-6 text-sm leading-relaxed">
           <div>
             <h3 className="text-foreground mb-2 font-medium">簡介</h3>
             <p>
-              畢業於勤益科技大學資訊工程系。在校期間學習了 HTML、CSS
-              等前端基礎知識。
+              我是Harvey,是Frontend enginner,擁有近 3
+              年前端開發經驗，專注於打造可維護且具擴展性的 React
+              生態系與跨平台應用開發。
             </p>
           </div>
           <div>
             <h3 className="text-foreground mb-2 font-medium">學習與成長</h3>
             <p>
-              熱衷學習與交流，畢業後持續精進前端技能，深入研究
-              JavaScript、React.js，並創作了仿 IG 頁面、個人網站等專案。
+              熟悉 React 與 JavaScript，並持續投入 TypeScript、React
+              Native、React Query 等現代化開發模式。 在 Side Project
+              中持續拓展後端與全端能力，使用 Hono 建構 Node.js API，並實作
+              Next.js 應用、導入 Turborepo 進行 Monorepo 架構管理，同時具備 npm
+              套件開發與發佈經驗。
             </p>
           </div>
           <div>
             <h3 className="text-foreground mb-2 font-medium">工作經驗</h3>
-            <p>
-              曾在必礦科技擔任前端工程師，積累一線開發經驗，遇到問題積極尋求解決方案，持續學習新知識。
-            </p>
+            <div className="space-y-4">
+              <div>
+                <p className="text-foreground text-sm font-medium">
+                  華能平方 · 前端工程師
+                </p>
+                <ul className="mt-1 list-disc space-y-1 pl-4">
+                  <li>主導內部 npm 套件開發與發佈，供團隊共用</li>
+                  <li>
+                    重構既有程式碼，修復 SonarQube 檢測問題，程式碼異味降低 40%
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-foreground text-sm font-medium">
+                  必礦科技 · 前端工程師
+                </p>
+                <ul className="mt-1 list-disc space-y-1 pl-4">
+                  <li>與設計師緊密協作，負責核心業務頁面的切版與功能開發</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div>
             <h3 className="text-foreground mb-2 font-medium">優勢</h3>
             <ul className="list-disc space-y-1 pl-4">
-              <li>積極主動，遇到問題不逃避，主動尋求解決方案</li>
-              <li>學習能力強，保持終身學習的態度</li>
-              <li>善於溝通協作，能與設計師、後端工程師緊密配合</li>
+              <li>重視程式碼品質，習慣在開發過程中自我審查與重構</li>
+              <li>具備獨立排查問題的能力，能系統性地定位與修復 Bug</li>
+              <li>
+                保持批判性思維，評估技術方案時不盲從，注重實際場景的適用性
+              </li>
+              <li>持續關注前端生態趨勢，樂於嘗試並評估新技術的導入價值</li>
+              <li>
+                善於跨職能協作，能有效與設計師、後端工程師對齊需求與實作細節
+              </li>
             </ul>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <div className="border-border bg-card/50 rounded-xl border p-6">
+            <h3 className="text-muted-foreground mb-4 text-sm font-semibold tracking-widest uppercase">
+              {'快速資訊'}
+            </h3>
+            <dl className="space-y-4">
+              {[
+                { label: '職稱', value: '前端工程師' },
+                { label: '經驗', value: '2+ 年' },
+                { label: '位置', value: '台灣' },
+                { label: '專注', value: 'React / JavaScript' },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-start justify-between gap-4"
+                >
+                  <dt className="text-muted-foreground text-sm">
+                    {item.label}
+                  </dt>
+                  <dd className="text-foreground text-right text-sm font-medium">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
