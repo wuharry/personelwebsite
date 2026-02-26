@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { type FC, useEffect, useRef, useState } from 'react';
-
 import { type SkillCardProps } from './type';
 
 const SkillCard: FC<SkillCardProps> = ({
@@ -16,55 +15,50 @@ const SkillCard: FC<SkillCardProps> = ({
   useEffect(() => {
     const updateSize = () => {
       if (ref.current) {
-        const RADIUS = ref.current.r.baseVal.value;
-        setDivSize({
-          width: RADIUS,
-        });
+        setDivSize({ width: ref.current.r.baseVal.value });
       }
     };
-
     updateSize();
     window.addEventListener('resize', updateSize);
-
-    return () => {
-      window.removeEventListener('resize', updateSize);
-    };
+    return () => window.removeEventListener('resize', updateSize);
   }, [percentage]);
 
   useEffect(() => {
     setDashOffset(0);
     setTimeout(() => {
       if (ref.current) {
-        const RADIUS = ref.current.r.baseVal.value; //半徑
-        const circumference = RADIUS * 2 * Math.PI; //圓周長
-        const filledLength = (1 - percentage / 100) * circumference; //留白的進度條
+        const RADIUS = ref.current.r.baseVal.value;
+        const circumference = RADIUS * 2 * Math.PI;
+        const filledLength = (1 - percentage / 100) * circumference;
         setDashOffset(circumference - filledLength);
       }
     }, 100);
   }, [percentage]);
 
-  const radius = divSize.width; //半徑
-  const circumference = radius * 2 * Math.PI; //圓周長計算
+  const radius = divSize.width;
+  const circumference = radius * 2 * Math.PI;
 
   return (
     <div
       className={clsx(
-        'h-52 w-1/4 rounded-lg bg-white shadow-lg shadow-slate-50',
-        `flex flex-col items-center justify-around text-center text-fuchsia-500`,
+        'group flex flex-col items-center justify-center gap-3 rounded-xl',
+        'border-border bg-card/50 border p-6',
+        'hover:border-primary/30 hover:bg-card/80 transition-all duration-300',
         className,
       )}
     >
-      <svg width="60%" height="60%" viewBox="0 0 100 100">
-        {/* 外圓 */}
+      <svg width="80" height="80" viewBox="0 0 100 100">
+        {/* 背景圓 */}
         <circle
           cx="50"
           cy="50"
           r="45"
-          stroke={progressColor ? progressColor : 'blue'}
+          stroke="currentColor"
           strokeWidth="5"
           fill="none"
+          className="text-border"
         />
-        {/* 內圓 */}
+        {/* 進度圓 */}
         <circle
           cx="50"
           cy="50"
@@ -72,12 +66,12 @@ const SkillCard: FC<SkillCardProps> = ({
           fill="none"
           strokeWidth="5"
           strokeLinecap="round"
-          stroke="#cccccc"
+          stroke={progressColor}
           ref={ref}
-          strokeDasharray={`${circumference}px`} //白線的部分是圓周長
+          strokeDasharray={`${circumference}px`}
           style={{
             transition: 'stroke-dashoffset 2s ease-in-out',
-            strokeDashoffset: dashOffset, //白線的偏移量,會是從0~(圓周長 - (100-percentage)的長度),那麼過度偏移的stroke會被忽略只會剩下還在圓周長範圍內的
+            strokeDashoffset: dashOffset,
           }}
         />
         <text
@@ -85,13 +79,17 @@ const SkillCard: FC<SkillCardProps> = ({
           y="50"
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="28"
-          fill="#4A4AFF"
+          fontSize="22"
+          fill={progressColor}
+          fontWeight="600"
         >
           {`${percentage}%`}
         </text>
       </svg>
-      <p className={clsx('text-center text-2xl font-bold')}>{label}</p>
+
+      <p className="text-foreground group-hover:text-primary text-center text-sm font-semibold transition-colors">
+        {label}
+      </p>
     </div>
   );
 };

@@ -3,13 +3,13 @@ import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
 import ExperienceSection from './sections/ExperienceSection';
 import HeroSection from './sections/HeroSection';
+import SkillsSection from './sections/SkillsSection';
 
 // src/App.tsx
 export function App() {
   return (
     <div className="bg-background text-foreground relative min-h-screen">
       <NavigationBar />
-
       <main>
         <section id="hero">
           <HeroSection />
@@ -20,7 +20,9 @@ export function App() {
         <section id="experience">
           <ExperienceSection />
         </section>
-        <section id="skill">Skill - 待移植</section>
+        <section id="skill">
+          <SkillsSection />
+        </section>
         <section id="contact">
           <ContactSection />
         </section>
