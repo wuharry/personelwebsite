@@ -1,193 +1,148 @@
 import clsx from 'clsx';
-import { type FunctionComponent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { type FC, useEffect, useState } from 'react';
 
-interface NavigationBarProps {}
-type RouteItem = {
-  name: string;
-  link: string;
-};
+type NavItem = { name: string; id: string };
 
-const ROUTER_LIST: RouteItem[] = [
-  {
-    name: 'Home',
-    link: '/',
-  },
-  {
-    name: 'About',
-    link: '/about',
-  },
-  {
-    name: 'Experience',
-    link: '/experience',
-  },
-  {
-    name: 'Skill',
-    link: '/skill',
-  },
-  {
-    name: 'Project',
-    link: '/project',
-  },
-  {
-    name: 'Contact',
-    link: '/contact',
-  },
+const NAV_LIST: NavItem[] = [
+  { name: 'Home', id: 'hero' },
+  { name: 'About', id: 'about' },
+  { name: 'Experience', id: 'experience' },
+  { name: 'Skill', id: 'skill' },
+  { name: 'Project', id: 'project' },
+  { name: 'Contact', id: 'contact' },
 ];
 
-const STYLES = {
-  link: `
-    inline-block text-xl font-medium
-    relative                            
-    transition-all duration-300
-    text-white hover:text-[#0ef]
-    after:content-['']                   
-    after:absolute                      
-    after:w-full                         
-    after:h-0.5                         
-    after:bg-gradient-to-r               
-    after:from-[#0ef]                    
-    after:to-[#2563eb]                   
-    after:left-0                       
-    after:bottom-[-5px]                
-    after:rounded-full             
-    after:opacity-0             
-    after:transform                 
-    after:scale-x-0                 
-    after:transition-all          
-    after:duration-300                 
-    hover:after:opacity-100           
-    hover:after:scale-x-100    
-  `,
-  mobileLink: `
-    block w-full text-xl font-medium py-4
-    text-center
-    transition-all duration-300
-    text-white hover:text-[#0ef]
-  `,
-} as const;
-
-const NavigationBar: FunctionComponent<NavigationBarProps> = () => {
-  const [navBarAnimation, setNavBarAnimation] = useState(false);
-  const [hamburgerAnimation, setHamburgerAnimation] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
+  // scroll 偵測 navbar 背景
   useEffect(() => {
-    setNavBarAnimation(true);
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleHamburgerClick = () => {
-    setHamburgerAnimation(!hamburgerAnimation);
-  };
+  // IntersectionObserver 偵測 active section
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    NAV_LIST.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { threshold: 0.4 }, // 40% 可見才觸發
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   return (
-    <header className="relative">
-      {/* Fixed Navigation Bar */}
+    <header>
       <nav
         className={clsx(
-          'fixed top-0 right-0 left-0 z-50 px-5 py-3',
-          'transition-all duration-300',
+          'fixed top-0 right-0 left-0 z-50 px-6 py-3',
           'flex items-center justify-between',
+          'transition-all duration-300',
           scrolled
-            ? 'bg-[#1f2937]/90 shadow-lg backdrop-blur-md'
+            ? 'border-border bg-background/90 border-b shadow-sm backdrop-blur-md'
             : 'bg-transparent',
         )}
       >
-        {/* Logo/Title */}
-        <Link
-          to="/"
-          className={clsx(
-            'z-50 text-2xl font-bold',
-            'bg-linear-to-r from-[#0ef] to-[#2563eb] bg-clip-text text-transparent',
-            'ml-12 sm:ml-0',
-          )}
+        {/* Logo */}
+        <a
+          href="#hero"
+          className="text-primary z-50 ml-10 text-xl font-bold sm:ml-0"
         >
-          Portfolio
-        </Link>
+          Harvey.
+        </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden sm:flex sm:items-center sm:gap-8">
-          {ROUTER_LIST.map((item, index) => (
-            <Link
-              key={`${index}-${item.name}`}
-              to={item.link}
+        {/* Desktop links */}
+        <div className="hidden items-center gap-6 sm:flex">
+          {NAV_LIST.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
               className={clsx(
-                STYLES.link,
-                navBarAnimation &&
-                  'animate-fade-down animate-once animate-ease-in',
+                'relative text-sm font-medium transition-colors duration-300',
+                'after:absolute after:-bottom-1 after:left-0',
+                'after:h-px after:w-full after:rounded-full',
+                'after:bg-primary after:transition-all after:duration-300',
+                activeSection === item.id
+                  ? 'text-primary after:scale-x-100 after:opacity-100'
+                  : 'text-muted-foreground hover:text-foreground after:scale-x-0 after:opacity-0',
               )}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
 
-        {/* Hamburger Button */}
+        {/* Hamburger */}
         <button
-          onClick={handleHamburgerClick}
-          className={clsx(
-            'fixed top-5 left-5 z-50 sm:hidden',
-            'flex h-6 w-8 flex-col justify-between',
-            'focus:outline-none',
-          )}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="fixed top-5 left-5 z-50 flex h-5 w-7 flex-col justify-between focus:outline-none sm:hidden"
+          aria-label="Toggle menu"
         >
           <span
             className={clsx(
-              'h-0.5 w-full bg-white transition-all duration-300',
-              hamburgerAnimation && 'translate-y-2.5 rotate-45',
+              'bg-foreground h-px w-full transition-all duration-300',
+              menuOpen && 'translate-y-2.5 rotate-45',
             )}
           />
           <span
             className={clsx(
-              'h-0.5 w-full bg-white transition-all duration-300',
-              hamburgerAnimation && 'opacity-0',
+              'bg-foreground h-px w-full transition-all duration-300',
+              menuOpen && 'opacity-0',
             )}
           />
           <span
             className={clsx(
-              'h-0.5 w-full bg-white transition-all duration-300',
-              hamburgerAnimation && '-translate-y-2.5 -rotate-45',
+              'bg-foreground h-px w-full transition-all duration-300',
+              menuOpen && '-translate-y-2.5 -rotate-45',
             )}
           />
         </button>
       </nav>
-      {/* Mobile Menu Overlay */}
+
+      {/* Mobile overlay */}
       <div
         className={clsx(
           'fixed inset-0 z-40 sm:hidden',
-          'transition-all duration-300 ease-in-out',
-          hamburgerAnimation
-            ? 'visible bg-[#1f2937]/95 opacity-100'
+          'flex flex-col items-center justify-center gap-6',
+          'bg-background/95 backdrop-blur-sm',
+          'transition-all duration-300',
+          menuOpen
+            ? 'visible opacity-100'
             : 'pointer-events-none invisible opacity-0',
         )}
       >
-        {/* Mobile Menu Items Container */}
-        <div className="flex h-full flex-col items-center justify-center">
-          {ROUTER_LIST.map((item, index) => (
-            <Link
-              key={`mobile-${index}-${item.name}`}
-              to={item.link}
-              onClick={() => setHamburgerAnimation(false)}
-              className={clsx(
-                STYLES.mobileLink,
-                activeSection === item.name && 'text-[#0ef]',
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
+        {NAV_LIST.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            onClick={() => setMenuOpen(false)}
+            className={clsx(
+              'text-2xl font-medium transition-colors',
+              activeSection === item.id
+                ? 'text-primary'
+                : 'text-muted-foreground',
+            )}
+          >
+            {item.name}
+          </a>
+        ))}
       </div>
     </header>
   );
 };
 
-export default NavigationBar;
+export default Navbar;
