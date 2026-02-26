@@ -1,5 +1,6 @@
 import { NavigationBar } from './components';
 import AboutSection from './sections/AboutSection';
+import ExperienceSection from './sections/ExperienceSection';
 import HeroSection from './sections/HeroSection';
 
 // src/App.tsx
@@ -15,7 +16,9 @@ export function App() {
         <section id="about">
           <AboutSection />
         </section>
-        <section id="experience">Experience - 待移植</section>
+        <section id="experience">
+          <ExperienceSection />
+        </section>
         <section id="skill">Skill - 待移植</section>
         <section id="contact">Contact - 待移植</section>
       </main>
