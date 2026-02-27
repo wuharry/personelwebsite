@@ -162,5 +162,34 @@
         "items": ["問題解決", "團隊合作", "Code Review", "持續學習", "品質意識"]
       }
     }
+  },
+  "project": {
+    "sectionTitle": "專案",
+    "heading": "精選作品集",
+    "description": "收錄了我在前端學習歷程中實作的專案，涵蓋 JavaScript 互動效果、CSS 動畫與 React 應用開發。",
+    "filterAll": "全部",
+    "empty": "此分類目前沒有專案",
+    "items": [
+      {
+        "title": "Drum Kit",
+        "description": "JS 的 DOM 練習，當按下按鍵的時候觸發對應鼓聲"
+      },
+      {
+        "title": "JS + CSS Clock",
+        "description": "搭配 JS 跟 CSS 做成的動態時鐘"
+      },
+      {
+        "title": "CSS Variables",
+        "description": "製作一個可控制圖片邊框、模糊與黑白的濾鏡效果"
+      },
+      {
+        "title": "Flex Panel Gallery",
+        "description": "製作一個動畫展開圖片的效果"
+      },
+      {
+        "title": "Type Ahead",
+        "description": "製作一個即時顯示結果的搜尋框"
+      }
+    ]
   }
 }

@@ -1,4 +1,6 @@
-export type Category = '全部' | 'JavaScript' | 'CSS' | 'React' | 'Next.js';
+export const FILTER_ALL = 'ALL' as const;
+export type TechCategory = 'JavaScript' | 'CSS' | 'React' | 'Next.js';
+export type Category = typeof FILTER_ALL | TechCategory;
 
 export type Project = {
   title: string;

@@ -168,5 +168,34 @@
         ]
       }
     }
+  },
+  "project": {
+    "sectionTitle": "Projects",
+    "heading": "Featured Work",
+    "description": "A collection of projects built throughout my frontend learning journey, covering JavaScript interactions, CSS animations, and React development.",
+    "filterAll": "All",
+    "empty": "No projects in this category yet",
+    "items": [
+      {
+        "title": "Drum Kit",
+        "description": "A DOM practice project in JS — press keys to trigger drum sounds"
+      },
+      {
+        "title": "JS + CSS Clock",
+        "description": "An animated analog clock built with JavaScript and CSS"
+      },
+      {
+        "title": "CSS Variables",
+        "description": "A filter panel to control image border, blur, and grayscale in real time"
+      },
+      {
+        "title": "Flex Panel Gallery",
+        "description": "An animated panel gallery with expand-on-click effect"
+      },
+      {
+        "title": "Type Ahead",
+        "description": "A search input with live-filtering results"
+      }
+    ]
   }
 }
