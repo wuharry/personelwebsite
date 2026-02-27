@@ -3,6 +3,7 @@ import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
 import ExperienceSection from './sections/ExperienceSection';
 import HeroSection from './sections/HeroSection';
+import ProjectsContent from './sections/ProjectsSection';
 import SkillsSection from './sections/SkillsSection';
 
 // src/App.tsx
@@ -23,7 +24,9 @@ export function App() {
         <section id="skill">
           <SkillsSection />
         </section>
-        <section id="project"> Project- 待移植</section>
+        <section id="project">
+          <ProjectsContent />
+        </section>
         <section id="active"> 動態- 待移植</section>
 
         <section id="contact">

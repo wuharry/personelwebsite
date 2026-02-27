@@ -1,8 +1,13 @@
-export interface Project {
-  label: string;
+export type Category = '全部' | 'JavaScript' | 'CSS' | 'React' | 'Next.js';
+
+export type Project = {
+  title: string;
   description: string;
-  link: string;
+  longDescription?: string;
   image: string;
-  className?: string;
-  size?: number;
-}
+  tags?: string[];
+  category: Category[];
+  link?: string;
+  github?: string;
+  featured?: boolean;
+};

@@ -1,69 +1,90 @@
 import clsx from 'clsx';
-import { type FC, useState } from 'react';
-
-import Button from '../ui/Button/Button';
+import { type FunctionComponent } from 'react';
+import { ExternalLink } from 'lucide-react';
 
 import { type Project } from './type';
 
-const ProjectCard: FC<Project> = ({
-  label,
-  link,
-  description,
-  image,
-  className,
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
+
+const ProjectCard: FunctionComponent<ProjectCardProps> = ({
+  project,
+  index,
 }) => {
-  const [openDescription, setOpenDescription] = useState(false);
-
-  const handleMouseEnter = () => {
-    setOpenDescription(true);
-  };
-
-  const handleMouseLeave = () => {
-    setOpenDescription(false);
-  };
-
-  const handleClick = () => {
-    window.open(link, '_blank');
-  };
-
   return (
-    <div
+    <article
       className={clsx(
-        'relative mt-0 flex h-96 w-80 flex-col rounded-md bg-slate-600',
-        'min-w-[20rem] sm:min-w-[24rem]',
-        className,
+        'group relative flex flex-col overflow-hidden rounded-xl',
+        'border border-white/10 bg-white/5',
+        'transition-all duration-500',
+        'hover:border-blue-500/30 hover:bg-white/10 hover:shadow-lg hover:shadow-blue-500/5',
       )}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className="relative flex h-72 w-full flex-col justify-center overflow-hidden p-4">
+      {/* Image */}
+      <div className="relative aspect-video w-full overflow-hidden">
         <img
-          src={image}
-          alt={label}
-          className="absolute top-50 left-0 h-4/5 w-full rounded-md"
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {/* hover跳上來區域 */}
-        <div
-          className={clsx(
-            'mt-2 w-full text-center text-white group-hover:block',
-            'absolute flex flex-col items-center justify-center gap-2',
-            'bottom-7 left-0 bg-linear-to-t from-white to-transparent',
-            'rounded-b-lg transition-all duration-300 ease-in-out',
-            openDescription ? 'h-full opacity-100' : 'h-0 opacity-0',
-          )}
-        >
-          <Button onClick={handleClick} className="text-red-700">
-            跳轉
-          </Button>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+
+        {/* Hover overlay link */}
+        {project.link && (
+          <div className="absolute top-4 right-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={clsx(
+                'flex h-9 w-9 items-center justify-center rounded-lg',
+                'bg-black/60 text-white backdrop-blur-sm',
+                'transition-colors hover:bg-blue-500',
+              )}
+              aria-label={`${project.title} Demo`}
+            >
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
+        )}
+
+        {project.featured && (
+          <div className="absolute top-4 left-4">
+            <span className="rounded-md bg-blue-500/90 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
+              Featured
+            </span>
+          </div>
+        )}
       </div>
-      <div
-        className={clsx('mb -1.5 flex flex-col items-center justify-center')}
-      >
-        <h2 className="text-2xl text-white">{label}</h2>
-        <p className="text-white">{description}</p>
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-blue-400">
+          {project.title}
+        </h3>
+        <p className="mb-4 text-sm leading-relaxed text-slate-400">
+          {project.featured
+            ? (project.longDescription ?? project.description)
+            : project.description}
+        </p>
+
+        {project.tags && project.tags.length > 0 && (
+          <div className="mt-auto flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-md border border-blue-500/20 bg-blue-500/10 px-2 py-0.5 font-mono text-xs text-blue-400"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </article>
   );
 };
 
