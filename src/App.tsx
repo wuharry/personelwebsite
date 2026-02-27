@@ -2,6 +2,7 @@ import { NavigationBar } from './components';
 import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
 import ExperienceSection from './sections/ExperienceSection';
+import { GitHubActivity } from './sections/GitHubActivity';
 import HeroSection from './sections/HeroSection';
 import ProjectsContent from './sections/ProjectsSection';
 import SkillsSection from './sections/SkillsSection';
@@ -27,8 +28,9 @@ export function App() {
         <section id="project">
           <ProjectsContent />
         </section>
-        <section id="active"> 動態- 待移植</section>
-
+        <section id="active">
+          <GitHubActivity username="wuharry" />
+        </section>
         <section id="contact">
           <ContactSection />
         </section>

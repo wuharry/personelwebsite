@@ -191,5 +191,19 @@
         "description": "製作一個即時顯示結果的搜尋框"
       }
     ]
+  },
+  "github": {
+    "sectionTitle": "GitHub 動態",
+    "totalCommits": "總 Commit 數",
+    "activeRepos": "活躍專案",
+    "recentEvents": "最新動態數",
+    "trendTitle": "7 天 Commit 趨勢",
+    "topRepos": "最活躍專案",
+    "eventLabels": {
+      "pushedTo": "推送至",
+      "starred": "收藏了",
+      "pr": "PR {{action}}",
+      "issue": "Issue {{action}}"
+    }
   }
 }

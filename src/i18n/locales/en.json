@@ -197,5 +197,19 @@
         "description": "A search input with live-filtering results"
       }
     ]
+  },
+  "github": {
+    "sectionTitle": "GitHub Activity",
+    "totalCommits": "Total Commits",
+    "activeRepos": "Active Repos",
+    "recentEvents": "Recent Events",
+    "trendTitle": "7-Day Commit Trend",
+    "topRepos": "Top Repos",
+    "eventLabels": {
+      "pushedTo": "Pushed to",
+      "starred": "Starred",
+      "pr": "PR {{action}}",
+      "issue": "Issue {{action}}"
+    }
   }
 }
