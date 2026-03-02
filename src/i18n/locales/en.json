@@ -8,11 +8,11 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello, World!",
+    "greeting": "Hello!",
     "name": "I'm Harvey Wu",
     "title": "Frontend Engineer",
-    "desc1": "A passionate Frontend Engineer with over 3 years of web development experience.",
-    "desc2": "Proficient in JavaScript and React, with working knowledge of Next.js and React Native. Committed to delivering high-quality, maintainable code."
+    "desc1": "A passionate Frontend Engineer with over 3 years of frontend development experience.",
+    "desc2": "Proficient in JavaScript and React, with basic experience in Next.js and React Native. Committed to writing high-quality and maintainable code."
   },
   "about": {
     "sectionTitle": "About Me",
@@ -22,7 +22,7 @@
     },
     "growth": {
       "title": "Learning & Growth",
-      "content": "Proficient in React and JavaScript, with ongoing investment in TypeScript, React Native, and React Query. Through side projects, I've expanded into full-stack development — building Node.js APIs with Hono, implementing Next.js apps, managing Monorepo architecture with Turborepo, and publishing npm packages."
+      "content": "Proficient in React and JavaScript, and continuously expanding expertise in TypeScript, React Native, and React Query."
     },
     "work": {
       "title": "Work Experience",
@@ -113,7 +113,7 @@
   "contact": {
     "sectionTitle": "Contact",
     "heading1": "Contact",
-    "heading2": "Me",
+    "heading2": "Information",
     "description": "I'm currently open to new opportunities. Whether it's a collaboration or just a hello, feel free to reach out!",
     "links": {
       "email": "Email",
@@ -202,7 +202,7 @@
     "sectionTitle": "GitHub Activity",
     "totalCommits": "Total Commits",
     "activeRepos": "Active Repos",
-    "recentEvents": "Recent Events",
+    "recentEvents": "Recent Activities",
     "trendTitle": "7-Day Commit Trend",
     "topRepos": "Top Repos",
     "eventLabels": {
