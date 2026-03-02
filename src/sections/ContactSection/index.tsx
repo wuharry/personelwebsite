@@ -1,19 +1,20 @@
 /** @format */
 
 import emailjs from '@emailjs/browser';
+import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 import { type FunctionComponent } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 import { Button } from '../../components';
 import {
   CONTACT_ME_INPUTS,
   type Inputs,
 } from '../../static/constant/data/ContactMeInput';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 
 interface contactProps {}
 
@@ -40,31 +41,34 @@ const CONTACT_LINKS = [
 
 const Contact: FunctionComponent<contactProps> = () => {
   const { t } = useTranslation();
-  const { register, handleSubmit } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
 
-  const sendEmailHandler: SubmitHandler<Inputs> = (data) => {
-    emailjs
-      .send(
-        'service_4ma43h6',
+  const sendEmailHandler: SubmitHandler<Inputs> = async (data) => {
+    const { Name, Email, Subject, Message } = data;
+    try {
+      await emailjs.send(
+        'service_q5dhcc4',
         'template_rkh0dkg',
         {
-          from_name: data.Name,
+          from_name: Name,
           to_name: 'Wu.Harvey',
-          message: data.Message,
-          reply_to: data.Email,
-          subject: data.Subject,
+          message: Message,
+          reply_to: Email,
+          subject: Subject,
         },
         'NudTZXCk8kRq5mPQH',
-      )
-      .then(
-        () => {
-          alert(t('contact.form.successMsg'));
-          window.location.reload();
-        },
-        () => {
-          alert(t('contact.form.errorMsg'));
-        },
       );
+      alert(t('contact.form.successMsg'));
+      reset();
+    } catch (error) {
+      console.error(error);
+      alert(t('contact.form.errorMsg'));
+    }
   };
 
   return (
@@ -131,43 +135,59 @@ const Contact: FunctionComponent<contactProps> = () => {
               {t('contact.form.subtitle')}
             </p>
           </div>
-
           <form onSubmit={handleSubmit(sendEmailHandler)} className="space-y-5">
-            {CONTACT_ME_INPUTS.map((input) => (
-              <div key={input.name} className="space-y-2">
-                <Label
-                  htmlFor={input.name}
-                  className="text-muted-foreground text-sm font-medium"
-                >
-                  {input.label}
-                </Label>
+            {CONTACT_ME_INPUTS.map((input) => {
+              // 只有 Email 欄位才帶驗證規則
+              const registerOptions =
+                input.name === 'Email'
+                  ? {
+                      required: t('contact.form.errors.required'),
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
+                        message: t('contact.form.errors.invalidEmail'),
+                      },
+                    }
+                  : {};
 
-                {input.type === 'text' || input.type === 'email' ? (
-                  <Input
-                    id={input.name}
-                    type={input.type}
-                    placeholder={t('contact.form.placeholder', {
-                      field: input.name,
-                    })}
-                    className="bg-background/50"
-                    {...register(input.name, {
-                      required: true,
-                      pattern:
-                        input.type === 'email' ? /^\S+@\S+$/i : undefined,
-                    })}
-                  />
-                ) : (
-                  <Textarea
-                    id={input.name}
-                    placeholder={t('contact.form.placeholder', {
-                      field: input.name,
-                    })}
-                    className="bg-background/50 min-h-[120px] resize-none"
-                    {...register('Message')}
-                  />
-                )}
-              </div>
-            ))}
+              return (
+                <div key={input.name} className="space-y-2">
+                  <Label
+                    htmlFor={input.name}
+                    className="text-muted-foreground text-sm font-medium"
+                  >
+                    {input.label}
+                  </Label>
+
+                  {input.type === 'textarea' ? (
+                    <Textarea
+                      id={input.name}
+                      placeholder={t('contact.form.placeholder', {
+                        field: input.name,
+                      })}
+                      className="bg-background/50 min-h-30 resize-none"
+                      {...register(input.name)}
+                    />
+                  ) : (
+                    <Input
+                      id={input.name}
+                      type={input.type} // ← 用 input.type 而非寫死 "email"
+                      placeholder={t('contact.form.placeholder', {
+                        field: input.name,
+                      })}
+                      className="bg-background/50"
+                      {...register(input.name, registerOptions)}
+                    />
+                  )}
+
+                  {errors[input.name] && (
+                    <p className="text-destructive text-xs">
+                      {errors[input.name]?.message}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
 
             <Button type="submit" className="mt-4 h-11 w-full text-base">
               {t('contact.form.submit')}
