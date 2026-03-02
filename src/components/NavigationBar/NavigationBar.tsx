@@ -12,6 +12,7 @@ const NAV_LIST: NavItem[] = [
   { nameKey: 'nav.experience', id: 'experience' },
   { nameKey: 'nav.skill', id: 'skill' },
   { nameKey: 'nav.project', id: 'project' },
+  { nameKey: 'nav.github', id: 'github' },
   { nameKey: 'nav.contact', id: 'contact' },
 ];
 

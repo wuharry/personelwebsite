@@ -5,7 +5,8 @@
     "experience": "經歷",
     "skill": "技能",
     "project": "專案",
-    "contact": "聯絡"
+    "contact": "聯絡",
+    "github": "GitHub 動態"
   },
   "hero": {
     "greeting": "Hello 你好",

@@ -5,7 +5,8 @@
     "experience": "Experience",
     "skill": "Skill",
     "project": "Project",
-    "contact": "Contact"
+    "contact": "Contact",
+    "github": "GitHub Activity"
   },
   "hero": {
     "greeting": "Hello!",
