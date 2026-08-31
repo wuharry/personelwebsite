@@ -206,6 +206,8 @@
     "recentEvents": "Recent Activities",
     "trendTitle": "7-Day Commit Trend",
     "topRepos": "Top Repos",
+    "commitCount": "{{count}} commits",
+    "emptyState": "GitHub activity is unavailable right now. Please try again later.",
     "eventLabels": {
       "pushedTo": "Pushed to",
       "starred": "Starred",

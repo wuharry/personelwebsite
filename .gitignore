@@ -10,9 +10,13 @@
 
 # production
 /build
+/dist
+/.vite
 
 # misc
 .DS_Store
+.firebase/
+firebase-debug*.log
 .env.local
 .env.development.local
 .env.test.local

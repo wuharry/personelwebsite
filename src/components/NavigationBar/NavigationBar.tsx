@@ -20,35 +20,30 @@ const Navbar: FC = () => {
   const { t, i18n } = useTranslation();
   const { resolvedTheme, setTheme } = useTheme();
 
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 50);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [mounted, setMounted] = useState(false);
-
-  // next-themes 需等 mount 後才能讀到正確 theme
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    NAV_LIST.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { threshold: 0.4 },
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-    return () => observers.forEach((o) => o.disconnect());
+    const sections = NAV_LIST.map(({ id }) =>
+      document.getElementById(id),
+    ).filter((section): section is HTMLElement => section !== null);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const current = entries.find((entry) => entry.isIntersecting);
+        if (current) setActiveSection(current.target.id);
+      },
+      { rootMargin: '-20% 0px -70%', threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   const toggleLang = () =>
@@ -86,6 +81,7 @@ const Navbar: FC = () => {
             <a
               key={item.id}
               href={`#${item.id}`}
+              aria-current={activeSection === item.id ? 'location' : undefined}
               className={clsx(
                 'relative text-sm font-medium transition-colors duration-300',
                 'after:absolute after:-bottom-1 after:left-0',
@@ -102,6 +98,7 @@ const Navbar: FC = () => {
 
           {/* 語系切換 */}
           <button
+            type="button"
             onClick={toggleLang}
             className={clsx(
               'border-border rounded-md border px-2.5 py-1',
@@ -115,6 +112,7 @@ const Navbar: FC = () => {
 
           {/* 亮暗切換 */}
           <button
+            type="button"
             onClick={toggleTheme}
             className={clsx(
               'flex h-8 w-8 items-center justify-center rounded-md',
@@ -123,7 +121,7 @@ const Navbar: FC = () => {
             )}
             aria-label="Toggle theme"
           >
-            {mounted && resolvedTheme === 'dark' ? (
+            {resolvedTheme === 'dark' ? (
               <Sun className="h-4 w-4" />
             ) : (
               <Moon className="h-4 w-4" />
@@ -133,9 +131,12 @@ const Navbar: FC = () => {
 
         {/* Hamburger */}
         <button
+          type="button"
           onClick={() => setMenuOpen((v) => !v)}
           className="fixed top-5 left-5 z-50 flex h-5 w-7 flex-col justify-between focus:outline-none sm:hidden"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           <span
             className={clsx(
@@ -160,6 +161,7 @@ const Navbar: FC = () => {
 
       {/* Mobile overlay */}
       <div
+        id="mobile-navigation"
         className={clsx(
           'fixed inset-0 z-40 sm:hidden',
           'flex flex-col items-center justify-center gap-6',
@@ -175,6 +177,7 @@ const Navbar: FC = () => {
             key={item.id}
             href={`#${item.id}`}
             onClick={() => setMenuOpen(false)}
+            aria-current={activeSection === item.id ? 'location' : undefined}
             className={clsx(
               'text-2xl font-medium transition-colors',
               activeSection === item.id
@@ -189,16 +192,20 @@ const Navbar: FC = () => {
         {/* Mobile 控制按鈕 */}
         <div className="mt-4 flex items-center gap-4">
           <button
+            type="button"
             onClick={toggleLang}
+            aria-label="Toggle language"
             className="border-border text-muted-foreground hover:text-primary rounded-md border px-3 py-1.5 font-mono text-sm transition-colors"
           >
             {langLabel}
           </button>
           <button
+            type="button"
             onClick={toggleTheme}
+            aria-label="Toggle theme"
             className="border-border text-muted-foreground hover:text-primary flex h-9 w-9 items-center justify-center rounded-md border transition-colors"
           >
-            {mounted && resolvedTheme === 'dark' ? (
+            {resolvedTheme === 'dark' ? (
               <Sun className="h-4 w-4" />
             ) : (
               <Moon className="h-4 w-4" />

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next'; // 引入 i18n
+
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 
@@ -7,9 +8,7 @@ import SkillCard from '../../components/SkillCard';
 import { SkillProgressBar } from '../../components/SkillProgressBar';
 import { SKILLS } from '../../static/constant/data/skillProgresion';
 
-interface SkillProps {}
-
-const Skill: FunctionComponent<SkillProps> = () => {
+const Skill: FunctionComponent = () => {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation(); // 取得 t 函式
@@ -49,7 +48,7 @@ const Skill: FunctionComponent<SkillProps> = () => {
 
   return (
     <section
-      id="skills"
+      id="skill"
       ref={ref}
       className="relative mx-auto max-w-5xl px-6 py-24"
     >

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { type FunctionComponent } from 'react';
 import { ExternalLink } from 'lucide-react';
+import { type FunctionComponent } from 'react';
 
 import { type Project } from './type';
 
@@ -28,6 +28,8 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />

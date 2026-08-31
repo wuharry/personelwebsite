@@ -22,6 +22,13 @@ export interface ActivityStats {
   weeklyCommits: { date: string; commits: number }[];
 }
 
+const createEmptyStats = (): ActivityStats => ({
+  events: [],
+  totalCommits: 0,
+  repoCommitMap: [],
+  weeklyCommits: [],
+});
+
 // ── 共用：計算單次 push 的 commit 數 ──────────────────────────
 function getCommitCount(event: GitHubEvent): number {
   // Token 存在時 payload 會有 size / commits，優先使用
@@ -44,76 +51,74 @@ function getLocalDateString(date: Date): string {
 }
 
 // ── 主要 fetch 函式 ───────────────────────────────────────────
+export function summarizeGitHubActivity(
+  data: GitHubEvent[],
+  referenceDate = new Date(),
+): ActivityStats {
+  const pushEvents = data.filter((event) => event.type === 'PushEvent');
+
+  const repoMap = new Map<string, number>();
+  let totalCommits = 0;
+
+  pushEvents.forEach((event) => {
+    const count = getCommitCount(event);
+    const repo = event.repo.name.split('/')[1] ?? event.repo.name;
+    repoMap.set(repo, (repoMap.get(repo) ?? 0) + count);
+    totalCommits += count;
+  });
+
+  const weeklyMap = new Map<string, number>();
+
+  for (let daysAgo = 6; daysAgo >= 0; daysAgo--) {
+    const day = new Date(referenceDate);
+    day.setDate(day.getDate() - daysAgo);
+    weeklyMap.set(getLocalDateString(day), 0);
+  }
+
+  pushEvents.forEach((event) => {
+    const day = getLocalDateString(new Date(event.created_at));
+    if (weeklyMap.has(day)) {
+      weeklyMap.set(day, (weeklyMap.get(day) ?? 0) + getCommitCount(event));
+    }
+  });
+
+  return {
+    events: data.slice(0, 6),
+    totalCommits,
+    repoCommitMap: [...repoMap.entries()]
+      .map(([repo, commits]) => ({ repo, commits }))
+      .sort((a, b) => b.commits - a.commits)
+      .slice(0, 5),
+    weeklyCommits: [...weeklyMap.entries()].map(([date, commits]) => ({
+      date: date.slice(5),
+      commits,
+    })),
+  };
+}
+
 export async function getGitHubActivity(
-  username: string, // ⚠️ 呼叫時傳入你的 GitHub 帳號名稱，例如 'wuharry'
+  username: string,
+  signal?: AbortSignal,
 ): Promise<ActivityStats> {
   try {
     const res = await fetch(
-      `https://api.github.com/users/${username}/events/public?per_page=100`,
+      `https://api.github.com/users/${encodeURIComponent(username)}/events/public?per_page=100`,
       {
         headers: {
           Accept: 'application/vnd.github.v3+json',
-          ...(import.meta.env.VITE_GITHUB_TOKEN && {
-            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-          }),
         },
+        signal,
       },
     );
 
     if (!res.ok) throw new Error(`GitHub API Error: ${res.status}`);
 
     const data: GitHubEvent[] = await res.json();
-    const pushEvents = data.filter((e) => e.type === 'PushEvent');
-
-    // ── 每個 repo 的 commit 數 ──
-    const repoMap = new Map<string, number>();
-    let totalCommits = 0;
-
-    pushEvents.forEach((event) => {
-      const count = getCommitCount(event);
-      const repo = event.repo.name.split('/')[1];
-      repoMap.set(repo, (repoMap.get(repo) ?? 0) + count);
-      totalCommits += count;
-    });
-
-    // ── 近 7 天每天 commit 數 ──
-    const weeklyMap = new Map<string, number>();
-
-    for (let i = 6; i >= 0; i--) {
-      const day = new Date();
-      day.setDate(day.getDate() - i);
-      weeklyMap.set(getLocalDateString(day), 0);
-    }
-
-    pushEvents.forEach((event) => {
-      const dayStr = getLocalDateString(new Date(event.created_at));
-      if (weeklyMap.has(dayStr)) {
-        weeklyMap.set(
-          dayStr,
-          (weeklyMap.get(dayStr) ?? 0) + getCommitCount(event),
-        );
-      }
-    });
-
-    return {
-      events: data.slice(0, 6), // ⚠️ 最新動態顯示筆數，預設 6，可依需求調整
-      totalCommits,
-      repoCommitMap: [...repoMap.entries()]
-        .map(([repo, commits]) => ({ repo, commits }))
-        .sort((a, b) => b.commits - a.commits)
-        .slice(0, 5), // ⚠️ 最活躍 repo 顯示數量，預設 5，可依需求調整
-      weeklyCommits: [...weeklyMap.entries()].map(([date, commits]) => ({
-        date: date.slice(5), // 顯示 MM-DD
-        commits,
-      })),
-    };
+    return summarizeGitHubActivity(data);
   } catch (error) {
-    console.error('GitHub fetch error:', error);
-    return {
-      events: [],
-      totalCommits: 0,
-      repoCommitMap: [],
-      weeklyCommits: [],
-    };
+    if (!(error instanceof DOMException && error.name === 'AbortError')) {
+      console.error('GitHub fetch error:', error);
+    }
+    return createEmptyStats();
   }
 }

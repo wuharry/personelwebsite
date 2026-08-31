@@ -1,19 +1,12 @@
 import clsx from 'clsx';
 import { ArrowDown } from 'lucide-react';
-import { type FC, useEffect, useState } from 'react';
-
-import { Icon104, CakeResume } from '../../static/constant/svg';
+import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Icon104, CakeResume } from '../../static/constant/svg';
+
 const HeroSection: FC = () => {
-  const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
-
-  const linkHandler = (link: string) => window.open(link, '_blank');
-
-  useEffect(() => {
-    setVisible(true);
-  }, []);
 
   const ICONLIST = [
     {
@@ -68,7 +61,9 @@ const HeroSection: FC = () => {
     {
       name: 'CakeResume',
       link: 'https://www.cakeresume.com/s--CVgjtgYwBTaPbAWMZfUNhw--/whw880218cool',
-      SVGElement: <CakeResume />,
+      SVGElement: (
+        <img src={CakeResume} alt="" className="h-5 w-5" aria-hidden="true" />
+      ),
     },
     {
       name: 'Telegram',
@@ -88,11 +83,13 @@ const HeroSection: FC = () => {
     {
       name: '104Bank',
       link: 'https://pda.104.com.tw/profile/share/8sw2sYtjxtWwHu7cKUoGcgPZdo9ocnmu',
-      SVGElement: <Icon104 />,
+      SVGElement: (
+        <img src={Icon104} alt="" className="h-5 w-5" aria-hidden="true" />
+      ),
     },
   ];
 
-  const transitionBase = 'transition-all duration-700';
+  const entranceAnimation = 'motion-safe:animate-hero-enter';
 
   return (
     <section
@@ -108,8 +105,7 @@ const HeroSection: FC = () => {
         <p
           className={clsx(
             'text-primary mb-4 font-mono text-sm tracking-widest',
-            transitionBase,
-            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+            entranceAnimation,
           )}
         >
           {t('hero.greeting')}
@@ -119,9 +115,8 @@ const HeroSection: FC = () => {
         <h1
           className={clsx(
             'text-foreground mb-4 text-5xl font-bold tracking-tight sm:text-7xl',
-            transitionBase,
-            'delay-100',
-            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+            entranceAnimation,
+            'motion-safe:[animation-delay:100ms]',
           )}
         >
           {t('hero.name')}
@@ -131,9 +126,8 @@ const HeroSection: FC = () => {
         <h2
           className={clsx(
             'text-muted-foreground mb-6 text-xl font-medium sm:text-2xl',
-            transitionBase,
-            'delay-200',
-            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+            entranceAnimation,
+            'motion-safe:[animation-delay:200ms]',
           )}
         >
           {t('hero.title')}
@@ -143,9 +137,8 @@ const HeroSection: FC = () => {
         <div
           className={clsx(
             'text-muted-foreground mb-8 space-y-2 text-sm leading-relaxed',
-            transitionBase,
-            'delay-300',
-            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+            entranceAnimation,
+            'motion-safe:[animation-delay:300ms]',
           )}
         >
           <p>{t('hero.desc1')}</p>
@@ -156,22 +149,25 @@ const HeroSection: FC = () => {
         <div
           className={clsx(
             'flex items-center justify-center gap-3',
-            transitionBase,
-            'delay-[400ms]',
-            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+            entranceAnimation,
+            'motion-safe:[animation-delay:400ms]',
           )}
         >
           {ICONLIST.map((icon) => (
-            <button
+            <a
               key={icon.name}
-              onClick={() => linkHandler(icon.link)}
+              href={icon.link}
+              target={icon.link.startsWith('http') ? '_blank' : undefined}
+              rel={
+                icon.link.startsWith('http') ? 'noopener noreferrer' : undefined
+              }
               aria-label={icon.name}
               className="group border-border bg-secondary/50 text-muted-foreground hover:border-primary/50 hover:text-primary flex h-10 w-10 items-center justify-center rounded-lg border transition-all"
             >
               <span className="transition-transform group-hover:scale-110">
                 {icon.SVGElement}
               </span>
-            </button>
+            </a>
           ))}
         </div>
       </div>

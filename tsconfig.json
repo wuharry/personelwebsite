@@ -24,7 +24,7 @@
     "module": "ESNext",
 
     // Vite 環境的型別定義，提供 import.meta.env 等 API 支援
-    "types": ["vite/client"],
+    "types": ["vite/client", "node"],
 
     // 跳過 node_modules 與內建庫的型別檢查，提升編譯速度
     "skipLibCheck": true,
@@ -96,6 +96,6 @@
     }
   },
 
-  "include": ["src"],
+  "include": ["src", "vite.config.ts"],
   "exclude": ["node_modules", "dist", "build"]
 }

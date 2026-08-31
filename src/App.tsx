@@ -1,39 +1,38 @@
-import { NavigationBar } from './components';
+import { lazy } from 'react';
+
+import DeferredSection from './components/DeferredSection';
+import NavigationBar from './components/NavigationBar/NavigationBar';
 import AboutSection from './sections/AboutSection';
-import ContactSection from './sections/ContactSection';
 import ExperienceSection from './sections/ExperienceSection';
-import { GitHubActivity } from './sections/GitHubActivity';
 import HeroSection from './sections/HeroSection';
-import ProjectsContent from './sections/ProjectsSection';
 import SkillsSection from './sections/SkillsSection';
 
-// src/App.tsx
+const ContactSection = lazy(() => import('./sections/ContactSection'));
+const ProjectsSection = lazy(() => import('./sections/ProjectsSection'));
+const GitHubActivity = lazy(() =>
+  import('./sections/GitHubActivity').then(({ GitHubActivity: Component }) => ({
+    default: Component,
+  })),
+);
+
 export function App() {
   return (
     <div className="bg-background text-foreground relative min-h-screen">
       <NavigationBar />
       <main>
-        <section id="hero">
-          <HeroSection />
-        </section>
-        <section id="about">
-          <AboutSection />
-        </section>
-        <section id="experience">
-          <ExperienceSection />
-        </section>
-        <section id="skill">
-          <SkillsSection />
-        </section>
-        <section id="project">
-          <ProjectsContent />
-        </section>
-        <section id="active">
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <SkillsSection />
+        <DeferredSection id="project" minHeight={900}>
+          <ProjectsSection />
+        </DeferredSection>
+        <DeferredSection id="github" minHeight={650}>
           <GitHubActivity username="wuharry" />
-        </section>
-        <section id="contact">
+        </DeferredSection>
+        <DeferredSection id="contact" minHeight={750}>
           <ContactSection />
-        </section>
+        </DeferredSection>
       </main>
     </div>
   );

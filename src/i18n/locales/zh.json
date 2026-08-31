@@ -200,6 +200,8 @@
     "recentEvents": "最新動態數",
     "trendTitle": "7 天 Commit 趨勢",
     "topRepos": "最活躍專案",
+    "commitCount": "{{count}} 次 Commit",
+    "emptyState": "目前無法載入 GitHub 動態，請稍後再試。",
     "eventLabels": {
       "pushedTo": "推送至",
       "starred": "收藏了",

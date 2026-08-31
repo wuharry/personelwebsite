@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { type FunctionComponent, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { day1, day2, day3, day4, day5 } from '../../assets';
 import ProjectCard from '../../components/ProjectCard';
@@ -11,8 +12,6 @@ import {
   type Project,
   type TechCategory,
 } from '../../components/ProjectCard/type';
-
-import { useTranslation } from 'react-i18next';
 
 const BASE_PROJECT_LIST: Project[] = [
   {
@@ -95,11 +94,7 @@ const ProjectsContent: FunctionComponent = () => {
   }, []);
 
   return (
-    <section
-      id="project"
-      ref={ref}
-      className="relative mx-auto max-w-5xl px-6 py-24"
-    >
+    <section ref={ref} className="relative mx-auto max-w-5xl px-6 py-24">
       <div className="mb-12 flex items-center gap-4">
         <h2 className="text-primary shrink-0 text-sm font-semibold tracking-widest uppercase">
           {t('project.sectionTitle')}

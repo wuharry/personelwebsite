@@ -24,4 +24,9 @@ i18n
     interpolation: { escapeValue: false }, // React 已經內建防 XSS，所以這裡設為 false
   });
 
-export default i18n;
+const updateDocumentLanguage = (language: string) => {
+  document.documentElement.lang = language.startsWith('zh') ? 'zh-Hant' : 'en';
+};
+
+updateDocumentLanguage(i18n.resolvedLanguage ?? i18n.language);
+i18n.on('languageChanged', updateDocumentLanguage);

@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Harvey Wu — Personal Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+以 React、TypeScript、Vite 與 Tailwind CSS 建置的個人網站，包含工作經歷、技能、作品、GitHub 近期活動與聯絡表單。
 
-## Available Scripts
+正式站：[wuharry.github.io/personelwebsite](https://wuharry.github.io/personelwebsite/)
 
-In the project directory, you can run:
+## 開發環境
 
-### `npm start`
+- Node.js 22.12 或更新版本
+- Bun 1.4.0
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+bun install --frozen-lockfile
+bun run dev
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+開發伺服器預設位於 `http://127.0.0.1:9487/personelwebsite/`。
 
-### `npm test`
+## 常用指令
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| 指令                 | 用途                         |
+| -------------------- | ---------------------------- |
+| `bun run dev`        | 啟動 Vite 開發伺服器         |
+| `bun run check`      | 執行 lint、TypeScript 與測試 |
+| `bun run lint:fix`   | 自動修正可修復的 lint 問題   |
+| `bun run test:watch` | 以 watch 模式執行 Vitest     |
+| `bun run build`      | 建立 production bundle       |
+| `bun run preview`    | 預覽 production build        |
 
-### `npm run build`
+## 專案結構
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```text
+src/
+├── components/   共用元件與 UI primitives
+├── i18n/         中英文翻譯
+├── sections/     首頁各內容區塊
+├── static/       固定資料與 SVG
+└── assets/       經壓縮的網站圖片
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+作品、GitHub 圖表與聯絡表單採接近 viewport 才載入的方式，避免它們進入首屏下載路徑。GitHub 活動使用公開 API；請勿把私人 token 放進 `VITE_*` 環境變數，因為這類值會被打包到瀏覽器端。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 部署
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+推送至 `main` 後，GitHub Actions 會使用固定版本的 Bun 安裝套件、執行品質檢查、建置，並部署 `dist/` 至 GitHub Pages。`dist/` 是可重建產物，不提交至版本庫。

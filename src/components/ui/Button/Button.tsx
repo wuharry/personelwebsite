@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 // import { CircleNotch } from '@phosphor-icons/react'; // 假設你有用 phosphor-icons，或是換成你自己的 Loading SVG
 
-export type ButtonProps<T extends React.ElementType = 'button'> = {
+type ButtonProps<T extends React.ElementType = 'button'> = {
   as?: T;
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'danger';
@@ -38,13 +38,14 @@ const Button = <T extends React.ElementType = 'button'>({
     <Component
       type={as === 'button' || !as ? type : undefined} // 只有 button tag 需要 type
       disabled={disabled || isLoading}
+      aria-busy={isLoading || undefined}
       className={clsx(
         baseStyle,
         // 尺寸設定
         {
-          'px-4 py-2 text-sm gap-1.5': size === 'sm',
-          'px-7 py-3 text-base gap-2': size === 'md',
-          'px-9 py-4 text-lg gap-2.5': size === 'lg',
+          'gap-1.5 px-4 py-2 text-sm': size === 'sm',
+          'gap-2 px-7 py-3 text-base': size === 'md',
+          'gap-2.5 px-9 py-4 text-lg': size === 'lg',
         },
         // 變體樣式 (Variants)
         {
@@ -53,25 +54,29 @@ const Button = <T extends React.ElementType = 'button'>({
             variant === 'primary',
 
           // Secondary: 反白風格
-          'bg-white text-cyan-400 border border-cyan-400 hover:bg-cyan-50':
+          'border border-cyan-400 bg-white text-cyan-400 hover:bg-cyan-50':
             variant === 'secondary',
 
           // Tertiary: 純文字風格
-          'bg-transparent text-cyan-400 hover:text-cyan-300 underline-offset-4 hover:underline':
+          'bg-transparent text-cyan-400 underline-offset-4 hover:text-cyan-300 hover:underline':
             variant === 'tertiary',
 
           // Danger: 紅色風格
-          'bg-red-500 text-white hover:bg-red-600 shadow-md':
+          'bg-red-500 text-white shadow-md hover:bg-red-600':
             variant === 'danger',
         },
         // 形狀
         isRounded ? 'rounded-full' : 'rounded-3xl',
-        className
+        className,
       )}
       {...rest}
     >
-      {/* Loading 狀態顯示 Spinner */}
-      {/* {isLoading && <CircleNotch className="animate-spin" size={20} />} */}
+      {isLoading && (
+        <span
+          aria-hidden="true"
+          className="h-4 w-4 animate-spin rounded-full border-2 border-current border-r-transparent"
+        />
+      )}
 
       {/* 非 Loading 時才顯示 leadingIcon */}
       {!isLoading && leadingIcon && <span>{leadingIcon}</span>}

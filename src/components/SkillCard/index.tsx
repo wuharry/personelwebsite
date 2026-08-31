@@ -1,6 +1,10 @@
 import clsx from 'clsx';
-import { type FC, useEffect, useRef, useState } from 'react';
+import { type FC, useEffect, useState } from 'react';
+
 import { type SkillCardProps } from './type';
+
+const RADIUS = 45;
+const CIRCUMFERENCE = RADIUS * 2 * Math.PI;
 
 const SkillCard: FC<SkillCardProps> = ({
   label,
@@ -8,36 +12,14 @@ const SkillCard: FC<SkillCardProps> = ({
   progressColor,
   className,
 }) => {
-  const ref = useRef<SVGCircleElement>(null);
-  const [divSize, setDivSize] = useState({ width: 0 });
-  const [dashOffset, setDashOffset] = useState(0);
+  const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
-    const updateSize = () => {
-      if (ref.current) {
-        setDivSize({ width: ref.current.r.baseVal.value });
-      }
-    };
-    updateSize();
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
-  }, [percentage]);
+    const animationFrame = requestAnimationFrame(() => setIsAnimated(true));
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
 
-  useEffect(() => {
-    setDashOffset(0);
-    setTimeout(() => {
-      if (ref.current) {
-        const RADIUS = ref.current.r.baseVal.value;
-        const circumference = RADIUS * 2 * Math.PI;
-        // ✅ filledLength 是「要顯示的長度」，offset = 剩餘空白
-        const filledLength = (percentage / 100) * circumference;
-        setDashOffset(circumference - filledLength);
-      }
-    }, 100);
-  }, [percentage]);
-
-  const radius = divSize.width;
-  const circumference = radius * 2 * Math.PI;
+  const progressOffset = CIRCUMFERENCE * (1 - percentage / 100);
 
   return (
     <div
@@ -68,11 +50,10 @@ const SkillCard: FC<SkillCardProps> = ({
           strokeWidth="5"
           strokeLinecap="round"
           stroke={progressColor}
-          ref={ref}
-          strokeDasharray={`${circumference}px`}
+          strokeDasharray={CIRCUMFERENCE}
           style={{
             transition: 'stroke-dashoffset 2s ease-in-out',
-            strokeDashoffset: dashOffset,
+            strokeDashoffset: isAnimated ? progressOffset : CIRCUMFERENCE,
           }}
         />
         <text

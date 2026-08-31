@@ -1,4 +1,3 @@
-import type { GitHubEvent } from '@/sections/GitHubActivity/fetcher';
 import {
   ExternalLink,
   GitCommit,
@@ -6,6 +5,8 @@ import {
   Star,
   AlertCircle,
 } from 'lucide-react';
+
+import type { GitHubEvent } from '@/sections/GitHubActivity/fetcher';
 import type { ReactNode } from 'react';
 
 // 事件對應的 icon 與描述

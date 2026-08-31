@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ActivityCharts } from '@/components/Charts';
-import { getGitHubActivity, type ActivityStats } from './fetcher';
 import EventItem from '@/components/EventItem';
-import { useTranslation } from 'react-i18next';
+
+import { getGitHubActivity, type ActivityStats } from './fetcher';
 
 export function GitHubActivity({ username }: { username: string }) {
   const [stats, setStats] = useState<ActivityStats | null>(null);
@@ -11,9 +12,21 @@ export function GitHubActivity({ username }: { username: string }) {
   const { t } = useTranslation();
 
   useEffect(() => {
-    getGitHubActivity(username)
-      .then(setStats)
-      .finally(() => setLoading(false));
+    const controller = new AbortController();
+    let isActive = true;
+
+    getGitHubActivity(username, controller.signal)
+      .then((activity) => {
+        if (isActive) setStats(activity);
+      })
+      .finally(() => {
+        if (isActive) setLoading(false);
+      });
+
+    return () => {
+      isActive = false;
+      controller.abort();
+    };
   }, [username]);
 
   if (loading) {
@@ -31,13 +44,23 @@ export function GitHubActivity({ username }: { username: string }) {
     );
   }
 
-  if (!stats?.events.length) return null;
+  if (!stats?.events.length) {
+    return (
+      <section className="relative mx-auto max-w-5xl px-6 py-12">
+        <div className="border-border bg-card/50 rounded-xl border p-8 text-center">
+          <p className="text-muted-foreground text-sm">
+            {t('github.emptyState')}
+          </p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative mx-auto max-w-5xl px-6 py-12">
       <div className="mb-8 flex items-center gap-4">
         <h2 className="text-primary shrink-0 text-sm font-semibold tracking-widest uppercase">
-          {t('github.trendTitle')}
+          {t('github.sectionTitle')}
         </h2>
         <div className="bg-border/60 h-px flex-1" />
       </div>

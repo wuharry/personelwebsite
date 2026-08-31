@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { type FC } from 'react';
+
 import { type SkillProgressBarProps } from './type';
 
 export const SkillProgressBar: FC<SkillProgressBarProps> = ({
